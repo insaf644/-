@@ -2,1375 +2,2897 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Medical Law DZ | القانون الطبي في الجزائر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>القانون الصحي الجزائري | المنظومة القانونية والمؤسساتية للصحة</title>
+
+<meta name="description"
+content="منصة أكاديمية ثنائية اللغة لدراسة الإطار القانوني والمؤسساتي للصحة في الجزائر، التشريع الصحي، المؤسسات العمومية للصحة، حقوق المرضى، أخلاقيات المهنة والمسؤولية الطبية.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 :root{
- --brown:#392820;
- --brown2:#594034;
- --gold:#b99a61;
- --cream:#f5f0e8;
- --paper:#fbfaf7;
- --text:#241d19;
- --muted:#746b63;
- --line:#ded5c9;
- --white:#fff;
+  --ink:#191713;
+  --cream:#f7f1e6;
+  --paper:#fffdf8;
+  --wine:#651f2b;
+  --wine2:#8d3445;
+  --gold:#b58a45;
+  --gold2:#d7b56d;
+  --muted:#746c61;
+  --line:#ded4c5;
+  --green:#385b4a;
+  --shadow:0 20px 60px rgba(49,31,18,.10);
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+ scroll-behavior:smooth;
+}
+
 body{
  margin:0;
- background:var(--paper);
- color:var(--text);
- font-family:Cairo,Arial,sans-serif;
- line-height:1.8;
+ background:var(--cream);
+ color:var(--ink);
+ font-family:"Cairo",sans-serif;
+ line-height:1.9;
 }
-a{text-decoration:none;color:inherit}
-button,input{font-family:inherit}
 
-header{
+body.fr{
+ direction:ltr;
+}
+
+a{
+ color:inherit;
+ text-decoration:none;
+}
+
+button,input,textarea,select{
+ font-family:inherit;
+}
+
+.container{
+ width:min(1180px,92%);
+ margin:auto;
+}
+
+/* ================= NAV ================= */
+
+nav{
  position:sticky;
  top:0;
  z-index:1000;
- height:76px;
+ background:rgba(255,253,248,.94);
+ backdrop-filter:blur(14px);
+ border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+ min-height:76px;
  display:flex;
  align-items:center;
  justify-content:space-between;
- padding:0 5%;
- background:rgba(251,250,247,.96);
- backdrop-filter:blur(15px);
- border-bottom:1px solid var(--line);
+ gap:20px;
 }
-.logo{
+
+.brand{
  display:flex;
  align-items:center;
- gap:10px;
- font-family:Georgia,serif;
- letter-spacing:1px;
- font-size:15px;
+ gap:12px;
+ font-weight:800;
 }
-.logo-icon{
- width:38px;
- height:38px;
- border-radius:50%;
+
+.brand-mark{
+ width:44px;
+ height:44px;
+ border:1px solid var(--gold);
  display:grid;
  place-items:center;
- background:var(--brown);
- color:white;
- font-size:20px;
+ color:var(--wine);
+ font-family:"Playfair Display";
+ font-size:21px;
 }
-.logo b{color:var(--gold)}
-nav{
+
+.brand-text small{
+ display:block;
+ color:var(--gold);
+ font-size:11px;
+ letter-spacing:1px;
+}
+
+.brand-text strong{
+ display:block;
+ font-size:15px;
+}
+
+.nav-links{
  display:flex;
- gap:20px;
- font-size:12px;
+ gap:18px;
+ flex-wrap:wrap;
+ align-items:center;
 }
-nav a:hover{color:var(--gold)}
-.header-buttons{
+
+.nav-links a{
+ font-size:13px;
+ color:#554d43;
+ transition:.2s;
+}
+
+.nav-links a:hover{
+ color:var(--wine);
+}
+
+.nav-actions{
  display:flex;
  gap:8px;
 }
-.header-buttons button,.admin-button{
+
+.btn{
  border:1px solid var(--line);
  background:white;
- padding:7px 13px;
- border-radius:20px;
+ color:var(--ink);
+ padding:9px 14px;
  cursor:pointer;
-}
-.admin-button{
- background:var(--brown);
- color:white;
- border-color:var(--brown);
+ border-radius:4px;
+ transition:.2s;
 }
 
-.hero{
- min-height:680px;
- position:relative;
- display:flex;
- align-items:center;
- padding:90px 10%;
+.btn:hover{
+ transform:translateY(-1px);
+ box-shadow:0 7px 20px rgba(0,0,0,.08);
+}
+
+.btn.primary{
+ background:var(--wine);
  color:white;
- background:
- linear-gradient(90deg,rgba(25,18,14,.94),rgba(40,28,22,.55),rgba(40,28,22,.25)),
- url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1900&q=85")
- center/cover;
+ border-color:var(--wine);
 }
-.hero-content{max-width:720px}
-.eyebrow{
- font-family:Georgia,serif;
+
+.btn.gold{
+ background:var(--gold);
+ color:white;
+ border-color:var(--gold);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:650px;
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ align-items:center;
+ gap:55px;
+ padding:75px 0;
+}
+
+.hero-kicker{
+ color:var(--gold);
  letter-spacing:2px;
- font-size:11px;
- color:#d6c29d;
+ font-size:12px;
+ font-weight:800;
+ margin-bottom:15px;
 }
+
 .hero h1{
- font-family:Georgia,serif;
- font-size:clamp(50px,7vw,88px);
- line-height:1.05;
- margin:18px 0;
+ font-family:"Amiri",serif;
+ font-size:clamp(42px,6vw,74px);
+ line-height:1.2;
+ margin:0 0 22px;
+ color:var(--wine);
 }
-.hero h1 span{color:#d5b778}
+
+.hero h1 span{
+ display:block;
+ color:var(--ink);
+ font-family:"Playfair Display";
+ font-size:.53em;
+ direction:ltr;
+}
+
 .hero p{
- font-size:16px;
- color:#eee7df;
- max-width:650px;
+ font-size:17px;
+ color:var(--muted);
+ max-width:700px;
 }
-.hero-actions{
+
+.hero-buttons{
  display:flex;
  gap:12px;
  margin-top:30px;
+ flex-wrap:wrap;
 }
-.primary,.secondary{
- padding:12px 22px;
- border-radius:4px;
- font-weight:bold;
+
+.hero-image{
+ position:relative;
+ min-height:510px;
+ overflow:hidden;
+ box-shadow:var(--shadow);
+ background:#222;
 }
-.primary{
- background:#c2a46c;
- color:#231b17;
+
+.hero-image img{
+ width:100%;
+ height:100%;
+ min-height:510px;
+ object-fit:cover;
+ filter:sepia(.15);
 }
-.secondary{
- border:1px solid rgba(255,255,255,.5);
-}
-.hero-card{
+
+.hero-image:after{
+ content:"";
  position:absolute;
- left:9%;
- bottom:65px;
- background:rgba(255,255,255,.12);
- border:1px solid rgba(255,255,255,.25);
- backdrop-filter:blur(12px);
- padding:22px;
- width:240px;
+ inset:0;
+ background:linear-gradient(180deg,transparent 45%,rgba(20,15,10,.72));
 }
-.hero-card strong{
+
+.hero-caption{
+ position:absolute;
+ z-index:2;
+ bottom:25px;
+ right:25px;
+ left:25px;
+ color:white;
+}
+
+.hero-caption strong{
  display:block;
- font-family:Georgia,serif;
- font-size:22px;
- margin:5px 0;
+ font-family:"Amiri";
+ font-size:24px;
 }
-.hero-card small{color:#ddd}
+
+.hero-caption span{
+ font-size:12px;
+ opacity:.85;
+}
+
+/* ================= SECTION ================= */
+
+section{
+ padding:90px 0;
+}
+
+.section-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:25px;
+ margin-bottom:38px;
+ border-bottom:1px solid var(--line);
+ padding-bottom:20px;
+}
+
+.eyebrow{
+ color:var(--gold);
+ font-weight:800;
+ font-size:12px;
+ letter-spacing:1.5px;
+}
+
+.section-title{
+ font-family:"Amiri";
+ font-size:43px;
+ line-height:1.3;
+ margin:5px 0 0;
+ color:var(--wine);
+}
+
+.section-desc{
+ max-width:680px;
+ color:var(--muted);
+ font-size:14px;
+}
+
+/* ================= STATS ================= */
 
 .stats{
  display:grid;
  grid-template-columns:repeat(4,1fr);
- background:var(--brown);
- color:white;
+ gap:1px;
+ background:var(--line);
+ border:1px solid var(--line);
 }
+
 .stat{
- padding:24px 5vw;
- border-left:1px solid rgba(255,255,255,.1);
+ background:var(--paper);
+ padding:30px;
+ text-align:center;
 }
+
 .stat strong{
  display:block;
- color:#d3b477;
- font-family:Georgia,serif;
- font-size:25px;
+ color:var(--wine);
+ font-size:35px;
+ font-family:"Playfair Display";
 }
-.stat span{font-size:11px;color:#d2c8bf}
 
-.section{
- padding:90px 8%;
-}
-.section.alt{background:var(--cream)}
-.section-title{
- display:flex;
- justify-content:space-between;
- gap:40px;
- align-items:end;
- margin-bottom:40px;
-}
-.section-title h2{
- font-family:Georgia,serif;
- font-size:45px;
- line-height:1.2;
- margin:5px 0;
-}
-.section-title p{
- max-width:480px;
+.stat span{
  color:var(--muted);
- font-size:13px;
+ font-size:12px;
 }
 
-.cards{
+/* ================= ACADEMIC NOTE ================= */
+
+.note{
+ border-right:5px solid var(--gold);
+ background:#fffaf0;
+ padding:25px 28px;
+ margin:25px 0;
+}
+
+body.fr .note{
+ border-right:0;
+ border-left:5px solid var(--gold);
+}
+
+.note strong{
+ color:var(--wine);
+}
+
+/* ================= CARDS ================= */
+
+.grid{
  display:grid;
  grid-template-columns:repeat(3,1fr);
- gap:18px;
+ gap:22px;
 }
+
 .card{
- background:white;
+ background:var(--paper);
  border:1px solid var(--line);
- padding:30px;
- min-height:270px;
+ padding:28px;
  position:relative;
+ box-shadow:0 8px 35px rgba(50,30,10,.04);
+ transition:.25s;
 }
-.card.dark{
- background:var(--brown);
- color:white;
+
+.card:hover{
+ transform:translateY(-4px);
+ box-shadow:var(--shadow);
 }
+
 .card-number{
- position:absolute;
- top:14px;
- left:18px;
  color:var(--gold);
- font-family:Georgia,serif;
+ font-family:"Playfair Display";
+ font-size:30px;
 }
-.card-icon{font-size:30px}
+
 .card h3{
- font-family:Georgia,serif;
- font-size:23px;
+ color:var(--wine);
+ margin:8px 0 12px;
+ font-size:19px;
 }
+
 .card p{
  color:var(--muted);
  font-size:13px;
 }
-.card.dark p{color:#d7cec6}
-.card a{
- color:#9d7e4b;
- font-size:12px;
- font-weight:bold;
-}
 
-.dark-section{
- background:var(--brown);
- color:white;
- padding:90px 8%;
-}
-.dark-section .section-title p{color:#c8beb5}
-
-.law-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:13px;
-}
-.law{
- display:flex;
- align-items:center;
- gap:15px;
- padding:20px;
- border:1px solid rgba(255,255,255,.13);
- background:rgba(255,255,255,.04);
-}
-.law-number{
- font-family:Georgia,serif;
- color:var(--gold);
- font-size:21px;
-}
-.law h3{
- margin:0;
- font-family:Georgia,serif;
- font-size:18px;
-}
-.law p{
- margin:2px 0;
- color:#bdb2aa;
- font-size:11px;
-}
-.law a{
- margin-right:auto;
- color:#d7ba80;
- font-size:11px;
- border:1px solid #6d5849;
+.tag{
+ display:inline-block;
+ background:#f1e7d5;
+ color:var(--wine);
  padding:3px 9px;
-}
-
-.search{
- margin-top:20px;
- max-width:600px;
- border:1px solid rgba(255,255,255,.2);
- padding:8px 14px;
- display:flex;
- gap:10px;
-}
-.search input{
- flex:1;
- background:none;
- border:0;
- outline:0;
- color:white;
-}
-.search input::placeholder{color:#9d9188}
-
-.split{
- display:grid;
- grid-template-columns:1fr 1fr;
-}
-.split-image{
- min-height:550px;
- background:
- linear-gradient(rgba(35,25,20,.1),rgba(35,25,20,.1)),
- url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1300&q=85")
- center/cover;
-}
-.split-content{
- padding:80px;
-}
-.split-content h2{
- font-family:Georgia,serif;
- font-size:45px;
-}
-.check{
- display:flex;
- gap:15px;
- margin:18px 0;
-}
-.check b{
- color:var(--gold);
- font-size:20px;
-}
-.check strong{font-size:14px}
-.check span{
- color:var(--muted);
- font-size:12px;
- display:block;
-}
-
-.four{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:15px;
-}
-.duty{
- padding:27px;
- background:white;
- border:1px solid var(--line);
-}
-.duty-number{
- color:var(--gold);
- font-family:Georgia,serif;
-}
-.duty h3{
- font-family:Georgia,serif;
-}
-.duty p{
- color:var(--muted);
- font-size:12px;
-}
-
-.diagram{
- background:var(--brown);
- color:white;
- padding:85px 8%;
-}
-.diagram h2{
- font-family:Georgia,serif;
- font-size:43px;
-}
-.flow{
- display:flex;
- justify-content:center;
- align-items:center;
- gap:10px;
- flex-wrap:wrap;
- margin-top:40px;
-}
-.flow-box{
- min-width:145px;
- padding:17px;
- text-align:center;
- border:1px solid rgba(255,255,255,.2);
- background:rgba(255,255,255,.05);
-}
-.flow-box small{
- display:block;
- color:#a99c92;
  font-size:10px;
-}
-.flow-box.gold{
- background:var(--gold);
- color:#251c17;
+ margin-bottom:9px;
+ border-radius:20px;
 }
 
-.liability{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px;
+.source{
+ margin-top:18px;
+ display:inline-flex;
+ color:var(--wine);
+ font-size:12px;
+ font-weight:800;
+ border-bottom:1px solid var(--gold);
 }
-.liability article{
- padding:32px;
- border:1px solid var(--line);
- background:white;
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+ position:relative;
+ max-width:1000px;
+ margin:auto;
 }
-.circle{
- width:44px;
- height:44px;
+
+.timeline:before{
+ content:"";
+ position:absolute;
+ top:0;
+ bottom:0;
+ right:50%;
+ width:2px;
+ background:var(--gold);
+}
+
+body.fr .timeline:before{
+ right:auto;
+ left:50%;
+}
+
+.timeline-item{
+ width:50%;
+ padding:20px 45px;
+ position:relative;
+}
+
+.timeline-item:nth-child(odd){
+ margin-left:50%;
+}
+
+body:not(.fr) .timeline-item:nth-child(odd){
+ margin-right:0;
+}
+
+.timeline-item:nth-child(even){
+ margin-right:50%;
+}
+
+.timeline-dot{
+ position:absolute;
+ width:15px;
+ height:15px;
+ background:var(--wine);
+ border:3px solid var(--cream);
+ box-shadow:0 0 0 1px var(--gold);
  border-radius:50%;
- display:grid;
- place-items:center;
- background:var(--brown);
- color:#d7b878;
- font-family:Georgia,serif;
+ top:35px;
 }
-.liability h3{
- font-family:Georgia,serif;
- font-size:27px;
+
+.timeline-item:nth-child(odd) .timeline-dot{
+ right:-7px;
 }
-.liability p{
+
+.timeline-item:nth-child(even) .timeline-dot{
+ left:-7px;
+}
+
+body.fr .timeline-item:nth-child(odd){
+ margin-left:0;
+ margin-right:50%;
+}
+
+body.fr .timeline-item:nth-child(even){
+ margin-right:0;
+ margin-left:50%;
+}
+
+body.fr .timeline-item:nth-child(odd) .timeline-dot{
+ left:-7px;
+ right:auto;
+}
+
+body.fr .timeline-item:nth-child(even) .timeline-dot{
+ right:-7px;
+ left:auto;
+}
+
+.timeline-card{
+ background:white;
+ border:1px solid var(--line);
+ padding:25px;
+}
+
+.timeline-year{
+ color:var(--gold);
+ font-family:"Playfair Display";
+ font-size:28px;
+ font-weight:700;
+}
+
+.timeline-card h3{
+ margin:5px 0;
+ color:var(--wine);
+}
+
+.timeline-card p{
+ font-size:13px;
  color:var(--muted);
+}
+
+/* ================= LAW TABLE ================= */
+
+.legal-table{
+ width:100%;
+ border-collapse:collapse;
+ background:white;
+ border:1px solid var(--line);
+}
+
+.legal-table th,
+.legal-table td{
+ padding:16px;
+ border-bottom:1px solid var(--line);
+ text-align:right;
+ vertical-align:top;
  font-size:13px;
 }
 
-.chart{
- background:#eee8df;
- padding:80px 8%;
+body.fr .legal-table th,
+body.fr .legal-table td{
+ text-align:left;
 }
+
+.legal-table th{
+ background:var(--wine);
+ color:white;
+}
+
+.legal-table tr:hover td{
+ background:#fff9ee;
+}
+
+.official{
+ color:var(--wine);
+ font-weight:800;
+}
+
+/* ================= PYRAMID ================= */
+
+.pyramid-wrap{
+ display:flex;
+ justify-content:center;
+ padding:25px;
+}
+
+.pyramid{
+ width:min(700px,100%);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:6px;
+}
+
+.level{
+ color:white;
+ text-align:center;
+ padding:14px;
+ font-weight:700;
+ box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.l1{width:35%;background:#4e1822}
+.l2{width:50%;background:#64212d}
+.l3{width:65%;background:#7b2b3a}
+.l4{width:80%;background:#934354}
+.l5{width:95%;background:#aa6875}
+
+/* ================= FLOW ================= */
+
+.flow{
+ display:flex;
+ align-items:stretch;
+ justify-content:center;
+ gap:0;
+ flex-wrap:wrap;
+}
+
+.flow-box{
+ background:white;
+ border:1px solid var(--line);
+ padding:20px;
+ width:170px;
+ text-align:center;
+ position:relative;
+}
+
+.flow-box strong{
+ display:block;
+ color:var(--wine);
+}
+
+.flow-box span{
+ font-size:11px;
+ color:var(--muted);
+}
+
+.flow-arrow{
+ display:grid;
+ place-items:center;
+ color:var(--gold);
+ font-size:26px;
+ padding:0 8px;
+}
+
+/* ================= CHART ================= */
+
 .chart-box{
- max-width:800px;
- height:300px;
- margin:30px auto 0;
+ background:white;
+ border:1px solid var(--line);
+ padding:30px;
+}
+
+.chart{
  display:flex;
  align-items:end;
- justify-content:center;
- gap:70px;
- border-bottom:1px solid #cfc5b9;
+ gap:28px;
+ height:300px;
+ border-left:1px solid #bbb;
+ border-bottom:1px solid #bbb;
+ padding:20px 30px 0;
 }
-.bar-column{
- height:100%;
+
+.bar{
+ flex:1;
  display:flex;
  flex-direction:column;
  align-items:center;
  justify-content:end;
- gap:7px;
+ height:100%;
 }
-.bar{
- width:85px;
- border-radius:5px 5px 0 0;
- background:linear-gradient(#c6aa72,#624536);
-}
-.bar-column span{font-size:12px}
-.bar-column small{font-size:10px;color:var(--muted)}
 
-.media{
- background:var(--brown);
- color:white;
- padding:90px 8%;
+.bar-fill{
+ width:70%;
+ background:linear-gradient(180deg,var(--gold2),var(--wine));
+ min-height:30px;
+ transition:1s;
 }
+
+.bar label{
+ font-size:11px;
+ color:var(--muted);
+ margin-top:9px;
+}
+
+.chart-note{
+ color:var(--muted);
+ font-size:11px;
+ margin-top:15px;
+}
+
+/* ================= VIDEO ================= */
+
 .video-grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
- gap:20px;
-}
-.video{
- background:#271b16;
- border:1px solid rgba(255,255,255,.12);
-}
-.video iframe{
- width:100%;
- aspect-ratio:16/9;
- border:0;
- display:block;
-}
-.video-info{
- padding:17px;
-}
-.video-info h3{
- font-family:Georgia,serif;
- margin:0;
-}
-.video-info p{
- color:#bdb1a8;
- font-size:11px;
+ gap:25px;
 }
 
-.gazette{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:16px;
-}
-.gazette-card{
+.video-card{
  background:white;
  border:1px solid var(--line);
- padding:27px;
- min-height:190px;
- display:flex;
- flex-direction:column;
+ overflow:hidden;
 }
-.gazette-card .emoji{font-size:28px}
-.gazette-card strong{
- font-family:Georgia,serif;
- font-size:20px;
- margin-top:8px;
+
+.video{
+ aspect-ratio:16/9;
+ background:#151515;
 }
-.gazette-card small{
+
+.video iframe{
+ width:100%;
+ height:100%;
+ border:0;
+}
+
+.video-info{
+ padding:20px;
+}
+
+.video-info h3{
+ color:var(--wine);
+ margin:0 0 7px;
+}
+
+.video-info p{
  color:var(--muted);
- font-size:11px;
+ font-size:12px;
 }
-.gazette-card b{
- color:#987947;
- margin-top:auto;
+
+.video-empty{
+ aspect-ratio:16/9;
+ display:grid;
+ place-items:center;
+ text-align:center;
+ padding:25px;
+ color:#bbb;
+ background:#1b1b1b;
+}
+
+.video-empty a{
+ color:#d8b979;
+ margin-top:8px;
+ display:block;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr;
+ grid-template-rows:250px 250px;
+ gap:12px;
+}
+
+.gallery figure{
+ margin:0;
+ overflow:hidden;
+ position:relative;
+}
+
+.gallery figure:first-child{
+ grid-row:span 2;
+}
+
+.gallery img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ transition:.5s;
+}
+
+.gallery figure:hover img{
+ transform:scale(1.05);
+}
+
+.gallery figcaption{
+ position:absolute;
+ bottom:0;
+ right:0;
+ left:0;
+ background:linear-gradient(transparent,rgba(0,0,0,.8));
+ color:white;
+ padding:35px 15px 12px;
  font-size:11px;
 }
 
-.bilingual{
- background:#e9dfd0;
- padding:60px;
- display:grid;
- grid-template-columns:1fr 1px 1fr;
- gap:45px;
+/* ================= REFERENCES ================= */
+
+.refs{
+ counter-reset:ref;
 }
-.bilingual h2{
- font-family:Georgia,serif;
- font-size:30px;
-}
-.bilingual p{
- color:#675d55;
+
+.ref{
+ background:white;
+ border:1px solid var(--line);
+ padding:18px 20px;
+ margin-bottom:10px;
  font-size:13px;
 }
-.vertical{background:#c9bba9}
 
-footer{
- padding:35px 8%;
- background:#201713;
- color:#d7cdc4;
+.ref b{
+ color:var(--wine);
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+ display:flex;
+ gap:10px;
+ margin-bottom:25px;
+}
+
+.search-box input{
+ flex:1;
+ padding:14px;
+ border:1px solid var(--line);
+ background:white;
+ outline:none;
+}
+
+.search-box input:focus{
+ border-color:var(--gold);
+}
+
+/* ================= ADMIN ================= */
+
+.admin-fab{
+ position:fixed;
+ bottom:20px;
+ left:20px;
+ z-index:2000;
+ width:52px;
+ height:52px;
+ border-radius:50%;
+ border:1px solid var(--gold);
+ background:var(--wine);
+ color:white;
+ cursor:pointer;
+ box-shadow:0 8px 30px rgba(0,0,0,.2);
+}
+
+.modal{
+ position:fixed;
+ inset:0;
+ background:rgba(15,10,7,.72);
+ z-index:3000;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+
+.modal.show{
+ display:flex;
+}
+
+.modal-card{
+ width:min(900px,100%);
+ max-height:90vh;
+ overflow:auto;
+ background:var(--paper);
+ padding:30px;
+ border:1px solid var(--gold);
+}
+
+.modal-header{
  display:flex;
  justify-content:space-between;
  align-items:center;
- font-size:11px;
+ border-bottom:1px solid var(--line);
+ padding-bottom:15px;
+ margin-bottom:20px;
 }
-footer strong{
- font-family:Georgia,serif;
- display:block;
- color:white;
-}
-footer a{color:#c3a56b}
 
-/* ADMIN */
-#adminModal{
- display:none;
- position:fixed;
- inset:0;
- z-index:5000;
- background:rgba(20,14,11,.75);
- backdrop-filter:blur(7px);
- padding:30px;
- overflow:auto;
-}
-.admin-box{
- max-width:900px;
- margin:30px auto;
- background:#fff;
- padding:35px;
- position:relative;
-}
-.close-admin{
- position:absolute;
- left:20px;
- top:15px;
+.close{
  border:0;
  background:none;
  font-size:25px;
  cursor:pointer;
 }
-.admin-box h2{
- font-family:Georgia,serif;
- font-size:32px;
-}
-.admin-field{
- margin:14px 0;
-}
-.admin-field label{
- display:block;
- font-weight:bold;
- font-size:12px;
- margin-bottom:5px;
-}
-.admin-field input{
- width:100%;
- padding:11px;
- border:1px solid #d8cfc5;
- outline:0;
-}
-.admin-row{
+
+.form{
  display:grid;
- grid-template-columns:1fr 2fr 1fr;
- gap:10px;
- padding:18px 0;
- border-top:1px solid #eee5da;
-}
-.admin-save,.admin-reset{
- border:0;
- padding:11px 18px;
- cursor:pointer;
- margin-top:15px;
-}
-.admin-save{
- background:var(--brown);
- color:white;
-}
-.admin-reset{
- background:#eee5d9;
-}
-.login-area{
- max-width:400px;
- margin:30px auto;
-}
-.login-area input{
- width:100%;
- padding:12px;
- margin:6px 0 12px;
- border:1px solid #d8cfc5;
-}
-.login-btn{
- width:100%;
- padding:12px;
- background:var(--brown);
- color:white;
- border:0;
- cursor:pointer;
-}
-#adminPanel{display:none}
-.admin-note{
- background:#f4ecdd;
- border-right:4px solid var(--gold);
- padding:12px;
- font-size:11px;
- margin:15px 0;
+ gap:12px;
 }
 
-@media(max-width:1000px){
- nav{display:none}
- .hero-card{display:none}
- .cards,.four,.liability,.gazette{grid-template-columns:1fr}
- .split{grid-template-columns:1fr}
- .split-content{padding:60px 8%}
- .law-grid,.video-grid{grid-template-columns:1fr}
- .section-title{display:block}
- .section-title p{margin-top:10px}
- .bilingual{grid-template-columns:1fr}
- .vertical{height:1px}
+.form label{
+ font-size:12px;
+ font-weight:800;
+ color:var(--wine);
 }
-@media(max-width:600px){
- .hero{padding:70px 7%;min-height:600px}
- .hero h1{font-size:52px}
- .stats{grid-template-columns:1fr 1fr}
- .section,.dark-section,.diagram,.chart,.media{padding:65px 6%}
- .flow{flex-direction:column}
- .flow-box{width:100%}
- .chart-box{gap:25px}
- .bar{width:60px}
- footer{flex-direction:column;align-items:flex-start;gap:15px}
- .admin-row{grid-template-columns:1fr}
+
+.form input,
+.form textarea{
+ width:100%;
+ padding:12px;
+ border:1px solid var(--line);
+ background:white;
+ outline:none;
+}
+
+.form textarea{
+ min-height:100px;
+ resize:vertical;
+}
+
+.admin-video{
+ border:1px solid var(--line);
+ padding:18px;
+ margin-bottom:12px;
+ background:#fff;
+}
+
+.admin-video h4{
+ margin-top:0;
+ color:var(--wine);
+}
+
+.login-area{
+ max-width:450px;
+ margin:auto;
+}
+
+.admin-panel{
+ display:none;
+}
+
+.admin-panel.active{
+ display:block;
+}
+
+.admin-tabs{
+ display:flex;
+ gap:8px;
+ margin-bottom:20px;
+ flex-wrap:wrap;
+}
+
+.status{
+ padding:10px 14px;
+ background:#edf5ef;
+ color:var(--green);
+ margin-bottom:20px;
+ display:none;
+}
+
+.status.show{
+ display:block;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ background:#211a17;
+ color:#e9dfd1;
+ padding:55px 0 25px;
+}
+
+.footer-grid{
+ display:grid;
+ grid-template-columns:1.3fr 1fr 1fr;
+ gap:40px;
+}
+
+footer h3{
+ color:#d9b978;
+ font-family:"Amiri";
+}
+
+footer p,
+footer li{
+ font-size:12px;
+ color:#bdb2a6;
+}
+
+footer ul{
+ list-style:none;
+ padding:0;
+}
+
+.footer-bottom{
+ border-top:1px solid #493d35;
+ margin-top:35px;
+ padding-top:18px;
+ color:#8f8377;
+ font-size:11px;
+ text-align:center;
+}
+
+/* ================= LANGUAGE ================= */
+
+body.fr .ar{
+ display:none !important;
+}
+
+body:not(.fr) .fr{
+ display:none !important;
+}
+
+.lang-btn{
+ min-width:55px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+ .nav-links{
+   display:none;
+ }
+
+ .hero{
+   grid-template-columns:1fr;
+   padding-top:45px;
+ }
+
+ .hero-image{
+   min-height:360px;
+ }
+
+ .hero-image img{
+   min-height:360px;
+ }
+
+ .stats{
+   grid-template-columns:repeat(2,1fr);
+ }
+
+ .grid{
+   grid-template-columns:1fr;
+ }
+
+ .video-grid{
+   grid-template-columns:1fr;
+ }
+
+ .gallery{
+   grid-template-columns:1fr 1fr;
+   grid-template-rows:200px 200px;
+ }
+
+ .gallery figure:first-child{
+   grid-row:span 1;
+ }
+
+ .footer-grid{
+   grid-template-columns:1fr;
+ }
+
+ .timeline:before{
+   right:15px;
+ }
+
+ body.fr .timeline:before{
+   left:15px;
+   right:auto;
+ }
+
+ .timeline-item,
+ .timeline-item:nth-child(odd),
+ .timeline-item:nth-child(even),
+ body.fr .timeline-item:nth-child(odd),
+ body.fr .timeline-item:nth-child(even){
+   width:100%;
+   margin:0;
+   padding-right:45px;
+   padding-left:0;
+ }
+
+ body.fr .timeline-item,
+ body.fr .timeline-item:nth-child(odd),
+ body.fr .timeline-item:nth-child(even){
+   padding-left:45px;
+   padding-right:0;
+ }
+
+ .timeline-item:nth-child(odd) .timeline-dot,
+ .timeline-item:nth-child(even) .timeline-dot{
+   right:8px;
+   left:auto;
+ }
+
+ body.fr .timeline-item:nth-child(odd) .timeline-dot,
+ body.fr .timeline-item:nth-child(even) .timeline-dot{
+   left:8px;
+   right:auto;
+ }
+
+ .flow{
+   flex-direction:column;
+   align-items:center;
+ }
+
+ .flow-arrow{
+   transform:rotate(90deg);
+ }
+
+ .legal-table{
+   display:block;
+   overflow-x:auto;
+   white-space:nowrap;
+ }
 }
 </style>
 </head>
 
 <body>
 
-<header>
- <a class="logo" href="#home">
-  <span class="logo-icon">⚖</span>
-  <span>MEDICAL <b>LAW</b> DZ</span>
- </a>
+<!-- ================= NAVIGATION ================= -->
 
- <nav>
-  <a href="#framework">الإطار القانوني</a>
-  <a href="#texts">النصوص</a>
-  <a href="#practice">الممارسة</a>
-  <a href="#duties">الالتزامات</a>
-  <a href="#liability">المسؤولية</a>
-  <a href="#videos">الفيديو</a>
- </nav>
+<nav>
+<div class="container nav-inner">
 
- <div class="header-buttons">
-  <button onclick="openAdmin()">Admin</button>
- </div>
+<a href="#top" class="brand">
+<div class="brand-mark">⚕</div>
+<div class="brand-text">
+<small>PLATEFORME ACADÉMIQUE</small>
+<strong class="ar">القانون الصحي الجزائري</strong>
+<strong class="fr">DROIT DE LA SANTÉ ALGÉRIEN</strong>
+</div>
+</a>
+
+<div class="nav-links">
+<a href="#introduction">المقدمة</a>
+<a href="#evolution">التطور</a>
+<a href="#texts">التشريعات</a>
+<a href="#institutions">المؤسسات</a>
+<a href="#patients">المريض</a>
+<a href="#responsibility">المسؤولية</a>
+<a href="#videos">الفيديو</a>
+<a href="#references">المراجع</a>
+</div>
+
+<div class="nav-actions">
+<button class="btn lang-btn" onclick="toggleLanguage()">FR</button>
+</div>
+
+</div>
+</nav>
+
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+
+<header class="hero container">
+
+<div>
+
+<div class="hero-kicker">
+PLATEFORME UNIVERSITAIRE • ALGÉRIE
+</div>
+
+<h1 class="ar">
+الإطار القانوني والمؤسساتي للصحة في الجزائر
+<span>LEGAL & INSTITUTIONAL FRAMEWORK OF HEALTH IN ALGERIA</span>
+</h1>
+
+<h1 class="fr">
+Le cadre juridique et institutionnel de la santé en Algérie
+<span>PLATEFORME UNIVERSITAIRE • DROIT DE LA SANTÉ</span>
+</h1>
+
+<p class="ar">
+منصة أكاديمية تفاعلية لفهم تطور المنظومة الصحية الجزائرية،
+مصادرها القانونية، مؤسساتها، حقوق المرضى، التزامات مهنيي الصحة،
+وأبعاد المسؤولية الطبية والأخلاقية.
+</p>
+
+<p class="fr">
+Une plateforme universitaire interactive consacrée à l'étude de
+l'évolution du système sanitaire algérien, de ses sources juridiques,
+de ses institutions, des droits des patients et de la responsabilité médicale.
+</p>
+
+<div class="hero-buttons">
+<a href="#evolution" class="btn primary">اكتشف التطور التشريعي</a>
+<a href="#texts" class="btn">النصوص القانونية</a>
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img
+src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+alt="Health law and medical institution">
+
+<div class="hero-caption">
+<strong class="ar">الصحة بين القانون والمؤسسة والممارسة الطبية</strong>
+<strong class="fr">La santé entre droit, institution et pratique médicale</strong>
+
+<span>
+Source photographique illustrative • Unsplash
+</span>
+</div>
+
+</div>
+
 </header>
 
 
-<section class="hero" id="home">
- <div class="hero-content">
-  <div class="eyebrow">ALGÉRIE • DROIT MÉDICAL</div>
+<!-- ================= STATS ================= -->
 
-  <h1>
-   القانون الطبي<br>
-   <span>في الجزائر</span>
-  </h1>
+<section>
+<div class="container">
 
-  <p>
-   منصة أكاديمية تفاعلية تجمع التشريع الصحي الجزائري،
-   أخلاقيات المهنة، حقوق المريض، التزامات الطبيب،
-   المسؤولية الطبية، والجريدة الرسمية في واجهة واحدة.
-  </p>
+<div class="stats">
 
-  <div class="hero-actions">
-   <a class="primary" href="#framework">استكشفي المنصة ↗</a>
-   <a class="secondary" href="#videos">الفيديوهات</a>
-  </div>
- </div>
+<div class="stat">
+<strong>18-11</strong>
+<span class="ar">القانون الأساسي المتعلق بالصحة</span>
+<span class="fr">Loi relative à la santé</span>
+</div>
 
- <div class="hero-card">
-  <small>النص المركزي</small>
-  <strong>القانون رقم 18-11</strong>
-  <small>المتعلق بالصحة</small>
-  <hr>
-  <b>02 يوليو 2018</b>
- </div>
+<div class="stat">
+<strong>2018</strong>
+<span class="ar">إعادة بناء الإطار التشريعي للصحة</span>
+<span class="fr">Refonte du cadre sanitaire</span>
+</div>
+
+<div class="stat">
+<strong>92-276</strong>
+<span class="ar">مدونة أخلاقيات الطب</span>
+<span class="fr">Code de déontologie médicale</span>
+</div>
+
+<div class="stat">
+<strong>JORADP</strong>
+<span class="ar">المصدر الرسمي للنصوص</span>
+<span class="fr">Source officielle</span>
+</div>
+
+</div>
+
+</div>
 </section>
 
 
-<div class="stats">
- <div class="stat"><strong>18-11</strong><span>قانون الصحة</span></div>
- <div class="stat"><strong>92-276</strong><span>أخلاقيات مهنة الطب</span></div>
- <div class="stat"><strong>03</strong><span>مسارات للمسؤولية</span></div>
- <div class="stat"><strong>AR / FR</strong><span>واجهة ثنائية اللغة</span></div>
+<!-- ================= INTRODUCTION ================= -->
+
+<section id="introduction">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<div class="eyebrow">01 • INTRODUCTION</div>
+
+<h2 class="section-title ar">
+لماذا يوجد قانون للصحة؟
+</h2>
+
+<h2 class="section-title fr">
+Pourquoi un droit de la santé ?
+</h2>
+</div>
+
+<p class="section-desc ar">
+القانون الصحي لا ينظم العلاقة بين الطبيب والمريض فقط؛ بل يحدد
+كيفية بناء النظام الصحي، توزيع الخدمات، حماية المريض، تنظيم المهن،
+ومسؤولية مختلف الفاعلين.
+</p>
+
+<p class="section-desc fr">
+Le droit de la santé ne régit pas uniquement la relation médecin-patient.
+Il encadre également l'organisation du système de santé, les établissements,
+les professions, les droits des usagers et les responsabilités.
+</p>
+
 </div>
 
 
-<section class="section" id="framework">
- <div class="section-title">
-  <div>
-   <div class="eyebrow" style="color:#927a50">01 — CADRE JURIDIQUE</div>
-   <h2>الإطار القانوني</h2>
-  </div>
-  <p>
-   المنظومة القانونية التي تحكم ممارسة الطب
-   وعلاقة الطبيب بالمريض والمؤسسة الصحية.
-  </p>
- </div>
+<div class="note">
 
- <div class="cards">
+<strong class="ar">قراءة قانونية:</strong>
 
-  <article class="card dark">
-   <div class="card-number">01</div>
-   <div class="card-icon">📜</div>
-   <h3>قانون الصحة 18-11</h3>
-   <p>
-    القانون رقم 18-11 المؤرخ في 2 يوليو 2018
-    والمتعلق بالصحة، وهو النص المحوري في تنظيم
-    المنظومة الصحية.
-   </p>
-   <a href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf" target="_blank">
-    فتح الجريدة الرسمية ↗
-   </a>
-  </article>
+<span class="ar">
+القانون رقم 18-11 يجعل الصحة مجالاً يرتبط بحقوق الأشخاص وبالتنظيم
+المؤسساتي للدولة. وتؤكد مواده الأولى أن النظام الوطني للصحة يقوم
+على الشمولية والمساواة في الوصول إلى العلاج والتضامن والإنصاف
+واستمرارية المرفق العمومي والخدمات الصحية.
+</span>
 
-  <article class="card">
-   <div class="card-number">02</div>
-   <div class="card-icon">⚕️</div>
-   <h3>مدونة أخلاقيات الطب</h3>
-   <p>
-    المرسوم التنفيذي رقم 92-276 المتضمن مدونة
-    أخلاقيات مهنة الطب، باعتبارها إطاراً مهنياً
-    وأخلاقياً للممارسة.
-   </p>
-   <a href="https://www.joradp.dz/" target="_blank">
-    الجريدة الرسمية ↗
-   </a>
-  </article>
+<strong class="fr">Lecture juridique :</strong>
 
-  <article class="card">
-   <div class="card-number">03</div>
-   <div class="card-icon">⚖️</div>
-   <h3>القواعد العامة</h3>
-   <p>
-    تتداخل مع المجال الطبي قواعد القانون المدني
-    وقانون العقوبات وغيرها من النصوص بحسب
-    طبيعة الفعل والضرر.
-   </p>
-   <a href="#texts">استكشاف النصوص ↓</a>
-  </article>
+<span class="fr">
+La loi n°18-11 rattache la santé aux droits des personnes et à
+l'organisation institutionnelle de l'État. Elle consacre notamment
+l'universalité, l'égalité d'accès aux soins, la solidarité,
+l'équité et la continuité du service public de santé.
+</span>
 
- </div>
+</div>
+
+
+<div class="grid">
+
+<article class="card">
+<span class="tag">PRINCIPE</span>
+<div class="card-number">01</div>
+<h3 class="ar">الحق في الصحة</h3>
+<h3 class="fr">Droit à la santé</h3>
+<p class="ar">
+يظهر الحق في الصحة في القانون من خلال الالتزام بحماية السكان
+والوقاية والعلاج وضمان الوصول إلى الخدمات الصحية.
+</p>
+<p class="fr">
+Le droit à la santé se traduit par la protection, la prévention,
+les soins et l'accès aux prestations sanitaires.
+</p>
+</article>
+
+<article class="card">
+<span class="tag">SERVICE PUBLIC</span>
+<div class="card-number">02</div>
+<h3 class="ar">استمرارية المرفق الصحي</h3>
+<h3 class="fr">Continuité du service public</h3>
+<p class="ar">
+استمرارية الخدمات الصحية ليست مجرد مسألة إدارية؛ بل ترتبط
+بضمان حصول السكان على الرعاية والخدمات اللازمة.
+</p>
+<p class="fr">
+La continuité du service public sanitaire constitue une garantie
+de permanence et d'accès aux prestations de santé.
+</p>
+</article>
+
+<article class="card">
+<span class="tag">PROTECTION</span>
+<div class="card-number">03</div>
+<h3 class="ar">كرامة المريض وخصوصيته</h3>
+<h3 class="fr">Dignité et vie privée</h3>
+<p class="ar">
+يحمي القانون كرامة الشخص وسلامته وخصوصية المعلومات الطبية،
+مع تنظيم الحالات التي يسمح فيها القانون برفع السر الطبي.
+</p>
+<p class="fr">
+La loi protège la dignité, l'intégrité et la vie privée du patient,
+ainsi que le secret des informations médicales.
+</p>
+</article>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="dark-section" id="texts">
+<!-- ================= PYRAMID ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow">02 — TEXTES JURIDIQUES</div>
-   <h2>النصوص والمواد القانونية</h2>
-  </div>
-  <p>
-   بطاقات مرجعية مختصرة مع روابط للمصادر الرسمية.
-  </p>
- </div>
+<section style="background:#eee5d8">
 
- <div class="law-grid" id="lawGrid">
+<div class="container">
 
-  <article class="law">
-   <span class="law-number">01</span>
-   <div>
-    <h3>Loi n° 18-11</h3>
-    <p>قانون الصحة — 2 يوليو 2018</p>
-   </div>
-   <a href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf" target="_blank">PDF</a>
-  </article>
+<div class="section-head">
+<div>
+<div class="eyebrow">02 • SOURCES</div>
+<h2 class="section-title ar">هرم مصادر القانون الصحي</h2>
+<h2 class="section-title fr">Hiérarchie des sources</h2>
+</div>
+</div>
 
-  <article class="law">
-   <span class="law-number">02</span>
-   <div>
-    <h3>Décret exécutif n° 92-276</h3>
-    <p>مدونة أخلاقيات مهنة الطب</p>
-   </div>
-   <a href="https://www.joradp.dz/" target="_blank">JO</a>
-  </article>
+<div class="pyramid-wrap">
 
-  <article class="law">
-   <span class="law-number">03</span>
-   <div>
-    <h3>Code civil</h3>
-    <p>الأمر 75-58 المعدل والمتمم</p>
-   </div>
-   <a href="https://www.joradp.dz/" target="_blank">JO</a>
-  </article>
+<div class="pyramid">
 
-  <article class="law">
-   <span class="law-number">04</span>
-   <div>
-    <h3>Code pénal</h3>
-    <p>الأمر 66-156 المعدل والمتمم</p>
-   </div>
-   <a href="https://www.joradp.dz/" target="_blank">JO</a>
-  </article>
+<div class="level l1">
+الدستور / Constitution
+</div>
 
-  <article class="law">
-   <span class="law-number">05</span>
-   <div>
-    <h3>Secret médical</h3>
-    <p>السر المهني وحماية المعلومات الطبية</p>
-   </div>
-   <a href="#duties">الموضوع</a>
-  </article>
+<div class="level l2">
+القوانين / Lois
+</div>
 
-  <article class="law">
-   <span class="law-number">06</span>
-   <div>
-    <h3>Responsabilité médicale</h3>
-    <p>المسؤولية المدنية والجزائية والتأديبية</p>
-   </div>
-   <a href="#liability">استكشاف</a>
-  </article>
+<div class="level l3">
+الأوامر والنصوص التشريعية / Ordonnances
+</div>
 
- </div>
+<div class="level l4">
+المراسيم التنفيذية / Décrets exécutifs
+</div>
 
- <div class="search">
-  🔎
-  <input id="searchInput" placeholder="ابحثي عن قانون أو موضوع...">
- </div>
+<div class="level l5">
+القرارات والتعليمات والتنظيمات التطبيقية / Textes réglementaires
+</div>
 
+</div>
+
+</div>
+
+<p class="section-desc ar" style="margin:auto;text-align:center">
+هذا المخطط تبسيطي لأغراض تعليمية، ولا يعني أن كل النصوص الصحية
+توجد في علاقة هرمية بسيطة؛ فالنظام القانوني الصحي يتكون من شبكة
+متداخلة من النصوص التشريعية والتنظيمية والمهنية.
+</p>
+
+</div>
 </section>
 
 
-<section class="split" id="practice">
+<!-- ================= TIMELINE ================= -->
 
- <div class="split-image"></div>
+<section id="evolution">
 
- <div class="split-content">
-  <div class="eyebrow" style="color:#927a50">03 — EXERCICE MÉDICAL</div>
-  <h2>ممارسة مهنة الطب</h2>
+<div class="container">
 
-  <p style="color:#746b63">
-   تقوم الممارسة الطبية على التأهيل القانوني والمهني،
-   احترام القواعد المنظمة للمهنة، وحماية المريض وحقوقه.
-  </p>
+<div class="section-head">
 
-  <div class="check">
-   <b>✓</b>
-   <div>
-    <strong>المؤهل العلمي</strong>
-    <span>شهادة الطب أو شهادة أجنبية معترف بمعادلتها.</span>
-   </div>
-  </div>
+<div>
+<div class="eyebrow">03 • HISTOIRE JURIDIQUE</div>
+<h2 class="section-title ar">تطور التنظيم الصحي في الجزائر</h2>
+<h2 class="section-title fr">Évolution juridique du système sanitaire</h2>
+</div>
 
-  <div class="check">
-   <b>✓</b>
-   <div>
-    <strong>التسجيل المهني</strong>
-    <span>الامتثال لقواعد التسجيل والهيئة المهنية المختصة.</span>
-   </div>
-  </div>
+<p class="section-desc ar">
+قراءة زمنية لفهم الانتقال من بناء الدولة بعد الاستقلال إلى
+تقنين شامل للصحة.
+</p>
 
-  <div class="check">
-   <b>✓</b>
-   <div>
-    <strong>الممارسة النظامية</strong>
-    <span>احترام شروط ممارسة النشاط داخل القطاعين العام والخاص.</span>
-   </div>
-  </div>
- </div>
+</div>
 
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">1962–1965</div>
+
+<h3 class="ar">مرحلة بناء الدولة والمؤسسات</h3>
+<h3 class="fr">Construction de l'État et des institutions</h3>
+
+<p class="ar">
+بعد الاستقلال ارتبط تنظيم الصحة بإعادة بناء مؤسسات الدولة
+وضمان استمرار الخدمات الأساسية. وتمثل هذه المرحلة نقطة الانطلاق
+لفهم نشأة الإدارة الصحية الجزائرية.
+</p>
+
+<p class="fr">
+Après l'indépendance, l'organisation sanitaire s'inscrit dans
+la reconstruction des institutions étatiques et la continuité
+des services essentiels.
+</p>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">1965–1979</div>
+
+<h3 class="ar">ترسيخ نموذج الصحة العمومية</h3>
+<h3 class="fr">Consolidation du modèle public</h3>
+
+<p class="ar">
+تتجه السياسة الصحية نحو تعزيز الدور العمومي للدولة،
+وتطوير الهياكل الصحية وتوسيع الخدمات ذات الطابع الجماعي.
+</p>
+
+<p class="fr">
+La politique sanitaire se structure autour d'un rôle renforcé
+de l'État et du développement des structures publiques.
+</p>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">1979–2007</div>
+
+<h3 class="ar">التنظيم والتخصص وتعدد النصوص</h3>
+<h3 class="fr">Organisation et diversification normative</h3>
+
+<p class="ar">
+شهدت هذه المرحلة توسع النصوص المتعلقة بالصحة والمهن الطبية
+والضمان الاجتماعي والعمل والدواء والمؤسسات الصحية.
+وتبرز فيها أهمية القانون رقم 85-05 المتعلق بحماية الصحة وترقيتها.
+</p>
+
+<p class="fr">
+Cette période connaît une multiplication des textes relatifs
+à la santé, aux professions médicales, à la sécurité sociale,
+au médicament et aux établissements sanitaires.
+</p>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2007–2018</div>
+
+<h3 class="ar">نحو إعادة بناء المنظومة</h3>
+<h3 class="fr">Vers une refonte du système</h3>
+
+<p class="ar">
+تزايدت الحاجة إلى إطار تشريعي أكثر شمولاً بسبب تطور المهن
+الصحية والدواء والتقنيات الطبية وحقوق المرضى، وصولاً إلى
+القانون 18-11.
+</p>
+
+<p class="fr">
+L'évolution des professions, des technologies médicales,
+du médicament et des droits des patients a renforcé le besoin
+d'un cadre plus global, aboutissant à la loi n°18-11.
+</p>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-year">2018 →</div>
+
+<h3 class="ar">القانون 18-11: مرحلة التقنين الشامل</h3>
+<h3 class="fr">Loi n°18-11 : une codification globale</h3>
+
+<p class="ar">
+القانون رقم 18-11 المؤرخ في 2 يوليو 2018 يمثل النص المركزي
+المعاصر في مجال الصحة. ويتضمن أبواباً تمتد من المبادئ الأساسية
+وحقوق المرضى إلى مهنيي الصحة، المنتجات الصيدلانية، تنظيم
+وتمويل النظام الصحي، الأخلاقيات والبيوأخلاقيات والأحكام الجزائية.
+</p>
+
+<p class="fr">
+La loi n°18-11 du 2 juillet 2018 constitue le texte central
+contemporain. Elle couvre les principes fondamentaux, les patients,
+les professionnels, les produits pharmaceutiques, l'organisation
+et le financement, l'éthique, la bioéthique et les dispositions pénales.
+</p>
+
+<a class="source"
+href="https://www.joradp.dz/FTP/JO-FRANCAIS/2018/F2018046.pdf"
+target="_blank">
+الجريدة الرسمية • PDF
+</a>
+
+</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="section alt" id="duties">
+<!-- ================= LEGAL TEXTS ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow" style="color:#927a50">04 — OBLIGATIONS</div>
-   <h2>التزامات الطبيب</h2>
-  </div>
-  <p>
-   الممارسة الطبية ليست مجرد عمل تقني؛ بل ترتبط
-   بواجبات قانونية وأخلاقية تجاه المريض.
-  </p>
- </div>
+<section id="texts" style="background:#f0e8dc">
 
- <div class="four">
+<div class="container">
 
-  <article class="duty">
-   <div class="duty-number">01</div>
-   <h3>واجب العناية</h3>
-   <p>
-    بذل العناية الطبية المهنية المتوافقة مع
-    المعطيات العلمية والأصول الطبية.
-   </p>
-  </article>
+<div class="section-head">
 
-  <article class="duty">
-   <div class="duty-number">02</div>
-   <h3>الإعلام الطبي</h3>
-   <p>
-    إطلاع المريض على حالته والخيارات العلاجية
-    والمخاطر ذات الصلة وفق الإطار القانوني.
-   </p>
-  </article>
+<div>
+<div class="eyebrow">04 • TEXTES JURIDIQUES</div>
+<h2 class="section-title ar">قاعدة النصوص القانونية الأساسية</h2>
+<h2 class="section-title fr">Corpus juridique essentiel</h2>
+</div>
 
-  <article class="duty">
-   <div class="duty-number">03</div>
-   <h3>الرضا الطبي</h3>
-   <p>
-    احترام إرادة المريض والحصول على الرضا
-    في الحالات التي يفرض فيها القانون ذلك.
-   </p>
-  </article>
+</div>
 
-  <article class="duty">
-   <div class="duty-number">04</div>
-   <h3>السر المهني</h3>
-   <p>
-    حماية المعلومات الطبية والشخصية وعدم إفشائها
-    إلا وفق الحالات التي يسمح أو يفرض فيها القانون.
-   </p>
-  </article>
+<div class="search-box">
 
- </div>
+<input
+id="legalSearch"
+type="search"
+placeholder="ابحث: صحة، مريض، أخلاقيات، مؤسسة، طبيب..."
+oninput="filterLegal()">
+
+</div>
+
+
+<table class="legal-table">
+
+<thead>
+<tr>
+<th>النص</th>
+<th>التاريخ</th>
+<th>المجال</th>
+<th>المصدر</th>
+</tr>
+</thead>
+
+<tbody id="legalBody">
+
+<tr>
+<td>
+<strong>القانون رقم 18-11</strong><br>
+المتعلق بالصحة
+</td>
+
+<td>02 يوليو 2018</td>
+
+<td>
+المبادئ الأساسية، حقوق المرضى، مهنيّو الصحة،
+الأدوية، المؤسسات، التمويل، الأخلاقيات والمسؤولية.
+</td>
+
+<td>
+<a class="official"
+href="https://www.joradp.dz/FTP/JO-FRANCAIS/2018/F2018046.pdf"
+target="_blank">
+JORADP
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<strong>القانون رقم 85-05</strong><br>
+المتعلق بحماية الصحة وترقيتها
+</td>
+
+<td>16 فبراير 1985</td>
+
+<td>
+يمثل مرحلة مهمة في البناء التشريعي للصحة قبل القانون 18-11.
+</td>
+
+<td>
+<a class="official"
+href="https://www.joradp.dz/"
+target="_blank">
+JORADP
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<strong>المرسوم التنفيذي رقم 92-276</strong><br>
+مدونة أخلاقيات الطب
+</td>
+
+<td>06 يوليو 1992</td>
+
+<td>
+القواعد الأخلاقية والمهنية لممارسة الطب.
+</td>
+
+<td>
+<a class="official"
+href="https://www.joradp.dz/"
+target="_blank">
+JORADP
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<strong>القانون رقم 83-11</strong><br>
+المتعلق بالتأمينات الاجتماعية
+</td>
+
+<td>02 يوليو 1983</td>
+
+<td>
+الحماية الاجتماعية وعلاقتها بتغطية الخدمات الصحية.
+</td>
+
+<td>
+<a class="official"
+href="https://www.joradp.dz/"
+target="_blank">
+JORADP
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<strong>القانون رقم 88-07</strong><br>
+المتعلق بالنظافة والأمن وطب العمل
+</td>
+
+<td>26 يناير 1988</td>
+
+<td>
+الصحة المهنية والوقاية وحماية العمال.
+</td>
+
+<td>
+<a class="official"
+href="https://www.joradp.dz/"
+target="_blank">
+JORADP
+</a>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="note" style="margin-top:25px">
+
+<strong>⚠️ ملاحظة أكاديمية:</strong>
+
+هذه القائمة تمثل النصوص المحورية فقط وليست فهرساً شاملاً لكل
+التشريع الصحي الجزائري. يمكن إضافة النصوص التنظيمية الخاصة بكل
+مؤسسة أو مهنة أو منتج طبي من خلال قاعدة الجريدة الرسمية.
+
+<br><br>
+
+<a class="source"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet"
+target="_blank">
+البحث الرسمي في قاعدة الجريدة الرسمية
+</a>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="diagram">
+<!-- ================= INSTITUTIONS ================= -->
 
- <div class="eyebrow">05 — SCHÉMA JURIDIQUE</div>
- <h2>من الواقعة الطبية إلى المسؤولية</h2>
+<section id="institutions">
 
- <div class="flow">
+<div class="container">
 
-  <div class="flow-box">
-   فعل طبي
-   <small>Acte médical</small>
-  </div>
+<div class="section-head">
 
-  <span>→</span>
+<div>
+<div class="eyebrow">05 • INSTITUTIONS</div>
+<h2 class="section-title ar">المؤسسة العمومية للصحة</h2>
+<h2 class="section-title fr">L'établissement public de santé</h2>
+</div>
 
-  <div class="flow-box">
-   إخلال محتمل
-   <small>Manquement</small>
-  </div>
+</div>
 
-  <span>→</span>
 
-  <div class="flow-box">
-   ضرر
-   <small>Préjudice</small>
-  </div>
+<div class="note">
 
-  <span>→</span>
+<strong class="ar">المقاربة المؤسساتية:</strong>
 
-  <div class="flow-box">
-   علاقة سببية
-   <small>Lien causal</small>
-  </div>
+<span class="ar">
+المؤسسة الصحية ليست مجرد بناية تقدم العلاج. إنها تنظيم قانوني
+وإداري وتقني تتداخل داخله السلطة الوصية، الإدارة، مهنيّو الصحة،
+المستخدمون، المرضى، وآليات التمويل والرقابة.
+</span>
 
-  <span>→</span>
+<strong class="fr">Approche institutionnelle :</strong>
 
-  <div class="flow-box gold">
-   مسؤولية
-   <small>Responsabilité</small>
-  </div>
+<span class="fr">
+L'établissement de santé n'est pas une simple structure matérielle.
+Il constitue une organisation juridique, administrative et technique
+dans laquelle interagissent tutelle, direction, professionnels,
+usagers, financement et contrôle.
+</span>
 
- </div>
+</div>
+
+
+<h3 style="color:var(--wine);margin-top:40px">
+مخطط مبسط للعلاقة المؤسساتية
+</h3>
+
+<div class="flow">
+
+<div class="flow-box">
+<strong>الدولة</strong>
+<span>السياسة الصحية<br>État</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>وزارة الصحة</strong>
+<span>التوجيه والرقابة</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>المؤسسة الصحية</strong>
+<span>التنفيذ والخدمات</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>مهني الصحة</strong>
+<span>الممارسة الطبية</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>المريض</strong>
+<span>الحق في الرعاية</span>
+</div>
+
+</div>
+
+
+<div class="grid" style="margin-top:40px">
+
+<article class="card">
+<div class="card-number">01</div>
+<h3>التنظيم الإداري</h3>
+<p>
+يتعلق بتحديد الاختصاصات، المسؤوليات، طرق اتخاذ القرار،
+العلاقة مع سلطة الوصاية وكيفية سير المرفق.
+</p>
+</article>
+
+<article class="card">
+<div class="card-number">02</div>
+<h3>التنظيم الطبي</h3>
+<p>
+يرتبط بالمهنيين، الممارسة الطبية، جودة الرعاية،
+الأخلاقيات، سلامة المرضى والتنسيق بين مختلف المصالح.
+</p>
+</article>
+
+<article class="card">
+<div class="card-number">03</div>
+<h3>الرقابة والمسؤولية</h3>
+<p>
+يمكن أن تتقاطع المسؤولية الإدارية والمدنية والجزائية
+والمهنية بحسب طبيعة الفعل والفاعل والضرر والنص المطبق.
+</p>
+</article>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="section" id="liability">
+<!-- ================= PATIENT RIGHTS ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow" style="color:#927a50">06 — RESPONSABILITÉ</div>
-   <h2>المسؤولية الطبية</h2>
-  </div>
-  <p>
-   ثلاثة مسارات رئيسية يمكن عرضها بحسب طبيعة
-   الوقائع والنصوص المنطبقة.
-  </p>
- </div>
+<section id="patients" style="background:#eee5d8">
 
- <div class="liability">
+<div class="container">
 
-  <article>
-   <div class="circle">01</div>
-   <h3>مدنية</h3>
-   <p>
-    تتجه أساساً نحو جبر الضرر والتعويض
-    متى توافرت شروط المسؤولية.
-   </p>
-   <small>Erreur • Préjudice • Causalité</small>
-  </article>
+<div class="section-head">
 
-  <article>
-   <div class="circle">02</div>
-   <h3>جزائية</h3>
-   <p>
-    تظهر عندما يشكل الفعل المرتكب جريمة
-    وفق النصوص الجزائية المنطبقة.
-   </p>
-   <small>Infraction • Faute • Sanction</small>
-  </article>
+<div>
+<div class="eyebrow">06 • PATIENT RIGHTS</div>
+<h2 class="section-title ar">حقوق المريض في القانون الصحي</h2>
+<h2 class="section-title fr">Droits du patient</h2>
+</div>
 
-  <article>
-   <div class="circle">03</div>
-   <h3>تأديبية</h3>
-   <p>
-    مرتبطة بالإخلال بالواجبات المهنية
-    وقواعد الشرف والأخلاقيات.
-   </p>
-   <small>Déontologie • Discipline</small>
-  </article>
+</div>
 
- </div>
+
+<div class="grid">
+
+<div class="card">
+<span class="tag">ART. 21</span>
+<h3>الوصول إلى الرعاية</h3>
+<p>
+يقرر القانون حق كل شخص في الحماية والوقاية والعلاج والمرافقة
+التي تتطلبها حالته الصحية، دون تمييز في الوصول إلى الوقاية والعلاج.
+</p>
+</div>
+
+<div class="card">
+<span class="tag">ART. 23</span>
+<h3>الإعلام الطبي</h3>
+<p>
+لكل شخص الحق في أن يحصل على معلومات حول حالته الصحية،
+والرعاية التي يحتاجها والمخاطر التي قد يتعرض لها.
+</p>
+</div>
+
+<div class="card">
+<span class="tag">ART. 24</span>
+<h3>الحياة الخاصة والسر الطبي</h3>
+<p>
+يحمي القانون الحياة الخاصة وسرية المعلومات الطبية،
+مع وجود حالات قانونية يمكن فيها رفع السر الطبي.
+</p>
+</div>
+
+<div class="card">
+<span class="tag">PRINCIPE</span>
+<h3>الكرامة والسلامة</h3>
+<p>
+لا يجوز المساس بالسلامة الجسدية إلا عند وجود ضرورة طبية
+وفق الشروط التي يحددها القانون.
+</p>
+</div>
+
+<div class="card">
+<span class="tag">URGENCE</span>
+<h3>الرعاية في حالات الاستعجال</h3>
+<p>
+لا يجوز أن تكون أسباب غير قانونية عائقاً أمام الوصول إلى
+العلاج، ولا سيما في حالات الاستعجال.
+</p>
+</div>
+
+<div class="card">
+<span class="tag">CONFIDENTIALITÉ</span>
+<h3>السرية الطبية</h3>
+<p>
+تمتد السرية إلى المعلومات التي تصل إلى علم مهنيي الصحة
+بحكم ممارستهم المهنية، وفقاً للإطار القانوني.
+</p>
+</div>
+
+</div>
+
+<div class="note">
+
+<strong>مصدر قانوني:</strong>
+
+المواد 21 إلى 24 من القانون رقم 18-11، كما وردت في الجريدة
+الرسمية رقم 46 لسنة 2018. :chatgpt-content-reference{index="3"}
+
+</div>
+
+</div>
 </section>
 
 
-<section class="chart">
+<!-- ================= RESPONSIBILITY ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow" style="color:#927a50">07 — VISUAL DATA</div>
-   <h2>رسم بياني توضيحي</h2>
-  </div>
-  <p>
-   الرسم تعليمي لتوضيح اختلاف طبيعة المسارات
-   وليس إحصاءً رسمياً للقضايا.
-  </p>
- </div>
+<section id="responsibility">
 
- <div class="chart-box">
+<div class="container">
 
-  <div class="bar-column">
-   <span>مدنية</span>
-   <div class="bar" style="height:92%"></div>
-   <small>تعويض</small>
-  </div>
+<div class="section-head">
 
-  <div class="bar-column">
-   <span>جزائية</span>
-   <div class="bar" style="height:76%"></div>
-   <small>عقوبة</small>
-  </div>
+<div>
+<div class="eyebrow">07 • RESPONSABILITÉ</div>
+<h2 class="section-title ar">المسؤولية الطبية: كيف نفكر فيها؟</h2>
+<h2 class="section-title fr">Comment analyser la responsabilité médicale ?</h2>
+</div>
 
-  <div class="bar-column">
-   <span>تأديبية</span>
-   <div class="bar" style="height:61%"></div>
-   <small>جزاء مهني</small>
-  </div>
+</div>
 
- </div>
 
- <p style="text-align:center;color:#80756b;font-size:10px">
-  القيم بصرية رمزية وليست نسباً رسمية.
- </p>
+<div class="note">
+
+<strong>الفكرة الأساسية:</strong>
+
+لا يكفي وجود نتيجة سيئة حتى نستنتج المسؤولية تلقائياً.
+التحليل القانوني يحتاج إلى تحديد الفعل، الالتزام المهني،
+الخطأ أو الإخلال عند الاقتضاء، الضرر، والعلاقة السببية،
+ثم تحديد النظام القانوني الذي يحكم الحالة.
+
+</div>
+
+
+<div class="flow">
+
+<div class="flow-box">
+<strong>فعل طبي</strong>
+<span>Acte médical</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>التزام مهني</strong>
+<span>Obligation</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>إخلال محتمل</strong>
+<span>Manquement</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>ضرر</strong>
+<span>Préjudice</span>
+</div>
+
+<div class="flow-arrow">←</div>
+
+<div class="flow-box">
+<strong>سببية</strong>
+<span>Causalité</span>
+</div>
+
+</div>
+
+
+<div class="grid" style="margin-top:45px">
+
+<article class="card">
+<h3>المسؤولية المدنية</h3>
+<p>
+تتمحور حول جبر الضرر وفق القواعد القانونية المطبقة
+والعلاقة بين الفعل والضرر.
+</p>
+</article>
+
+<article class="card">
+<h3>المسؤولية الجزائية</h3>
+<p>
+تتطلب البحث عن نص جزائي منطبق وعن العناصر القانونية
+للمخالفة أو الجريمة، ولا تقوم بمجرد وجود نتيجة غير مرغوبة.
+</p>
+</article>
+
+<article class="card">
+<h3>المسؤولية المهنية والتأديبية</h3>
+<p>
+ترتبط باحترام قواعد المهنة والأخلاقيات والالتزامات
+التي تحكم ممارسة المهنة الصحية.
+</p>
+</article>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="media" id="videos">
+<!-- ================= CHART ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow">08 — VIDÉOS</div>
-   <h2>قاعة الفيديو</h2>
-  </div>
+<section style="background:#f0e8dc">
 
-  <p>
-   يمكنك تغيير روابط YouTube والعناوين من لوحة Admin.
-  </p>
- </div>
+<div class="container">
 
- <div class="video-grid" id="videoGrid"></div>
+<div class="section-head">
 
+<div>
+<div class="eyebrow">08 • ANALYSE VISUELLE</div>
+<h2 class="section-title ar">مخطط تحليلي لتطور الإطار القانوني</h2>
+<h2 class="section-title fr">Lecture graphique de l'évolution normative</h2>
+</div>
+
+</div>
+
+
+<div class="chart-box">
+
+<div class="chart">
+
+<div class="bar">
+<div class="bar-fill" style="height:35%"></div>
+<label>1962–1965</label>
+</div>
+
+<div class="bar">
+<div class="bar-fill" style="height:48%"></div>
+<label>1965–1979</label>
+</div>
+
+<div class="bar">
+<div class="bar-fill" style="height:65%"></div>
+<label>1979–1985</label>
+</div>
+
+<div class="bar">
+<div class="bar-fill" style="height:82%"></div>
+<label>1985–2007</label>
+</div>
+
+<div class="bar">
+<div class="bar-fill" style="height:94%"></div>
+<label>2007–2018</label>
+</div>
+
+<div class="bar">
+<div class="bar-fill" style="height:100%"></div>
+<label>2018→</label>
+</div>
+
+</div>
+
+<p class="chart-note">
+* هذا الرسم ليس إحصائية رسمية لعدد النصوص، وإنما تمثيل بصري
+تحليلي يوضح اتساع وتعقّد المجال القانوني الصحي عبر الزمن.
+</p>
+
+</div>
+
+</div>
 </section>
 
 
-<section class="section">
+<!-- ================= VIDEOS ================= -->
 
- <div class="section-title">
-  <div>
-   <div class="eyebrow" style="color:#927a50">09 — JOURNAL OFFICIEL</div>
-   <h2>الجريدة الرسمية</h2>
-  </div>
+<section id="videos">
 
-  <p>
-   الوصول إلى المصادر الرسمية والتشريعات الجزائرية.
-  </p>
- </div>
+<div class="container">
 
- <div class="gazette">
+<div class="section-head">
 
-  <a class="gazette-card"
-     href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf"
-     target="_blank">
-   <span class="emoji">📄</span>
-   <strong>Loi 18-11</strong>
-   <small>Journal officiel n°46 — 2018</small>
-   <b>فتح PDF ↗</b>
-  </a>
+<div>
+<div class="eyebrow">09 • VIDÉOTHÈQUE</div>
+<h2 class="section-title ar">المكتبة المرئية</h2>
+<h2 class="section-title fr">Vidéothèque</h2>
+</div>
 
-  <a class="gazette-card"
-     href="https://www.joradp.dz/"
-     target="_blank">
-   <span class="emoji">📰</span>
-   <strong>الجريدة الرسمية</strong>
-   <small>البوابة الرسمية للجمهورية الجزائرية</small>
-   <b>فتح الموقع ↗</b>
-  </a>
+<p class="section-desc ar">
+الفيديوهات مرتبطة مباشرة بموضوع الصحة والتشريع أو تُستخدم
+لتوثيق السياق المؤسساتي والتاريخي.
+</p>
 
-  <a class="gazette-card"
-     href="https://www.joradp.dz/JRN/ZA2018.htm"
-     target="_blank">
-   <span class="emoji">🔎</span>
-   <strong>أرشيف 2018</strong>
-   <small>أعداد الجريدة الرسمية</small>
-   <b>استكشاف ↗</b>
-  </a>
+</div>
 
- </div>
+
+<div id="videoGrid" class="video-grid"></div>
+
+</div>
 </section>
 
 
-<section class="section">
+<!-- ================= GALLERY ================= -->
 
- <div class="bilingual">
+<section>
 
-  <div>
-   <div class="eyebrow" style="color:#927a50">FRANÇAIS</div>
-   <h2>Droit médical en Algérie</h2>
-   <p>
-    Une plateforme pédagogique bilingue consacrée aux textes
-    sanitaires, à la déontologie médicale, aux droits du patient
-    et à la responsabilité médicale.
-   </p>
-  </div>
+<div class="container">
 
-  <div class="vertical"></div>
+<div class="section-head">
 
-  <div>
-   <div class="eyebrow" style="color:#927a50">العربية</div>
-   <h2>منصة القانون الطبي</h2>
-   <p>
-    واجهة تعليمية تجمع المفاهيم والنصوص والمصادر
-    الرسمية المرتبطة بالقانون الطبي الجزائري.
-   </p>
-  </div>
+<div>
+<div class="eyebrow">10 • DOCUMENTATION VISUELLE</div>
+<h2 class="section-title ar">الوثائق والصور</h2>
+<h2 class="section-title fr">Documentation visuelle</h2>
+</div>
 
- </div>
+</div>
+
+
+<div class="gallery">
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=85"
+alt="Hospital">
+<figcaption>المؤسسة الصحية كمرفق عمومي</figcaption>
+</figure>
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85"
+alt="Medical professionals">
+<figcaption>مهنيّو الصحة</figcaption>
+</figure>
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85"
+alt="Medical care">
+<figcaption>الرعاية الصحية</figcaption>
+</figure>
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=85"
+alt="Medical research">
+<figcaption>البحث والتطور الطبي</figcaption>
+</figure>
+
+<figure>
+<img
+src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=900&q=85"
+alt="Medical technology">
+<figcaption>التكنولوجيا الصحية</figcaption>
+</figure>
+
+</div>
+
+</div>
 </section>
 
+
+<!-- ================= OFFICIAL SOURCES ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<div class="eyebrow">11 • SOURCES OFFICIELLES</div>
+<h2 class="section-title ar">المصادر الرسمية</h2>
+<h2 class="section-title fr">Sources officielles</h2>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<article class="card">
+
+<span class="tag">JORADP</span>
+
+<h3>الجريدة الرسمية الجزائرية</h3>
+
+<p>
+المصدر الرسمي لنشر القوانين والمراسيم والتنظيمات
+والنصوص القانونية الجزائرية.
+</p>
+
+<a class="source"
+href="https://www.joradp.dz/"
+target="_blank">
+فتح الموقع الرسمي
+</a>
+
+</article>
+
+
+<article class="card">
+
+<span class="tag">LAW 18-11</span>
+
+<h3>القانون 18-11</h3>
+
+<p>
+النص الرسمي الكامل للقانون رقم 18-11 المتعلق بالصحة،
+الجريدة الرسمية رقم 46.
+</p>
+
+<a class="source"
+href="https://www.joradp.dz/FTP/JO-FRANCAIS/2018/F2018046.pdf"
+target="_blank">
+فتح PDF الرسمي
+</a>
+
+</article>
+
+
+<article class="card">
+
+<span class="tag">SEARCH</span>
+
+<h3>البحث في النصوص</h3>
+
+<p>
+محرك البحث الرسمي للأمانة العامة للحكومة للوصول
+إلى النصوص المنشورة في الجريدة الرسمية.
+</p>
+
+<a class="source"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet"
+target="_blank">
+البحث في JORADP
+</a>
+
+</article>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= REFERENCES ================= -->
+
+<section id="references" style="background:#eee5d8">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+<div class="eyebrow">12 • RÉFÉRENCES</div>
+<h2 class="section-title ar">مراجع الموقع</h2>
+<h2 class="section-title fr">Références</h2>
+</div>
+
+</div>
+
+
+<div class="refs">
+
+<div class="ref">
+<b>[1]</b>
+الجمهورية الجزائرية الديمقراطية الشعبية،
+القانون رقم 18-11 المؤرخ في 2 يوليو 2018 المتعلق بالصحة،
+الجريدة الرسمية رقم 46، 29 يوليو 2018.
+<a class="official"
+href="https://www.joradp.dz/FTP/JO-FRANCAIS/2018/F2018046.pdf"
+target="_blank">
+النص الرسمي
+</a>
+</div>
+
+<div class="ref">
+<b>[2]</b>
+المرسوم التنفيذي رقم 92-276 المؤرخ في 6 يوليو 1992
+المتضمن مدونة أخلاقيات الطب.
+</div>
+
+<div class="ref">
+<b>[3]</b>
+القانون رقم 85-05 المؤرخ في 16 فبراير 1985
+المتعلق بحماية الصحة وترقيتها.
+</div>
+
+<div class="ref">
+<b>[4]</b>
+الأمانة العامة للحكومة الجزائرية،
+قاعدة البحث في الجريدة الرسمية والنصوص القانونية.
+<a class="official"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet"
+target="_blank">
+قاعدة البيانات الرسمية
+</a>
+</div>
+
+<div class="ref">
+<b>[5]</b>
+World Health Organization — Health Legislation:
+Loi n°18-11 du 2 juillet 2018 relative à la santé.
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+</main>
 
 <footer>
- <div>
-  <strong>MEDICAL LAW DZ</strong>
-  <span>منصة أكاديمية تعليمية</span>
- </div>
 
- <div>
-  المصادر الرسمية هي المرجع النهائي للنصوص القانونية.
- </div>
+<div class="container">
 
- <a href="#" onclick="openAdmin();return false">ADMIN</a>
+<div class="footer-grid">
+
+<div>
+<h3>القانون الصحي الجزائري</h3>
+
+<p>
+منصة أكاديمية تعليمية تهدف إلى عرض الإطار القانوني والمؤسساتي
+للصحة في الجزائر بطريقة بصرية وتفاعلية.
+</p>
+</div>
+
+<div>
+<h3>روابط</h3>
+
+<ul>
+<li><a href="#evolution">التطور التشريعي</a></li>
+<li><a href="#texts">النصوص القانونية</a></li>
+<li><a href="#institutions">المؤسسات الصحية</a></li>
+<li><a href="#patients">حقوق المرضى</a></li>
+</ul>
+</div>
+
+<div>
+<h3>مصادر</h3>
+
+<ul>
+<li>
+<a href="https://www.joradp.dz/" target="_blank">
+JORADP
+</a>
+</li>
+
+<li>
+<a href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet" target="_blank">
+البحث القانوني
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 — Academic Medical Law Platform • Algeria
+</div>
+
+</div>
+
 </footer>
 
 
-<!-- ================= ADMIN ================= -->
+<!-- ================= ADMIN BUTTON ================= -->
 
-<div id="adminModal">
-
- <div class="admin-box">
-
-  <button class="close-admin" onclick="closeAdmin()">×</button>
-
-  <div id="loginArea" class="login-area">
-
-   <div class="eyebrow" style="color:#927a50">PRIVATE AREA</div>
-
-   <h2>لوحة Admin</h2>
-
-   <p style="font-size:12px;color:#746b63">
-    سجلي الدخول لتغيير فيديوهات YouTube.
-   </p>
-
-   <label>Username</label>
-   <input id="adminUser" placeholder="sophie">
-
-   <label>Password</label>
-   <input id="adminPass" type="password" placeholder="••••••••">
-
-   <button class="login-btn" onclick="loginAdmin()">دخول</button>
-
-   <p id="loginError" style="color:#a13b32;font-size:11px"></p>
-
-  </div>
+<button class="admin-fab" onclick="openAdmin()" title="Admin">
+⚙
+</button>
 
 
-  <div id="adminPanel">
+<!-- ================= ADMIN MODAL ================= -->
 
-   <div class="eyebrow" style="color:#927a50">CONTROL PANEL</div>
+<div id="adminModal" class="modal">
 
-   <h2>إدارة الفيديوهات 🎬</h2>
+<div class="modal-card">
 
-   <div class="admin-note">
-    ضعي رابط YouTube عادي مثل:
-    https://www.youtube.com/watch?v=XXXXXXXX
-    وسيتم تحويله تلقائياً إلى مشغل داخل الموقع.
-   </div>
+<div class="modal-header">
 
-   <div id="adminVideos"></div>
+<div>
+<div class="eyebrow">PRIVATE ADMINISTRATION</div>
+<h2 style="margin:0;color:var(--wine)">
+لوحة إدارة المحتوى
+</h2>
+</div>
 
-   <button class="admin-save" onclick="saveVideos()">
-    💾 حفظ التعديلات
-   </button>
+<button class="close" onclick="closeAdmin()">×</button>
 
-   <button class="admin-reset" onclick="resetVideos()">
-    إعادة الإعدادات
-   </button>
+</div>
 
-   <button class="admin-reset" onclick="addVideo()">
-    ＋ إضافة فيديو
-   </button>
 
-   <p id="saveMessage" style="font-size:11px;color:#6b614f"></p>
+<!-- LOGIN -->
 
-   <hr>
+<div id="loginArea" class="login-area">
 
-   <div class="admin-note">
-    <b>ملاحظة:</b>
-    هذه النسخة تعمل بالكامل على GitHub Pages، لذلك يتم حفظ تغييرات
-    Admin في متصفح الجهاز باستخدام localStorage.
-    إذا أردتِ أن تظهر التغييرات لجميع الزوار ومن أي جهاز،
-    نربط الموقع لاحقاً بـ Supabase.
-   </div>
+<div class="note">
+هذه اللوحة مخصصة لتعديل مكتبة الفيديوهات في هذا المتصفح.
+</div>
 
-  </div>
+<div class="form">
 
- </div>
+<label>Username</label>
+<input id="adminUser" type="text" placeholder="Username">
+
+<label>Password</label>
+<input id="adminPass" type="password" placeholder="Password">
+
+<button class="btn primary" onclick="loginAdmin()">
+دخول Admin
+</button>
+
+<p id="loginError" style="color:#a32b3d;font-size:12px"></p>
+
+</div>
+
+</div>
+
+
+<!-- PANEL -->
+
+<div id="adminPanel" class="admin-panel">
+
+<div class="status" id="saveStatus">
+تم حفظ التعديل محلياً في هذا المتصفح ✓
+</div>
+
+<div class="admin-tabs">
+
+<button class="btn primary" onclick="renderAdminVideos()">
+الفيديوهات
+</button>
+
+<button class="btn" onclick="logoutAdmin()">
+تسجيل الخروج
+</button>
+
+</div>
+
+<div id="adminVideos"></div>
+
+</div>
+
+</div>
+
 </div>
 
 
 <script>
 
-/* ===============================
-   بيانات الفيديو الافتراضية
-================================ */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
-const DEFAULT_VIDEOS = [
+function toggleLanguage(){
+
+ const body=document.body;
+
+ body.classList.toggle("fr");
+
+ const button=document.querySelector(".lang-btn");
+
+ button.textContent=body.classList.contains("fr") ? "AR" : "FR";
+
+}
+
+/* =========================================================
+   LEGAL SEARCH
+========================================================= */
+
+function filterLegal(){
+
+ const query=document.getElementById("legalSearch").value.toLowerCase();
+
+ document.querySelectorAll("#legalBody tr").forEach(row=>{
+
+   row.style.display=
+   row.innerText.toLowerCase().includes(query)
+   ? ""
+   : "none";
+
+ });
+
+}
+
+/* =========================================================
+   ADMIN AUTH
+========================================================= */
+
+const ADMIN_USER="sophie";
+const ADMIN_PASS="swan2006";
+
+function openAdmin(){
+
+ document.getElementById("adminModal").classList.add("show");
+
+}
+
+function closeAdmin(){
+
+ document.getElementById("adminModal").classList.remove("show");
+
+}
+
+function loginAdmin(){
+
+ const user=document.getElementById("adminUser").value;
+ const pass=document.getElementById("adminPass").value;
+
+ if(user===ADMIN_USER && pass===ADMIN_PASS){
+
+   document.getElementById("loginArea").style.display="none";
+
+   document.getElementById("adminPanel").classList.add("active");
+
+   renderAdminVideos();
+
+ }else{
+
+   document.getElementById("loginError").textContent=
+   "بيانات الدخول غير صحيحة.";
+
+ }
+
+}
+
+function logoutAdmin(){
+
+ document.getElementById("adminPanel").classList.remove("active");
+
+ document.getElementById("loginArea").style.display="block";
+
+ document.getElementById("adminUser").value="";
+ document.getElementById("adminPass").value="";
+
+}
+
+/* =========================================================
+   VIDEO DATABASE
+========================================================= */
+
+const defaultVideos=[
 
  {
-  title:"مدخل إلى القانون الطبي",
-  description:"فيديو تعليمي حول القانون الطبي.",
-  url:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   title:"مشروع قانون الصحة الجديد أمام المجلس الشعبي الوطني",
+   description:"تغطية لوكالة الأنباء الجزائرية لمسار مشروع قانون الصحة سنة 2018.",
+   url:"https://www.youtube.com/watch?v=rkL4gM7HSFE"
  },
 
  {
-  title:"المسؤولية الطبية",
-  description:"فيديو حول المسؤولية الطبية.",
-  url:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   title:"تحليل القانون الصحي — فيديو يضاف من Admin",
+   description:"أضيفي هنا فيديو أكاديمي موثق من YouTube.",
+   url:""
  },
 
  {
-  title:"حقوق المريض والرضا الطبي",
-  description:"فيديو حول علاقة الطبيب بالمريض.",
-  url:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   title:"حقوق المريض والمسؤولية الطبية",
+   description:"يمكن استبدال هذا العنصر بفيديو أكاديمي موثوق.",
+   url:""
  },
 
  {
-  title:"Déontologie médicale",
-  description:"Vidéo pédagogique en français.",
-  url:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   title:"Déontologie médicale",
+   description:"يمكن إضافة محاضرة جامعية أو مصدر رسمي مرئي.",
+   url:""
  }
 
 ];
 
 
-/* ===============================
-   جلب البيانات
-================================ */
-
 function getVideos(){
 
- try{
+ const saved=localStorage.getItem("medicalLawVideos");
 
-  const saved =
-   localStorage.getItem("medicalLawDZVideos");
+ if(saved){
 
-  if(saved){
-
-   return JSON.parse(saved);
-
-  }
-
- }catch(error){}
-
- return DEFAULT_VIDEOS;
-
-}
-
-
-/* ===============================
-   حفظ البيانات
-================================ */
-
-function setVideos(videos){
-
- localStorage.setItem(
-  "medicalLawDZVideos",
-  JSON.stringify(videos)
- );
-
-}
-
-
-/* ===============================
-   تحويل رابط YouTube
-================================ */
-
-function youtubeEmbed(url){
-
- if(!url) return "";
-
- let match =
- url.match(
-  /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/|youtube\.com\/embed\/)([A-Za-z0-9_-]+)/
- );
-
- if(match){
-
-  return "https://www.youtube.com/embed/"
-   + match[1]
-   + "?rel=0";
+   try{
+     return JSON.parse(saved);
+   }catch(e){}
 
  }
 
- return url;
+ return defaultVideos;
 
 }
 
 
-/* ===============================
-   HTML حماية
-================================ */
+function saveVideos(videos){
 
-function escapeHTML(text){
+ localStorage.setItem(
+   "medicalLawVideos",
+   JSON.stringify(videos)
+ );
 
- return String(text || "")
+}
+
+
+function youtubeID(url){
+
+ if(!url) return "";
+
+ let match=url.match(
+   /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&?/]+)/
+ );
+
+ return match ? match[1] : "";
+
+}
+
+
+function youtubeEmbed(url){
+
+ const id=youtubeID(url);
+
+ if(!id) return "";
+
+ return "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1";
+
+}
+
+
+function renderVideos(){
+
+ const videos=getVideos();
+
+ const grid=document.getElementById("videoGrid");
+
+ grid.innerHTML="";
+
+ videos.forEach(video=>{
+
+   const id=youtubeID(video.url);
+
+   const card=document.createElement("article");
+
+   card.className="video-card";
+
+   let media="";
+
+   if(id){
+
+     media=`
+     <div class="video">
+
+       <iframe
+       src="${youtubeEmbed(video.url)}"
+       title="${escapeHTML(video.title)}"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+       allowfullscreen>
+       </iframe>
+
+     </div>
+     `;
+
+   }else{
+
+     media=`
+     <div class="video-empty">
+
+       <div>
+         <strong>لا يوجد فيديو بعد</strong>
+
+         <a href="#"
+         onclick="openAdmin();return false;">
+         افتحي Admin لإضافة رابط YouTube
+         </a>
+       </div>
+
+     </div>
+     `;
+
+   }
+
+
+   card.innerHTML=`
+
+     ${media}
+
+     <div class="video-info">
+
+       <h3>${escapeHTML(video.title)}</h3>
+
+       <p>${escapeHTML(video.description)}</p>
+
+       ${
+         id
+         ?
+         `<a
+         class="source"
+         href="${video.url}"
+         target="_blank">
+         فتح الفيديو على YouTube
+         </a>`
+         :
+         ""
+       }
+
+     </div>
+   `;
+
+   grid.appendChild(card);
+
+ });
+
+}
+
+
+function renderAdminVideos(){
+
+ const videos=getVideos();
+
+ const area=document.getElementById("adminVideos");
+
+ area.innerHTML="";
+
+ videos.forEach((video,index)=>{
+
+   const box=document.createElement("div");
+
+   box.className="admin-video";
+
+   box.innerHTML=`
+
+     <h4>فيديو ${index+1}</h4>
+
+     <div class="form">
+
+       <label>العنوان</label>
+
+       <input
+       id="title-${index}"
+       value="${escapeAttribute(video.title)}">
+
+       <label>وصف الفيديو</label>
+
+       <textarea id="desc-${index}">${escapeHTML(video.description)}</textarea>
+
+       <label>رابط YouTube</label>
+
+       <input
+       id="url-${index}"
+       value="${escapeAttribute(video.url)}"
+       placeholder="https://www.youtube.com/watch?v=...">
+
+       <div style="display:flex;gap:8px;flex-wrap:wrap">
+
+         <button
+         class="btn primary"
+         onclick="updateVideo(${index})">
+         حفظ الفيديو
+         </button>
+
+         <button
+         class="btn"
+         onclick="deleteVideo(${index})">
+         حذف
+         </button>
+
+       </div>
+
+     </div>
+   `;
+
+   area.appendChild(box);
+
+ });
+
+
+ const add=document.createElement("div");
+
+ add.innerHTML=`
+
+ <button
+ class="btn gold"
+ onclick="addVideo()">
+ + إضافة فيديو جديد
+ </button>
+
+ <button
+ class="btn"
+ onclick="resetVideos()">
+ إعادة الفيديوهات الافتراضية
+ </button>
+ `;
+
+ area.appendChild(add);
+
+}
+
+
+function updateVideo(index){
+
+ const videos=getVideos();
+
+ videos[index]={
+
+   title:document.getElementById("title-"+index).value,
+
+   description:document.getElementById("desc-"+index).value,
+
+   url:document.getElementById("url-"+index).value
+
+ };
+
+ saveVideos(videos);
+
+ renderVideos();
+
+ renderAdminVideos();
+
+ showSaved();
+
+}
+
+
+function deleteVideo(index){
+
+ const videos=getVideos();
+
+ videos.splice(index,1);
+
+ saveVideos(videos);
+
+ renderVideos();
+
+ renderAdminVideos();
+
+ showSaved();
+
+}
+
+
+function addVideo(){
+
+ const videos=getVideos();
+
+ videos.push({
+
+   title:"فيديو جديد",
+
+   description:"وصف الفيديو",
+
+   url:""
+
+ });
+
+ saveVideos(videos);
+
+ renderVideos();
+
+ renderAdminVideos();
+
+}
+
+
+function resetVideos(){
+
+ if(confirm("هل تريدين إعادة الفيديوهات الافتراضية؟")){
+
+   localStorage.removeItem("medicalLawVideos");
+
+   renderVideos();
+
+   renderAdminVideos();
+
+   showSaved();
+
+ }
+
+}
+
+
+function showSaved(){
+
+ const status=document.getElementById("saveStatus");
+
+ status.classList.add("show");
+
+ setTimeout(()=>{
+   status.classList.remove("show");
+ },2500);
+
+}
+
+
+/* =========================================================
+   SECURITY / HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+ return String(value ?? "")
  .replace(/&/g,"&amp;")
  .replace(/</g,"&lt;")
  .replace(/>/g,"&gt;")
@@ -1379,292 +2901,22 @@ function escapeHTML(text){
 
 }
 
+function escapeAttribute(value){
 
-/* ===============================
-   عرض الفيديوهات
-================================ */
-
-function renderVideos(){
-
- const container =
-  document.getElementById("videoGrid");
-
- if(!container)return;
-
- const videos=getVideos();
-
- container.innerHTML="";
-
- videos.forEach(video=>{
-
-  container.innerHTML += `
-
-   <article class="video">
-
-    <iframe
-     src="${youtubeEmbed(video.url)}"
-     title="${escapeHTML(video.title)}"
-     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-     allowfullscreen>
-    </iframe>
-
-    <div class="video-info">
-
-     <h3>
-      ${escapeHTML(video.title)}
-     </h3>
-
-     <p>
-      ${escapeHTML(video.description)}
-     </p>
-
-    </div>
-
-   </article>
-
-  `;
-
- });
+ return escapeHTML(value);
 
 }
 
 
-/* ===============================
-   Admin
-================================ */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-function openAdmin(){
-
- document.getElementById("adminModal").style.display="block";
-
- document.body.style.overflow="hidden";
-
-}
-
-function closeAdmin(){
-
- document.getElementById("adminModal").style.display="none";
-
- document.body.style.overflow="auto";
-
-}
-
-
-/* ===============================
-   تسجيل الدخول
-================================ */
-
-function loginAdmin(){
-
- const user=
-  document.getElementById("adminUser").value;
-
- const pass=
-  document.getElementById("adminPass").value;
-
- /*
-  بيانات الدخول المطلوبة
- */
- if(
-  user==="sophie" &&
-  pass==="swan2006"
- ){
-
-  document.getElementById("loginArea").style.display="none";
-
-  document.getElementById("adminPanel").style.display="block";
-
-  renderAdminVideos();
-
- }else{
-
-  document.getElementById("loginError").textContent=
-   "❌ اسم المستخدم أو كلمة المرور غير صحيحة.";
-
- }
-
-}
-
-
-/* ===============================
-   لوحة الفيديوهات
-================================ */
-
-function renderAdminVideos(){
-
- const container=
-  document.getElementById("adminVideos");
-
- const videos=getVideos();
-
- container.innerHTML="";
-
- videos.forEach((video,index)=>{
-
-  container.innerHTML += `
-
-   <div class="admin-row">
-
-    <div class="admin-field">
-
-     <label>العنوان ${index+1}</label>
-
-     <input
-      data-index="${index}"
-      data-field="title"
-      value="${escapeHTML(video.title)}">
-
-    </div>
-
-
-    <div class="admin-field">
-
-     <label>رابط YouTube</label>
-
-     <input
-      data-index="${index}"
-      data-field="url"
-      value="${escapeHTML(video.url)}">
-
-    </div>
-
-
-    <div class="admin-field">
-
-     <label>الوصف</label>
-
-     <input
-      data-index="${index}"
-      data-field="description"
-      value="${escapeHTML(video.description)}">
-
-    </div>
-
-   </div>
-
-  `;
-
- });
-
-}
-
-
-/* ===============================
-   حفظ الفيديوهات
-================================ */
-
-function saveVideos(){
-
- const videos=getVideos();
-
- document
-  .querySelectorAll("#adminVideos input")
-  .forEach(input=>{
-
-   const index=
-    Number(input.dataset.index);
-
-   const field=
-    input.dataset.field;
-
-   videos[index][field]=input.value;
-
-  });
-
- setVideos(videos);
+document.addEventListener("DOMContentLoaded",()=>{
 
  renderVideos();
 
- document.getElementById("saveMessage").textContent=
-  "✓ تم حفظ التعديلات بنجاح.";
-
-}
-
-
-/* ===============================
-   إعادة الفيديوهات
-================================ */
-
-function resetVideos(){
-
- if(
-  confirm("هل تريدين استعادة الفيديوهات الافتراضية؟")
- ){
-
-  setVideos(DEFAULT_VIDEOS);
-
-  renderAdminVideos();
-
-  renderVideos();
-
-  document.getElementById("saveMessage").textContent=
-   "✓ تمت الاستعادة.";
-
- }
-
-}
-
-
-/* ===============================
-   إضافة فيديو
-================================ */
-
-function addVideo(){
-
- const videos=getVideos();
-
- videos.push({
-
-  title:"فيديو جديد",
-
-  description:"أضيف من لوحة Admin.",
-
-  url:"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-
- });
-
- setVideos(videos);
-
- renderAdminVideos();
-
- renderVideos();
-
-}
-
-
-/* ===============================
-   البحث في النصوص
-================================ */
-
-document
- .getElementById("searchInput")
- .addEventListener("input",function(){
-
-  const query=
-   this.value.toLowerCase();
-
-  document
-   .querySelectorAll(".law")
-   .forEach(item=>{
-
-    const text=
-     item.innerText.toLowerCase();
-
-    item.style.display=
-     text.includes(query)
-      ? "flex"
-      : "none";
-
-   });
-
- });
-
-
-/* ===============================
-   تشغيل الموقع
-================================ */
-
-renderVideos();
+});
 
 </script>
 
