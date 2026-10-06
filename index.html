@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Droit Médical Algérien | Insaf</title>
+
+<style>
+:root{
+    --brown:#4b3025;
+    --brown2:#6f4e37;
+    --gold:#b89055;
+    --cream:#f8f3eb;
+    --white:#fff;
+    --dark:#211814;
+    --gray:#756b65;
+    --light:#eee5da;
+    --shadow:0 15px 40px rgba(45,28,20,.12);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:var(--cream);
+    color:var(--dark);
+    line-height:1.8;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+header{
+    min-height:92vh;
+    background:
+    linear-gradient(rgba(50,31,23,.72),rgba(50,31,23,.82)),
+    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero{
+    max-width:1000px;
+}
+
+.logo{
+    font-size:18px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#e3c58e;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,90px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    font-size:20px;
+    color:#f5eee5;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.5);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn.gold{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:white;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(75,48,37,.97);
+    color:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    font-size:14px;
+    opacity:.9;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:#e1bd82;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:13px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:var(--brown);
+    margin-top:8px;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:10px auto;
+    color:var(--gray);
+}
+
+.intro{
+    background:white;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--light);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+.card .icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:var(--brown);
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#625a55;
+    font-size:15px;
+}
+
+.dark-section{
+    background:var(--brown);
+    color:white;
+}
+
+.dark-section .section-title h2{
+    color:white;
+}
+
+.dark-section .section-title p{
+    color:#d8cbc1;
+}
+
+.timeline{
+    position:relative;
+    max-width:950px;
+    margin:auto;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    width:3px;
+    background:var(--gold);
+    top:0;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:30px;
+    width:17px;
+    height:17px;
+    background:var(--gold);
+    border:4px solid var(--brown);
+    border-radius:50%;
+    z-index:2;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-8px;
+}
+
+.timeline-card{
+    background:#fff;
+    color:var(--dark);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+.year{
+    font-size:30px;
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.timeline-card h3{
+    color:var(--brown);
+}
+
+.timeline-card p{
+    font-size:14px;
+    color:#625a55;
+}
+
+.legislation{
+    background:#f2e9df;
+}
+
+.law-card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    border-left:5px solid var(--gold);
+    box-shadow:var(--shadow);
+}
+
+.law-number{
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.law-card h3{
+    color:var(--brown);
+    margin:7px 0;
+}
+
+.law-card p{
+    color:#625a55;
+    font-size:15px;
+}
+
+.law-link{
+    display:inline-block;
+    margin-top:15px;
+    color:var(--brown2);
+    font-weight:bold;
+}
+
+.images-section{
+    background:white;
+}
+
+.image-card{
+    overflow:hidden;
+    padding:0;
+}
+
+.image-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+}
+
+.image-card .image-text{
+    padding:22px;
+}
+
+.image-card h3{
+    color:var(--brown);
+}
+
+.image-card p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.principles{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+}
+
+.principle{
+    padding:25px;
+    background:#fff;
+    border-radius:16px;
+    text-align:center;
+    border:1px solid var(--light);
+}
+
+.principle strong{
+    display:block;
+    color:var(--brown);
+    font-size:19px;
+    margin-top:10px;
+}
+
+.video-box{
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.video-placeholder{
+    aspect-ratio:16/9;
+    background:
+    linear-gradient(rgba(45,27,20,.5),rgba(45,27,20,.5)),
+    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:45px;
+    border-radius:12px;
+}
+
+.video-box h3{
+    color:var(--brown);
+    margin-top:18px;
+}
+
+.video-box p{
+    color:var(--gray);
+}
+
+.search-area{
+    max-width:700px;
+    margin:0 auto 40px;
+}
+
+.search-area input{
+    width:100%;
+    padding:17px 20px;
+    border:1px solid #d7c8b9;
+    border-radius:30px;
+    outline:none;
+    font-size:16px;
+}
+
+.sources{
+    background:#211814;
+    color:#eee;
+}
+
+.sources a{
+    color:#dfbd80;
+}
+
+footer{
+    background:#140f0c;
+    color:#bdb0a7;
+    text-align:center;
+    padding:35px 20px;
+    font-size:14px;
+}
+
+/* ADMIN */
+
+.admin-button{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:var(--gold);
+    color:white;
+    font-size:23px;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    z-index:2000;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(20,13,10,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:3000;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(500px,100%);
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.modal-box h2{
+    color:var(--brown);
+    margin-bottom:20px;
+}
+
+.modal-box input,
+.modal-box textarea{
+    width:100%;
+    padding:13px;
+    margin:7px 0 12px;
+    border:1px solid #ddd0c5;
+    border-radius:10px;
+    font-family:inherit;
+}
+
+.admin-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.admin-panel{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#f8f3eb;
+    z-index:2500;
+    overflow:auto;
+}
+
+.admin-panel.show{
+    display:block;
+}
+
+.admin-header{
+    background:var(--brown);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.admin-content{
+    max-width:900px;
+    margin:40px auto;
+    width:92%;
+}
+
+.admin-content textarea{
+    width:100%;
+    min-height:150px;
+    padding:15px;
+    border:1px solid #d8c8b9;
+    border-radius:12px;
+}
+
+.notice{
+    background:#fff8e9;
+    border:1px solid #e5c98d;
+    border-radius:15px;
+    padding:20px;
+    margin-top:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:700px){
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .timeline:before{
+        left:15px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        left:0;
+        text-align:left;
+        padding-left:45px;
+        padding-right:5px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:7px;
+        right:auto;
+    }
+
+    nav{
+        position:relative;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="home">
+
+<div class="hero">
+
+<div class="logo">
+Recherche juridique • Droit médical algérien
+</div>
+
+<h1>
+Droit Médical<br>
+Algérien
+</h1>
+
+<p>
+Évolution historique, principes juridiques, droits du patient,
+obligations du professionnel de santé et principales sources
+législatives de l'Algérie.
+</p>
+
+<div class="hero-buttons">
+<a href="#evolution" class="btn gold">Explorer l'évolution</a>
+<a href="#legislation" class="btn">Les textes juridiques</a>
+</div>
+
+</div>
+
+</header>
+
+
+<nav>
+
+<div class="nav-inner">
+
+<a href="#home">Accueil</a>
+<a href="#definition">Droit médical</a>
+<a href="#avant">Avant 1830</a>
+<a href="#evolution">Évolution</a>
+<a href="#principes">Principes</a>
+<a href="#patient">Patient</a>
+<a href="#responsabilite">Responsabilité</a>
+<a href="#legislation">Législation</a>
+<a href="#videos">Vidéos</a>
+
+</div>
+
+</nav>
+
+
+<section id="definition" class="intro">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Introduction</span>
+
+<h2>Qu'est-ce que le droit médical ?</h2>
+
+<p>
+Une rencontre entre le droit, la médecine, l'éthique et la protection
+de la personne humaine.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">⚖️</div>
+
+<h3>Une branche juridique</h3>
+
+<p>
+Le droit médical regroupe les règles qui encadrent l'exercice
+des activités médicales, les établissements de santé,
+les professionnels de santé et les relations avec les patients.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🩺</div>
+
+<h3>Une dimension médicale</h3>
+
+<p>
+Il prend en considération les règles professionnelles,
+les actes de diagnostic, les soins, la prévention
+et l'organisation du système de santé.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👤</div>
+
+<h3>Protection du patient</h3>
+
+<p>
+Le droit médical cherche notamment à protéger la dignité,
+l'intégrité corporelle, la vie privée et les droits
+de la personne prise en charge.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="avant" class="images-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Repères historiques</span>
+
+<h2>La médecine avant la colonisation</h2>
+
+<p>
+Cette partie est volontairement visuelle : elle présente
+des repères historiques sur les pratiques médicales
+et les savoirs traditionnels avant la période coloniale.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card image-card">
+
+<img
+src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
+alt="Médecine historique">
+
+<div class="image-text">
+
+<h3>Pratiques médicales traditionnelles</h3>
+
+<p>
+Image illustrative destinée à représenter les pratiques
+de soins anciennes.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card image-card">
+
+<img
+src="https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=900&q=80"
+alt="Herbes médicinales">
+
+<div class="image-text">
+
+<h3>Savoirs thérapeutiques</h3>
+
+<p>
+Les plantes médicinales, les savoirs transmis et les pratiques
+de soins occupaient une place importante dans les sociétés anciennes.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card image-card">
+
+<img
+src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=80"
+alt="Médecine">
+
+<div class="image-text">
+
+<h3>Transmission des connaissances</h3>
+
+<p>
+Les connaissances médicales étaient transmises entre générations
+et au sein de différentes traditions scientifiques et culturelles.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="evolution" class="dark-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Chronologie juridique</span>
+
+<h2>Évolution du droit de la santé en Algérie</h2>
+
+<p>
+Des premières orientations après l'indépendance jusqu'au cadre
+législatif contemporain.
+</p>
+
+</div>
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">1962</div>
+
+<h3>L'indépendance</h3>
+
+<p>
+Après l'indépendance, l'Algérie entreprend progressivement
+la construction de son propre système national de santé.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">1973</div>
+
+<h3>Médecine gratuite</h3>
+
+<p>
+L'ordonnance n°73-65 du 28 décembre 1973 institue
+la médecine gratuite dans les secteurs sanitaires.
+Elle constitue une étape majeure de la politique sanitaire
+post-indépendance.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">1976</div>
+
+<h3>Code de la santé publique</h3>
+
+<p>
+L'ordonnance n°76-79 du 23 octobre 1976 portant
+code de la santé publique constitue une étape importante
+dans la structuration juridique du secteur sanitaire.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">1985</div>
+
+<h3>Loi n°85-05</h3>
+
+<p>
+La loi n°85-05 du 16 février 1985 relative à la protection
+et à la promotion de la santé constitue un texte majeur
+du système national de santé.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">2007</div>
+
+<h3>Réorganisation des établissements</h3>
+
+<p>
+Le décret exécutif n°07-140 du 19 mai 2007 organise notamment
+les établissements publics hospitaliers et les établissements
+publics de santé de proximité.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="year">2018</div>
+
+<h3>Loi n°18-11 relative à la santé</h3>
+
+<p>
+La loi n°18-11 du 2 juillet 2018 relative à la santé
+modernise le cadre législatif et constitue le texte central
+du droit de la santé algérien contemporain.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="principes">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Principes fondamentaux</span>
+
+<h2>Les grands principes</h2>
+
+<p>
+Quelques notions essentielles à connaître en droit médical.
+</p>
+
+</div>
+
+
+<div class="principles">
+
+<div class="principle">
+<div>🧑‍⚕️</div>
+<strong>Professionnalisme</strong>
+Respect des règles professionnelles.
+</div>
+
+<div class="principle">
+<div>🤝</div>
+<strong>Consentement</strong>
+Respect de la volonté du patient.
+</div>
+
+<div class="principle">
+<div>🔐</div>
+<strong>Secret médical</strong>
+Protection des informations concernant le patient.
+</div>
+
+<div class="principle">
+<div>❤️</div>
+<strong>Dignité</strong>
+Respect de la personne humaine.
+</div>
+
+<div class="principle">
+<div>🛡️</div>
+<strong>Prévention</strong>
+Protection de la santé et prévention des risques.
+</div>
+
+<div class="principle">
+<div>⚖️</div>
+<strong>Responsabilité</strong>
+Réparation et responsabilité en cas de manquement.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="patient" class="intro">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Patient</span>
+
+<h2>Droits du patient</h2>
+
+<p>
+La relation médicale ne se limite pas à l'acte de soin :
+elle implique également la protection juridique du patient.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📋</div>
+<h3>Information</h3>
+<p>
+Le patient doit pouvoir recevoir les informations nécessaires
+à la compréhension de sa prise en charge.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">✅</div>
+<h3>Consentement</h3>
+<p>
+Le consentement constitue un élément fondamental
+de la relation entre professionnel et patient.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">🔒</div>
+<h3>Confidentialité</h3>
+<p>
+Les informations médicales relatives au patient doivent
+être protégées conformément aux règles applicables.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">🏥</div>
+<h3>Accès aux soins</h3>
+<p>
+Le système de santé organise l'accès aux prestations
+et aux structures de santé selon le cadre légal applicable.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="responsabilite" class="legislation">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Responsabilité médicale</span>
+
+<h2>Responsabilité du professionnel de santé</h2>
+
+<p>
+La responsabilité peut être étudiée sous plusieurs dimensions
+selon la nature du fait reproché et le régime juridique applicable.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">⚖️</div>
+
+<h3>Responsabilité civile</h3>
+
+<p>
+Elle concerne notamment la réparation d'un dommage
+dans les conditions prévues par le droit applicable.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🚨</div>
+
+<h3>Responsabilité pénale</h3>
+
+<p>
+Elle peut être engagée lorsque les faits correspondent
+aux conditions d'une infraction prévue par la loi pénale.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👨‍⚕️</div>
+
+<h3>Responsabilité professionnelle</h3>
+
+<p>
+Le professionnel doit respecter les règles professionnelles,
+déontologiques et techniques qui encadrent son activité.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="legislation">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Textes fondamentaux</span>
+
+<h2>Principales législations</h2>
+
+<p>
+Une sélection de textes essentiels pour l'étude du droit médical
+et du droit de la santé en Algérie.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="law-card">
+
+<div class="law-number">28 décembre 1973</div>
+
+<h3>Ordonnance n°73-65</h3>
+
+<p>
+Portant institution de la médecine gratuite dans les secteurs
+sanitaires.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/FTP/jo-francais/1974/F1974001.PDF"
+target="_blank">
+Consulter le Journal officiel →
+</a>
+
+</div>
+
+
+<div class="law-card">
+
+<div class="law-number">23 octobre 1976</div>
+
+<h3>Ordonnance n°76-79</h3>
+
+<p>
+Portant code de la santé publique.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/"
+target="_blank">
+Base officielle du Journal officiel →
+</a>
+
+</div>
+
+
+<div class="law-card">
+
+<div class="law-number">16 février 1985</div>
+
+<h3>Loi n°85-05</h3>
+
+<p>
+Relative à la protection et à la promotion de la santé.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/FTP/Jo-Francais/1985/F1985008.pdf"
+target="_blank">
+Consulter le texte officiel →
+</a>
+
+</div>
+
+
+<div class="law-card">
+
+<div class="law-number">19 mai 2007</div>
+
+<h3>Décret exécutif n°07-140</h3>
+
+<p>
+Portant création, organisation et fonctionnement des établissements
+publics hospitaliers et des établissements publics de santé
+de proximité.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/FTP/jo-francais/2007/F2007033.pdf"
+target="_blank">
+Consulter le texte officiel →
+</a>
+
+</div>
+
+
+<div class="law-card">
+
+<div class="law-number">2 juillet 2018</div>
+
+<h3>Loi n°18-11 relative à la santé</h3>
+
+<p>
+Texte majeur du cadre contemporain du droit de la santé algérien.
+Il remplace notamment l'ancien cadre issu de la loi n°85-05.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf"
+target="_blank">
+Consulter le Journal officiel →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="videos" class="images-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Archives audiovisuelles</span>
+
+<h2>Vidéos & documentation</h2>
+
+<p>
+Espace réservé aux vidéos pédagogiques sur l'histoire,
+la législation et l'évolution du système de santé algérien.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="video-box">
+
+<div class="video-placeholder">
+▶
+</div>
+
+<h3>Évolution du système de santé algérien</h3>
+
+<p>
+Ajoute ici ton lien YouTube lorsque tu choisis la vidéo.
+</p>
+
+</div>
+
+
+<div class="video-box">
+
+<div class="video-placeholder">
+▶
+</div>
+
+<h3>La médecine gratuite en Algérie</h3>
+
+<p>
+Vidéo consacrée à la réforme de 1973 et à la gratuité
+des soins dans les secteurs sanitaires.
+</p>
+
+</div>
+
+
+<div class="video-box">
+
+<div class="video-placeholder">
+▶
+</div>
+
+<h3>Loi 18-11 relative à la santé</h3>
+
+<p>
+Vidéo pédagogique consacrée au cadre juridique contemporain.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="sources">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>Sources</span>
+
+<h2>Références officielles</h2>
+
+<p>
+Pour les recherches universitaires, privilégier les textes
+publiés par le Journal officiel de la République algérienne.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Journal officiel</h3>
+
+<p>
+Site officiel du Secrétariat Général du Gouvernement.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/"
+target="_blank">
+joradp.dz →
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Recherche juridique</h3>
+
+<p>
+La base officielle permet de rechercher les textes législatifs
+et réglementaires publiés depuis 1962.
+</p>
+
+<a
+class="law-link"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet"
+target="_blank">
+Recherche des textes →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 — Droit Médical Algérien
+</p>
+
+<p>
+Projet académique — Master Droit Médical
+</p>
+
+</footer>
+
+
+<!-- ADMIN BUTTON -->
+
+<button
+class="admin-button"
+onclick="openLogin()"
+title="Administration">
+🔐
+</button>
+
+
+<!-- LOGIN MODAL -->
+
+<div id="loginModal" class="modal">
+
+<div class="modal-box">
+
+<h2>Administration</h2>
+
+<p style="color:#756b65;margin-bottom:15px;">
+Accès réservé à l'administration du site.
+</p>
+
+<input
+id="username"
+type="text"
+placeholder="Nom d'utilisateur">
+
+<input
+id="password"
+type="password"
+placeholder="Mot de passe">
+
+<div class="admin-actions">
+
+<button
+class="btn gold"
+onclick="login()">
+Se connecter
+</button>
+
+<button
+class="btn"
+onclick="closeLogin()"
+style="color:#4b3025;border-color:#d8c8b9;">
+Annuler
+</button>
+
+</div>
+
+<p
+id="loginError"
+style="color:#a33;margin-top:12px;">
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel" class="admin-panel">
+
+<div class="admin-header">
+
+<strong>⚖️ Administration — Droit Médical</strong>
+
+<button
+class="btn"
+onclick="logout()">
+Déconnexion
+</button>
+
+</div>
+
+
+<div class="admin-content">
+
+<h1 style="color:#4b3025;margin-bottom:10px;">
+Tableau de bord
+</h1>
+
+<p style="color:#756b65;">
+Bienvenue dans l'espace d'administration.
+</p>
+
+
+<div class="notice">
+
+<strong>⚠️ Administration locale</strong>
+
+<p>
+Les modifications ajoutées ici sont enregistrées dans
+le navigateur avec LocalStorage. Pour une administration
+partagée entre plusieurs personnes, il faudra connecter
+le site à Supabase.
+</p>
+
+</div>
+
+
+<br>
+
+
+<h2 style="color:#4b3025;">
+Ajouter une note académique
+</h2>
+
+<br>
+
+<textarea
+id="adminNote"
+placeholder="Écris ici une information, une annonce ou une note..."></textarea>
+
+<br><br>
+
+<button
+class="btn gold"
+onclick="saveNote()">
+Enregistrer
+</button>
+
+<button
+class="btn"
+onclick="clearNote()"
+style="color:#4b3025;border-color:#d8c8b9;">
+Supprimer
+</button>
+
+
+<div id="savedNote"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   ADMIN LOGIN
+========================= */
+
+const ADMIN_USERNAME = "sophie";
+const ADMIN_PASSWORD = "insaf2006";
+
+
+function openLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.add("show");
+
+}
+
+
+function closeLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("show");
+
+}
+
+
+function login(){
+
+    const username =
+    document.getElementById("username").value.trim();
+
+    const password =
+    document.getElementById("password").value;
+
+    const error =
+    document.getElementById("loginError");
+
+
+    if(
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
+    ){
+
+        closeLogin();
+
+        document
+        .getElementById("adminPanel")
+        .classList.add("show");
+
+        loadNote();
+
+        error.innerText = "";
+
+    }
+
+    else{
+
+        error.innerText =
+        "Nom d'utilisateur ou mot de passe incorrect.";
+
+    }
+
+}
+
+
+function logout(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   ADMIN NOTES
+========================= */
+
+function saveNote(){
+
+    const note =
+    document.getElementById("adminNote").value.trim();
+
+    if(!note){
+
+        alert("Écris une note avant de l'enregistrer.");
+
+        return;
+
+    }
+
+    localStorage.setItem("medicalLawNote",note);
+
+    showNote(note);
+
+    alert("Note enregistrée.");
+
+}
+
+
+function loadNote(){
+
+    const note =
+    localStorage.getItem("medicalLawNote");
+
+    if(note){
+
+        document
+        .getElementById("adminNote")
+        .value = note;
+
+        showNote(note);
+
+    }
+
+}
+
+
+function showNote(note){
+
+    document
+    .getElementById("savedNote")
+    .innerHTML = `
+
+    <div class="notice">
+
+    <strong>Dernière note :</strong>
+
+    <p>${escapeHTML(note)}</p>
+
+    </div>
+
+    `;
+
+}
+
+
+function clearNote(){
+
+    localStorage.removeItem("medicalLawNote");
+
+    document
+    .getElementById("adminNote")
+    .value = "";
+
+    document
+    .getElementById("savedNote")
+    .innerHTML = "";
+
+}
+
+
+function escapeHTML(text){
+
+    const div =
+    document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const searchInput =
+document.createElement("input");
+
+searchInput.placeholder =
+"Rechercher dans le contenu...";
+
+
+/* Keyboard shortcut:
+   Ctrl + K
+*/
+
+document.addEventListener("keydown",function(e){
+
+    if(e.ctrlKey && e.key === "k"){
+
+        e.preventDefault();
+
+        window.scrollTo({
+            top:document.body.scrollHeight,
+            behavior:"smooth"
+        });
+
+    }
+
+});
+
+
+/* Close modal when clicking outside */
+
+document
+.getElementById("loginModal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+
+        closeLogin();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
