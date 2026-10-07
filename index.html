@@ -4,31 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Droit médical — Médecin, Patient et Droit</title>
+<title>Le médecin, le patient et le droit — Droit médical en Algérie</title>
 
 <meta name="description"
-content="Site académique consacré à la relation médicale, aux droits du patient, aux obligations du médecin et à la responsabilité médicale.">
+content="Site académique bilingue consacré à la relation entre médecin, patient et droit médical en Algérie.">
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root{
+    --cream:#f7f1e6;
+    --cream2:#eee3d2;
+    --brown:#49372b;
+    --brown2:#6d5544;
+    --gold:#b08a4b;
+    --gold2:#d2b477;
+    --white:#fffdf8;
+    --text:#332820;
+    --muted:#796b60;
+    --shadow:0 18px 50px rgba(61,43,31,.13);
+    --radius:24px;
 }
 
-:root{
-    --brown:#3d2920;
-    --brown-light:#68493a;
-    --gold:#b49361;
-    --gold-light:#d5bd91;
-    --cream:#f5efe6;
-    --cream-light:#fbf8f3;
-    --white:#ffffff;
-    --text:#302721;
-    --muted:#766b63;
-    --dark:#1d1714;
-    --shadow:0 18px 50px rgba(45,30,22,.13);
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -36,70 +36,96 @@ html{
 }
 
 body{
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:Georgia, "Times New Roman", serif;
+    background:var(--cream);
     color:var(--text);
-    background:var(--cream-light);
     line-height:1.7;
+    overflow-x:hidden;
+}
+
+body.ar{
+    direction:rtl;
+    font-family:"Tahoma","Arial",sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
 }
 
 /* =========================
-   NAVIGATION
+   NAVBAR
 ========================= */
 
-nav{
-    position:sticky;
+.navbar{
+    position:fixed;
     top:0;
-    z-index:9999;
-    background:rgba(255,253,249,.94);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(61,41,32,.12);
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(255,253,248,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(176,138,75,.2);
 }
 
 .nav-inner{
-    max-width:1250px;
-    margin:auto;
-    padding:13px 5%;
+    min-height:78px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:20px;
-}
-
-.logo{
-    color:var(--brown);
-    font-family:Arial,sans-serif;
-    font-weight:700;
-    letter-spacing:2px;
-    font-size:14px;
-    white-space:nowrap;
-}
-
-.nav-links{
-    list-style:none;
-    display:flex;
+    justify-content:space-between;
     gap:25px;
 }
 
-.nav-links a{
-    text-decoration:none;
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:1px;
     color:var(--brown);
-    font-family:Arial,sans-serif;
-    font-size:12px;
-    transition:.3s;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    font-size:14px;
+    color:var(--brown);
+    transition:.25s;
 }
 
 .nav-links a:hover{
     color:var(--gold);
 }
 
-.lang{
-    border:1px solid var(--brown);
+.lang-btn{
+    border:1px solid var(--gold);
     background:transparent;
     color:var(--brown);
+    padding:9px 16px;
     border-radius:30px;
-    padding:7px 14px;
     cursor:pointer;
-    font-size:12px;
+    font-weight:bold;
+}
+
+.lang-btn:hover{
+    background:var(--brown);
+    color:white;
 }
 
 /* =========================
@@ -107,498 +133,354 @@ nav{
 ========================= */
 
 .hero{
-    min-height:92vh;
+    min-height:760px;
+    padding-top:78px;
     position:relative;
     display:flex;
     align-items:center;
-    overflow:hidden;
+    color:white;
     background:
-        linear-gradient(
-            90deg,
-            rgba(28,19,15,.92) 0%,
-            rgba(45,30,23,.78) 48%,
-            rgba(45,30,23,.25) 100%
-        ),
-        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=90")
+        linear-gradient(90deg,rgba(45,29,21,.90),rgba(45,29,21,.60),rgba(45,29,21,.30)),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1900&q=90")
         center/cover;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-    border:1px solid rgba(213,189,145,.3);
-    right:-180px;
-    bottom:-180px;
-}
-
 .hero-content{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    position:relative;
-    z-index:2;
-    color:white;
+    max-width:760px;
+    padding:80px 0;
 }
 
-.hero-tag{
-    display:inline-block;
-    border:1px solid rgba(255,255,255,.4);
-    padding:7px 18px;
-    border-radius:30px;
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    letter-spacing:2px;
-    margin-bottom:25px;
+.eyebrow{
+    color:#e4c58e;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(45px,7vw,88px);
-    line-height:1.03;
-    font-weight:500;
-    max-width:850px;
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.08;
     margin-bottom:25px;
 }
 
-.hero h1 span{
-    color:var(--gold-light);
-}
-
-.hero-description{
-    max-width:700px;
-    color:#eee5dc;
-    font-size:18px;
+.hero p{
+    max-width:680px;
+    font-size:19px;
+    color:#f4eee5;
 }
 
 .hero-buttons{
     display:flex;
+    flex-wrap:wrap;
     gap:14px;
     margin-top:35px;
-    flex-wrap:wrap;
 }
 
-.button{
-    text-decoration:none;
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     padding:13px 23px;
     border-radius:30px;
-    font-family:Arial,sans-serif;
-    font-size:13px;
-    transition:.3s;
+    font-size:14px;
+    font-weight:bold;
+    transition:.25s;
 }
 
-.button-main{
+.btn-gold{
     background:var(--gold);
     color:white;
 }
 
-.button-outline{
-    border:1px solid rgba(255,255,255,.5);
+.btn-light{
+    border:1px solid rgba(255,255,255,.6);
     color:white;
+    background:rgba(255,255,255,.08);
 }
 
-.button:hover{
+.btn:hover{
     transform:translateY(-3px);
 }
 
 /* =========================
-   SECTIONS
+   SECTION
 ========================= */
 
 section{
-    padding:100px 6%;
+    padding:100px 0;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
+.section-head{
+    max-width:760px;
+    margin-bottom:45px;
 }
 
-.label{
-    font-family:Arial,sans-serif;
-    text-transform:uppercase;
+.section-kicker{
     color:var(--gold);
-    letter-spacing:3px;
-    font-size:11px;
-    margin-bottom:12px;
-}
-
-h2{
-    color:var(--brown);
-    font-size:clamp(32px,5vw,55px);
-    line-height:1.15;
-    font-weight:500;
-    margin-bottom:20px;
-}
-
-.intro{
-    color:var(--muted);
-    max-width:800px;
-    font-size:17px;
-}
-
-/* =========================
-   INTRO IMAGE SECTION
-========================= */
-
-.visual-intro{
-    background:var(--cream);
-}
-
-.visual-grid{
-    margin-top:55px;
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:30px;
-    align-items:stretch;
-}
-
-.big-image{
-    min-height:550px;
-    border-radius:28px;
-    overflow:hidden;
-    position:relative;
-    background:
-        linear-gradient(0deg,rgba(25,17,13,.72),transparent 65%),
-        url("https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1300&q=90")
-        center/cover;
-}
-
-.big-image-content{
-    position:absolute;
-    bottom:35px;
-    left:35px;
-    right:35px;
-    color:white;
-}
-
-.big-image-content h3{
-    font-size:34px;
-    font-weight:500;
-}
-
-.big-image-content p{
-    color:#eee5dd;
-}
-
-.side-images{
-    display:grid;
-    grid-template-rows:1fr 1fr;
-    gap:30px;
-}
-
-.small-image{
-    border-radius:28px;
-    min-height:250px;
-    overflow:hidden;
-    position:relative;
-}
-
-.small-image.one{
-    background:
-        linear-gradient(0deg,rgba(35,24,18,.7),transparent 70%),
-        url("https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=90")
-        center/cover;
-}
-
-.small-image.two{
-    background:
-        linear-gradient(0deg,rgba(35,24,18,.75),transparent 70%),
-        url("https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1000&q=90")
-        center/cover;
-}
-
-.image-label{
-    position:absolute;
-    bottom:25px;
-    left:25px;
-    color:white;
-}
-
-.image-label h3{
-    font-size:22px;
-    font-weight:500;
-}
-
-/* =========================
-   RELATION MEDICALE
-========================= */
-
-.relation{
-    background:white;
-}
-
-.relation-diagram{
-    margin-top:55px;
-    display:grid;
-    grid-template-columns:1fr .9fr 1fr;
-    align-items:center;
-    gap:28px;
-}
-
-.person{
-    background:var(--cream-light);
-    border-radius:25px;
-    overflow:hidden;
-    border:1px solid rgba(61,41,32,.1);
-    box-shadow:var(--shadow);
-}
-
-.person-image{
-    height:230px;
-    background-size:cover;
-    background-position:center;
-}
-
-.doctor-image{
-    background-image:
-        linear-gradient(0deg,rgba(48,31,23,.45),transparent),
-        url("https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1000&q=90");
-}
-
-.patient-image{
-    background-image:
-        linear-gradient(0deg,rgba(48,31,23,.45),transparent),
-        url("https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=90");
-}
-
-.person-content{
-    padding:28px;
-}
-
-.person-content h3{
-    color:var(--brown);
-    font-size:27px;
-    margin-bottom:8px;
-}
-
-.person-content p{
-    color:var(--muted);
-    font-size:14px;
-}
-
-.list{
-    margin-top:18px;
-}
-
-.list div{
-    padding:8px 0;
-    border-bottom:1px solid rgba(61,41,32,.1);
-    font-family:Arial,sans-serif;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
     font-size:12px;
+    margin-bottom:10px;
 }
 
-/* LAW */
-
-.law-center{
-    text-align:center;
+.section-head h2{
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.15;
+    color:var(--brown);
+    margin-bottom:16px;
 }
 
-.law-box{
-    min-height:390px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:30px;
-    border-radius:30px;
-    color:white;
-    background:
-        linear-gradient(rgba(54,35,27,.72),rgba(54,35,27,.9)),
-        url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=90")
-        center/cover;
-    box-shadow:var(--shadow);
-}
-
-.law-symbol{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.5);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.law-box h3{
-    font-size:29px;
-    font-weight:500;
-}
-
-.law-box p{
-    color:#e8ded5;
-    font-size:14px;
-    margin-top:8px;
+.section-head p{
+    color:var(--muted);
 }
 
 /* =========================
-   CORE IDEA
+   INTRO CARDS
 ========================= */
 
-.core{
-    margin-top:45px;
-    padding:35px;
-    background:
-        linear-gradient(
-            100deg,
-            rgba(59,40,31,.96),
-            rgba(94,65,49,.9)
-        ),
-        url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-    border-radius:25px;
-    color:white;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
-.core h3{
-    font-size:30px;
-    font-weight:500;
-}
-
-.core p{
-    color:#e8ded5;
-}
-
-/* =========================
-   THREE CARDS
-========================= */
-
-.cards{
-    margin-top:55px;
+.intro-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
-.card{
-    background:white;
-    border-radius:24px;
+.person-card{
+    min-height:430px;
+    position:relative;
     overflow:hidden;
-    border:1px solid rgba(61,41,32,.1);
-    box-shadow:0 12px 35px rgba(45,30,22,.07);
-    transition:.35s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
+    border-radius:var(--radius);
     box-shadow:var(--shadow);
-}
-
-.card-image{
-    height:210px;
+    color:white;
+    display:flex;
+    align-items:flex-end;
     background-size:cover;
     background-position:center;
 }
 
-.card1{
-    background-image:url("https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=1000&q=90");
+.person-card.doctor{
+    background-image:
+    linear-gradient(0deg,rgba(39,27,20,.92),rgba(39,27,20,.05)),
+    url("https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1000&q=85");
 }
 
-.card2{
-    background-image:url("https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1000&q=90");
+.person-card.patient{
+    background-image:
+    linear-gradient(0deg,rgba(39,27,20,.94),rgba(39,27,20,.04)),
+    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85");
 }
 
-.card3{
-    background-image:url("https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1000&q=90");
+.person-card.law{
+    background-image:
+    linear-gradient(0deg,rgba(39,27,20,.94),rgba(39,27,20,.12)),
+    url("https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=1000&q=85");
 }
 
-.card-content{
-    padding:27px;
+.person-content{
+    padding:30px;
 }
 
-.card-number{
-    color:var(--gold);
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    letter-spacing:2px;
+.person-icon{
+    font-size:40px;
+    margin-bottom:10px;
 }
 
-.card h3{
-    color:var(--brown);
-    font-size:22px;
-    margin:9px 0;
+.person-content h3{
+    font-size:28px;
+    margin-bottom:8px;
 }
 
-.card p{
-    color:var(--muted);
+.person-content p{
+    color:#f6eee3;
     font-size:14px;
 }
 
 /* =========================
-   LEGAL / MEDICAL IMAGE
+   RELATION DIAGRAM
 ========================= */
 
-.law-visual{
-    background:var(--cream);
-}
-
-.law-visual-grid{
-    display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:45px;
-    align-items:center;
-}
-
-.law-photo{
-    min-height:520px;
-    border-radius:30px;
+.relation-section{
     background:
-        linear-gradient(0deg,rgba(35,23,17,.3),transparent),
-        url("https://storage.wisboo.com/academy_data/ydKvZ1mzKP/public/1xE5fJhD-generar-una-imagen-donde-se-vea-el-martillo-de-la-justicia-la-balanza-de-la-justicia-y-un-estetoscopio-medico.jpg")
+        linear-gradient(rgba(247,241,230,.94),rgba(247,241,230,.94)),
+        url("https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1600&q=80")
         center/cover;
+}
+
+.relation{
+    display:grid;
+    grid-template-columns:1fr 180px 1fr;
+    align-items:center;
+    gap:25px;
+}
+
+.relation-side{
+    background:rgba(255,253,248,.92);
+    border:1px solid rgba(176,138,75,.25);
+    border-radius:var(--radius);
+    padding:35px;
     box-shadow:var(--shadow);
 }
 
-.checks{
-    margin-top:30px;
+.relation-side h3{
+    color:var(--brown);
+    margin-bottom:12px;
+    font-size:26px;
 }
 
-.check{
-    display:flex;
-    gap:15px;
-    margin-bottom:20px;
-    align-items:flex-start;
+.relation-side ul{
+    padding-left:20px;
 }
 
-.check-icon{
-    min-width:35px;
-    height:35px;
+body.ar .relation-side ul{
+    padding-right:20px;
+    padding-left:0;
+}
+
+.relation-side li{
+    margin:8px 0;
+    color:var(--muted);
+}
+
+.relation-law{
+    width:180px;
+    height:180px;
+    margin:auto;
     border-radius:50%;
-    background:var(--brown);
+    background:
+        radial-gradient(circle at 30% 25%,#d8bd8b,#a47b40);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(79,56,35,.25);
+    border:8px solid rgba(255,255,255,.7);
+}
+
+.relation-law .scale{
+    font-size:50px;
+    line-height:1;
+}
+
+.relation-law strong{
+    margin-top:8px;
+}
+
+/* =========================
+   RIGHTS
+========================= */
+
+.rights-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.right-card{
+    background:var(--white);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(176,138,75,.16);
+}
+
+.right-image{
+    height:230px;
+    background-size:cover;
+    background-position:center;
+}
+
+.right-card.doctor .right-image{
+    background-image:
+    linear-gradient(0deg,rgba(40,28,20,.35),transparent),
+    url("https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=85");
+}
+
+.right-card.patient .right-image{
+    background-image:
+    linear-gradient(0deg,rgba(40,28,20,.35),transparent),
+    url("https://images.unsplash.com/photo-1638202993928-7d113b8a3f7b?auto=format&fit=crop&w=1200&q=85");
+}
+
+.right-content{
+    padding:30px;
+}
+
+.right-content h3{
+    color:var(--brown);
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.list{
+    list-style:none;
+}
+
+.list li{
+    position:relative;
+    padding:9px 0 9px 27px;
+    border-bottom:1px solid #eee4d7;
+}
+
+body.ar .list li{
+    padding:9px 27px 9px 0;
+}
+
+.list li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+    font-weight:bold;
+}
+
+body.ar .list li::before{
+    right:0;
+    left:auto;
+}
+
+/* =========================
+   LAW SECTION
+========================= */
+
+.law-banner{
+    min-height:420px;
+    border-radius:32px;
+    overflow:hidden;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(40,28,21,.92),rgba(40,28,21,.48)),
+        url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
     color:white;
     display:flex;
     align-items:center;
-    justify-content:center;
 }
 
-.check h3{
-    color:var(--brown);
-    font-size:18px;
+.law-banner-content{
+    padding:55px;
+    max-width:700px;
 }
 
-.check p{
-    color:var(--muted);
-    font-size:14px;
+.law-banner h2{
+    font-size:clamp(32px,5vw,56px);
+    margin-bottom:18px;
+}
+
+.law-banner p{
+    color:#eee5d8;
 }
 
 /* =========================
    TIMELINE
 ========================= */
 
-.timeline-section{
-    background:white;
-}
-
 .timeline{
-    margin-top:55px;
     position:relative;
+    max-width:950px;
+    margin:auto;
 }
 
 .timeline::before{
@@ -608,7 +490,7 @@ h2{
     top:0;
     bottom:0;
     width:2px;
-    background:var(--gold);
+    background:var(--gold2);
     transform:translateX(-50%);
 }
 
@@ -618,36 +500,48 @@ h2{
     position:relative;
 }
 
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
 .timeline-item:nth-child(even){
-    margin-left:50%;
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    width:17px;
+    height:17px;
+    background:var(--gold);
+    border:4px solid var(--cream);
+    border-radius:50%;
+    top:28px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-8px;
 }
 
 .timeline-card{
-    background:var(--cream-light);
+    background:var(--white);
     padding:25px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(45,30,22,.07);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.timeline-card span{
+    color:var(--gold);
+    font-weight:bold;
 }
 
 .timeline-card h3{
     color:var(--brown);
-}
-
-.dot{
-    position:absolute;
-    width:15px;
-    height:15px;
-    border-radius:50%;
-    background:var(--gold);
-    top:35px;
-}
-
-.timeline-item:nth-child(odd) .dot{
-    right:-7px;
-}
-
-.timeline-item:nth-child(even) .dot{
-    left:-7px;
+    margin:5px 0;
 }
 
 /* =========================
@@ -655,108 +549,166 @@ h2{
 ========================= */
 
 .principles{
-    color:white;
-    background:
-        linear-gradient(rgba(34,23,18,.92),rgba(34,23,18,.94)),
-        url("https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1800&q=85")
-        center/cover fixed;
-}
-
-.principles h2{
-    color:white;
-}
-
-.principles .intro{
-    color:#d9cec5;
-}
-
-.principle-grid{
-    margin-top:50px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
 .principle{
-    min-height:220px;
-    padding:27px;
-    border:1px solid rgba(255,255,255,.16);
-    border-radius:22px;
-    background:rgba(255,255,255,.07);
-    backdrop-filter:blur(8px);
+    background:var(--white);
+    padding:28px 22px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    border-top:4px solid var(--gold);
 }
 
-.principle-number{
-    color:var(--gold-light);
-    font-family:Arial,sans-serif;
-    font-size:11px;
+.principle-icon{
+    font-size:30px;
+    margin-bottom:12px;
 }
 
 .principle h3{
-    margin:12px 0;
-    font-size:20px;
+    color:var(--brown);
+    margin-bottom:8px;
 }
 
-.principle p{
-    color:#d7ccc3;
+/* =========================
+   VIDEOS
+========================= */
+
+.video-section{
+    background:var(--brown);
+    color:white;
+}
+
+.video-section .section-head h2{
+    color:white;
+}
+
+.video-section .section-head p{
+    color:#dfd1c2;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.video-card{
+    background:#5b4436;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.video-thumb{
+    height:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+.video-thumb::after{
+    content:"▶";
+    position:absolute;
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    color:var(--brown);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:23px;
+    padding-left:4px;
+}
+
+.video-card:nth-child(1) .video-thumb{
+    background-image:
+    linear-gradient(rgba(40,25,18,.3),rgba(40,25,18,.3)),
+    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1000&q=80");
+}
+
+.video-card:nth-child(2) .video-thumb{
+    background-image:
+    linear-gradient(rgba(40,25,18,.3),rgba(40,25,18,.3)),
+    url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=80");
+}
+
+.video-card:nth-child(3) .video-thumb{
+    background-image:
+    linear-gradient(rgba(40,25,18,.3),rgba(40,25,18,.3)),
+    url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80");
+}
+
+.video-content{
+    padding:24px;
+}
+
+.video-content h3{
+    margin-bottom:9px;
+}
+
+.video-content p{
+    color:#d8c9ba;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.video-btn{
+    display:inline-block;
+    padding:10px 16px;
+    border-radius:20px;
+    background:#d2b477;
+    color:#35261d;
+    font-weight:bold;
     font-size:13px;
 }
 
 /* =========================
-   QUOTE
-========================= */
-
-.quote{
-    text-align:center;
-    background:var(--cream);
-}
-
-.quote blockquote{
-    max-width:900px;
-    margin:auto;
-    color:var(--brown);
-    font-size:clamp(25px,4vw,42px);
-    line-height:1.4;
-}
-
-.quote small{
-    display:block;
-    margin-top:25px;
-    color:var(--gold);
-}
-
-/* =========================
-   SOURCES
+   OFFICIAL SOURCES
 ========================= */
 
 .sources{
-    background:white;
-}
-
-.source-grid{
-    margin-top:45px;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
 .source{
-    padding:23px;
-    border:1px solid rgba(61,41,32,.12);
-    border-radius:18px;
-    background:var(--cream-light);
+    background:var(--white);
+    border-radius:22px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    border-left:4px solid var(--gold);
 }
 
-.source a{
+body.ar .source{
+    border-left:0;
+    border-right:4px solid var(--gold);
+}
+
+.source h3{
     color:var(--brown);
-    text-decoration:none;
-    font-weight:bold;
+    margin-bottom:8px;
 }
 
 .source p{
     color:var(--muted);
-    font-size:13px;
-    margin-top:5px;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.source a{
+    display:inline-block;
+    color:var(--gold);
+    font-weight:bold;
+    border-bottom:1px solid var(--gold);
 }
 
 /* =========================
@@ -764,295 +716,217 @@ h2{
 ========================= */
 
 footer{
-    background:#1d1714;
-    color:#d5cbc2;
-    padding:50px 6%;
-    text-align:center;
+    background:#2f231d;
+    color:#d8c9ba;
+    padding:55px 0 30px;
 }
 
-footer strong{
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+footer h3{
     color:white;
-    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+footer p,
+footer a{
+    color:#cbbdaf;
+    font-size:14px;
+}
+
+footer a{
+    display:block;
+    margin:6px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);
+    margin-top:35px;
+    padding-top:20px;
+    font-size:12px;
 }
 
 /* =========================
-   ARABIC
+   LANGUAGE
 ========================= */
 
-body.ar{
-    direction:rtl;
-    font-family:Tahoma,Arial,sans-serif;
+.ar-only{
+    display:none;
 }
 
-body.ar .hero{
-    background:
-        linear-gradient(
-            270deg,
-            rgba(28,19,15,.92),
-            rgba(45,30,23,.72),
-            rgba(45,30,23,.25)
-        ),
-        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=90")
-        center/cover;
+body.ar .fr-only{
+    display:none;
 }
 
-body.ar .timeline-item:nth-child(even){
-    margin-left:0;
-    margin-right:50%;
-}
-
-body.ar .timeline-item:nth-child(odd) .dot{
-    left:-7px;
-    right:auto;
-}
-
-body.ar .timeline-item:nth-child(even) .dot{
-    right:-7px;
-    left:auto;
+body.ar .ar-only{
+    display:inline;
 }
 
 /* =========================
-   TABLET
+   RESPONSIVE
 ========================= */
 
 @media(max-width:900px){
 
     .nav-links{
-        gap:13px;
+        display:none;
     }
 
-    .visual-grid,
-    .law-visual-grid{
+    .intro-grid,
+    .video-grid,
+    .principles{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .relation{
         grid-template-columns:1fr;
     }
 
-    .big-image{
-        min-height:450px;
-    }
-
-    .relation-diagram{
-        grid-template-columns:1fr;
-        max-width:550px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .law-center{
+    .relation-law{
+        width:150px;
+        height:150px;
         order:2;
     }
 
-    .person:first-child{
+    .relation-side{
         order:1;
     }
 
-    .person:last-child{
+    .relation-side:last-child{
         order:3;
     }
 
-    .cards{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .principle-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .core{
+    .rights-grid,
+    .sources{
         grid-template-columns:1fr;
     }
-
-    .law-photo{
-        min-height:400px;
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:650px){
-
-    section{
-        padding:70px 5%;
-    }
-
-    .nav-inner{
-        flex-wrap:wrap;
-    }
-
-    .nav-links{
-        width:100%;
-        order:3;
-        overflow-x:auto;
-        justify-content:flex-start;
-        padding-bottom:4px;
-    }
-
-    .nav-links a{
-        white-space:nowrap;
-    }
-
-    .hero{
-        min-height:82vh;
-        background:
-            linear-gradient(
-                rgba(30,20,16,.76),
-                rgba(30,20,16,.9)
-            ),
-            url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85")
-            center/cover;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .hero-description{
-        font-size:15px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .button{
-        text-align:center;
-        width:100%;
-    }
-
-    .visual-grid{
-        gap:18px;
-    }
-
-    .big-image{
-        min-height:390px;
-        border-radius:22px;
-    }
-
-    .small-image{
-        min-height:220px;
-        border-radius:22px;
-    }
-
-    .side-images{
-        gap:18px;
-    }
-
-    .relation-diagram{
-        gap:22px;
-    }
-
-    .person{
-        border-radius:20px;
-    }
-
-    .person-image{
-        height:190px;
-    }
-
-    .law-box{
-        min-height:300px;
-        border-radius:22px;
-    }
-
-    .core{
-        padding:25px;
-        border-radius:20px;
-    }
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .card-image{
-        height:230px;
-    }
-
-    .law-photo{
-        min-height:360px;
-        border-radius:22px;
-    }
-
-    .principle-grid{
-        grid-template-columns:1fr;
-    }
-
-    .principle{
-        min-height:auto;
-    }
-
-    .source-grid{
-        grid-template-columns:1fr;
-    }
-
-    /* Timeline mobile */
 
     .timeline::before{
-        left:10px;
-        transform:none;
+        left:15px;
     }
 
     .timeline-item,
-    .timeline-item:nth-child(even){
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd){
         width:100%;
-        margin:0;
-        padding:12px 0 12px 35px;
+        left:0;
+        text-align:left;
+        padding-left:45px;
+        padding-right:0;
     }
 
-    .timeline-item:nth-child(odd) .dot,
-    .timeline-item:nth-child(even) .dot{
-        left:3px;
+    body.ar .timeline-item,
+    body.ar .timeline-item:nth-child(even),
+    body.ar .timeline-item:nth-child(odd){
+        text-align:right;
+        padding-right:45px;
+        padding-left:0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot{
+        left:7px;
         right:auto;
-    }
-
-    .timeline-card{
-        padding:20px;
     }
 
     body.ar .timeline::before{
         left:auto;
-        right:10px;
+        right:15px;
     }
 
-    body.ar .timeline-item,
-    body.ar .timeline-item:nth-child(even){
-        margin:0;
-        padding:12px 35px 12px 0;
-    }
-
-    body.ar .timeline-item:nth-child(odd) .dot,
-    body.ar .timeline-item:nth-child(even) .dot{
-        right:3px;
+    body.ar .timeline-item:nth-child(odd) .timeline-dot,
+    body.ar .timeline-item:nth-child(even) .timeline-dot{
+        right:7px;
         left:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
     }
 }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
+@media(max-width:600px){
 
-@media(max-width:400px){
+    section{
+        padding:70px 0;
+    }
+
+    .hero{
+        min-height:680px;
+        background-position:60% center;
+    }
+
+    .hero-content{
+        padding:55px 0;
+    }
 
     .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .intro-grid,
+    .video-grid,
+    .principles{
+        grid-template-columns:1fr;
+    }
+
+    .person-card{
+        min-height:380px;
+    }
+
+    .relation-side{
+        padding:25px;
+    }
+
+    .relation-law{
+        width:135px;
+        height:135px;
+        font-size:13px;
+    }
+
+    .relation-law .scale{
+        font-size:38px;
+    }
+
+    .right-image{
+        height:200px;
+    }
+
+    .law-banner{
+        min-height:480px;
+    }
+
+    .law-banner-content{
+        padding:30px;
+    }
+
+    .law-banner h2{
         font-size:36px;
     }
 
-    h2{
-        font-size:30px;
+    .source{
+        padding:24px;
     }
 
-    .big-image{
-        min-height:340px;
+    .nav-inner{
+        min-height:68px;
     }
 
-    .big-image-content{
-        left:22px;
-        right:22px;
-        bottom:22px;
+    .logo{
+        font-size:15px;
     }
 
-    .big-image-content h3{
-        font-size:25px;
+    .lang-btn{
+        padding:7px 12px;
+        font-size:12px;
     }
 }
 
@@ -1061,82 +935,111 @@ body.ar .timeline-item:nth-child(even) .dot{
 
 <body>
 
-<!-- ================= NAV ================= -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
-<nav>
+<nav class="navbar">
 
-<div class="nav-inner">
+<div class="container nav-inner">
 
-<div class="logo">
-DROIT MÉDICAL
+<a href="#accueil" class="logo">
+MED<span>LAW</span> ALGÉRIE
+</a>
+
+<div class="nav-links">
+
+<a href="#relation">
+<span class="fr-only">Relation</span>
+<span class="ar-only">العلاقة</span>
+</a>
+
+<a href="#droits">
+<span class="fr-only">Droits</span>
+<span class="ar-only">الحقوق</span>
+</a>
+
+<a href="#evolution">
+<span class="fr-only">Évolution</span>
+<span class="ar-only">التطور</span>
+</a>
+
+<a href="#videos">
+<span class="fr-only">Vidéos</span>
+<span class="ar-only">فيديوهات</span>
+</a>
+
+<a href="#sources">
+<span class="fr-only">Sources</span>
+<span class="ar-only">المصادر</span>
+</a>
+
 </div>
 
-<ul class="nav-links">
-
-<li><a href="#relation" data-fr="Relation" data-ar="العلاقة">Relation</a></li>
-
-<li><a href="#droits" data-fr="Droits" data-ar="الحقوق">Droits</a></li>
-
-<li><a href="#evolution" data-fr="Évolution" data-ar="التطور">Évolution</a></li>
-
-<li><a href="#principes" data-fr="Principes" data-ar="المبادئ">Principes</a></li>
-
-</ul>
-
-<button class="lang" onclick="toggleLanguage()">
-AR / FR
+<button class="lang-btn" onclick="toggleLanguage()">
+FR / العربية
 </button>
 
 </div>
-
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
-<header class="hero">
+<header class="hero" id="accueil">
+
+<div class="container">
 
 <div class="hero-content">
 
-<div class="hero-tag"
-data-fr="DROIT MÉDICAL • ALGÉRIE"
-data-ar="القانون الطبي • الجزائر">
-DROIT MÉDICAL • ALGÉRIE
+<div class="eyebrow">
+Droit médical · Algérie
 </div>
 
-<h1
-data-fr="Médecin, patient &amp; <span>droit</span>"
-data-ar="الطبيب، المريض و<span>القانون</span>">
+<h1>
 
-Médecin, patient &amp; <span>droit</span>
+<span class="fr-only">
+Le médecin, le patient et le droit
+</span>
+
+<span class="ar-only">
+الطبيب والمريض والقانون
+</span>
 
 </h1>
 
-<p class="hero-description"
-data-fr="La relation médicale est une relation humaine encadrée par le droit. Le cadre juridique protège les droits du patient, définit les obligations du médecin et organise la responsabilité médicale."
-data-ar="العلاقة الطبية هي علاقة إنسانية يؤطرها القانون. فالإطار القانوني يحمي حقوق المريض، ويحدد التزامات الطبيب، وينظم المسؤولية الطبية.">
+<p>
 
-La relation médicale est une relation humaine encadrée par le droit.
-Le cadre juridique protège les droits du patient, définit les obligations
-du médecin et organise la responsabilité médicale.
+<span class="fr-only">
+La relation médicale ne repose pas uniquement sur la science.
+Elle s'inscrit également dans un cadre juridique qui protège
+le patient, encadre le médecin et organise la responsabilité
+des différents acteurs de santé.
+</span>
+
+<span class="ar-only">
+لا تقوم العلاقة الطبية على العلم وحده، بل تخضع أيضًا لإطار
+قانوني يحمي المريض، وينظم ممارسة الطبيب، ويحدد مسؤوليات
+مختلف الفاعلين في مجال الصحة.
+</span>
 
 </p>
 
 <div class="hero-buttons">
 
-<a href="#relation"
-class="button button-main"
-data-fr="Explorer la relation"
-data-ar="اكتشاف العلاقة">
-Explorer la relation
+<a href="#relation" class="btn btn-gold">
+<span class="fr-only">Explorer le sujet</span>
+<span class="ar-only">اكتشف الموضوع</span>
 </a>
 
-<a href="#principes"
-class="button button-outline"
-data-fr="Voir les principes"
-data-ar="المبادئ القانونية">
-Voir les principes
+<a href="#sources" class="btn btn-light">
+<span class="fr-only">Textes officiels</span>
+<span class="ar-only">النصوص الرسمية</span>
 </a>
+
+</div>
 
 </div>
 
@@ -1145,86 +1048,133 @@ Voir les principes
 </header>
 
 
-<!-- ================= VISUAL INTRO ================= -->
+<!-- =========================
+     INTRODUCTION
+========================= -->
 
-<section class="visual-intro">
+<section>
 
 <div class="container">
 
-<div class="label"
-data-fr="01 — La médecine comme relation"
-data-ar="01 — الطب كعلاقة">
-01 — La médecine comme relation
+<div class="section-head">
+
+<div class="section-kicker">
+01 · Les acteurs
 </div>
 
-<h2
-data-fr="Une relation qui dépasse le simple acte médical"
-data-ar="علاقة تتجاوز مجرد العمل الطبي">
-Une relation qui dépasse le simple acte médical
+<h2>
+<span class="fr-only">
+Trois dimensions d'une même relation
+</span>
+
+<span class="ar-only">
+ثلاثة أبعاد لعلاقة واحدة
+</span>
 </h2>
 
-<p class="intro"
-data-fr="Le soin met en présence deux personnes. Le médecin apporte ses compétences professionnelles ; le patient bénéficie de soins et participe à la décision médicale. Entre eux, le droit établit un cadre de confiance, de sécurité et de responsabilité."
-data-ar="يجمع العلاج بين شخصين. يقدم الطبيب كفاءته المهنية، بينما يستفيد المريض من العلاج ويشارك في القرار الطبي. وبينهما يضع القانون إطارًا للثقة والسلامة والمسؤولية.">
+<p>
 
-Le soin met en présence deux personnes. Le médecin apporte ses compétences
-professionnelles ; le patient bénéficie de soins et participe à la décision médicale.
-Entre eux, le droit établit un cadre de confiance, de sécurité et de responsabilité.
+<span class="fr-only">
+La relation de soins met en présence le professionnel de santé,
+la personne prise en charge et les règles juridiques qui organisent
+leurs droits et obligations.
+</span>
 
-</p>
+<span class="ar-only">
+تجمع العلاقة العلاجية بين مهني الصحة والشخص المتلقي للعلاج،
+ضمن قواعد قانونية تنظم حقوق والتزامات كل طرف.
+</span>
 
-
-<div class="visual-grid">
-
-<div class="big-image">
-
-<div class="big-image-content">
-
-<h3
-data-fr="Le dialogue médecin–patient"
-data-ar="الحوار بين الطبيب والمريض">
-Le dialogue médecin–patient
-</h3>
-
-<p
-data-fr="Informer, écouter, soigner et respecter."
-data-ar="الإعلام، الاستماع، العلاج والاحترام.">
-Informer, écouter, soigner et respecter.
 </p>
 
 </div>
 
-</div>
 
+<div class="intro-grid">
 
-<div class="side-images">
+<div class="person-card doctor">
 
-<div class="small-image one">
+<div class="person-content">
 
-<div class="image-label">
+<div class="person-icon">👨‍⚕️</div>
 
-<h3
-data-fr="L'environnement hospitalier"
-data-ar="البيئة الاستشفائية">
-L'environnement hospitalier
+<h3>
+<span class="fr-only">Le médecin</span>
+<span class="ar-only">الطبيب</span>
 </h3>
 
-</div>
+<p>
+
+<span class="fr-only">
+Professionnel soumis à des obligations médicales,
+déontologiques et juridiques.
+</span>
+
+<span class="ar-only">
+مهني يخضع لالتزامات طبية وأخلاقية وقانونية.
+</span>
+
+</p>
 
 </div>
 
+</div>
 
-<div class="small-image two">
 
-<div class="image-label">
+<div class="person-card patient">
 
-<h3
-data-fr="La sécurité des soins"
-data-ar="سلامة العلاج">
-La sécurité des soins
+<div class="person-content">
+
+<div class="person-icon">🧑‍🦽</div>
+
+<h3>
+<span class="fr-only">Le patient</span>
+<span class="ar-only">المريض</span>
 </h3>
 
+<p>
+
+<span class="fr-only">
+Titulaire de droits fondamentaux : information,
+consentement, dignité, confidentialité et respect.
+</span>
+
+<span class="ar-only">
+صاحب حقوق أساسية، منها الإعلام والموافقة والكرامة
+والسرية والاحترام.
+</span>
+
+</p>
+
 </div>
+
+</div>
+
+
+<div class="person-card law">
+
+<div class="person-content">
+
+<div class="person-icon">⚖️</div>
+
+<h3>
+<span class="fr-only">Le droit</span>
+<span class="ar-only">القانون</span>
+</h3>
+
+<p>
+
+<span class="fr-only">
+Le cadre qui définit les règles de pratique,
+les droits des patients et les responsabilités.
+</span>
+
+<span class="ar-only">
+الإطار الذي يحدد قواعد الممارسة وحقوق المرضى
+والمسؤوليات القانونية.
+</span>
+
+</p>
 
 </div>
 
@@ -1237,170 +1187,146 @@ La sécurité des soins
 </section>
 
 
-<!-- ================= RELATION ================= -->
+<!-- =========================
+     RELATION
+========================= -->
 
-<section id="relation" class="relation">
+<section class="relation-section" id="relation">
 
 <div class="container">
 
-<div class="label"
-data-fr="02 — La relation juridique"
-data-ar="02 — العلاقة القانونية">
-02 — La relation juridique
+<div class="section-head">
+
+<div class="section-kicker">
+02 · Relation juridique
 </div>
 
-<h2
-data-fr="Deux acteurs, un cadre juridique"
-data-ar="طرفان وإطار قانوني واحد">
-Deux acteurs, un cadre juridique
+<h2>
+
+<span class="fr-only">
+Une relation médicale juridiquement encadrée
+</span>
+
+<span class="ar-only">
+علاقة طبية مؤطرة قانونيًا
+</span>
+
 </h2>
 
-<p class="intro"
-data-fr="Le droit médical ne protège pas uniquement le patient. Il encadre la relation dans son ensemble et établit des droits, des obligations et des responsabilités pour les deux parties."
-data-ar="لا يحمي القانون الطبي المريض وحده، بل يؤطر العلاقة بأكملها ويحدد حقوقًا والتزامات ومسؤوليات لكلا الطرفين.">
+<p>
 
-Le droit médical ne protège pas uniquement le patient.
-Il encadre la relation dans son ensemble et établit des droits,
-des obligations et des responsabilités pour les deux parties.
+<span class="fr-only">
+Le droit constitue un cadre de protection et de responsabilité.
+Il ne remplace pas la relation humaine : il lui donne des garanties.
+</span>
+
+<span class="ar-only">
+يشكل القانون إطارًا للحماية والمسؤولية. فهو لا يعوض العلاقة
+الإنسانية وإنما يمنحها ضمانات قانونية.
+</span>
 
 </p>
 
+</div>
 
-<div class="relation-diagram">
 
+<div class="relation">
 
-<!-- DOCTOR -->
+<div class="relation-side">
 
-<div class="person">
-
-<div class="person-image doctor-image"></div>
-
-<div class="person-content">
-
-<h3
-data-fr="👨‍⚕️ Le médecin"
-data-ar="👨‍⚕️ الطبيب">
-👨‍⚕️ Le médecin
+<h3>
+👨‍⚕️
+<span class="fr-only">Médecin</span>
+<span class="ar-only">الطبيب</span>
 </h3>
 
-<p
-data-fr="Professionnel de santé chargé de dispenser des soins conformément aux règles médicales et juridiques."
-data-ar="مهني صحي مكلف بتقديم العلاج وفقًا للقواعد الطبية والقانونية.">
+<ul>
 
-Professionnel de santé chargé de dispenser des soins
-conformément aux règles médicales et juridiques.
+<li>
+<span class="fr-only">Obligation de soins consciencieux</span>
+<span class="ar-only">الالتزام بتقديم الرعاية اللازمة</span>
+</li>
 
-</p>
+<li>
+<span class="fr-only">Respect des règles professionnelles</span>
+<span class="ar-only">احترام القواعد المهنية</span>
+</li>
 
-<div class="list">
+<li>
+<span class="fr-only">Secret professionnel</span>
+<span class="ar-only">السر المهني</span>
+</li>
 
-<div>✓ <span data-fr="Obligation de soins" data-ar="واجب العلاج">Obligation de soins</span></div>
+<li>
+<span class="fr-only">Information du patient</span>
+<span class="ar-only">إعلام المريض</span>
+</li>
 
-<div>✓ <span data-fr="Secret médical" data-ar="السر الطبي">Secret médical</span></div>
+<li>
+<span class="fr-only">Responsabilité en cas de faute</span>
+<span class="ar-only">المسؤولية في حالة الخطأ</span>
+</li>
 
-<div>✓ <span data-fr="Information" data-ar="الإعلام">Information</span></div>
-
-<div>✓ <span data-fr="Responsabilité" data-ar="المسؤولية">Responsabilité</span></div>
+</ul>
 
 </div>
 
-</div>
+
+<div class="relation-law">
+
+<div class="scale">⚖️</div>
+
+<strong>
+<span class="fr-only">DROIT</span>
+<span class="ar-only">القانون</span>
+</strong>
+
+<small>
+<span class="fr-only">Protection</span>
+<span class="ar-only">حماية</span>
+</small>
 
 </div>
 
 
-<!-- LAW -->
+<div class="relation-side">
 
-<div class="law-center">
-
-<div class="law-box">
-
-<div class="law-symbol">
-⚖️
-</div>
-
-<h3
-data-fr="DROIT MÉDICAL"
-data-ar="القانون الطبي">
-DROIT MÉDICAL
+<h3>
+👤
+<span class="fr-only">Patient</span>
+<span class="ar-only">المريض</span>
 </h3>
 
-<p
-data-fr="Le cadre qui organise la relation de soins"
-data-ar="الإطار الذي ينظم علاقة العلاج">
-Le cadre qui organise la relation de soins
-</p>
+<ul>
+
+<li>
+<span class="fr-only">Droit à l'information</span>
+<span class="ar-only">الحق في الإعلام</span>
+</li>
+
+<li>
+<span class="fr-only">Consentement aux soins</span>
+<span class="ar-only">الموافقة على العلاج</span>
+</li>
+
+<li>
+<span class="fr-only">Respect de la dignité</span>
+<span class="ar-only">احترام الكرامة</span>
+</li>
+
+<li>
+<span class="fr-only">Confidentialité</span>
+<span class="ar-only">السرية</span>
+</li>
+
+<li>
+<span class="fr-only">Accès aux soins</span>
+<span class="ar-only">الحق في العلاج</span>
+</li>
+
+</ul>
 
 </div>
-
-</div>
-
-
-<!-- PATIENT -->
-
-<div class="person">
-
-<div class="person-image patient-image"></div>
-
-<div class="person-content">
-
-<h3
-data-fr="👤 Le patient"
-data-ar="👤 المريض">
-👤 Le patient
-</h3>
-
-<p
-data-fr="Personne bénéficiaire des soins, titulaire de droits et participant à la décision médicale."
-data-ar="الشخص المستفيد من العلاج، صاحب حقوق والمشارك في القرار الطبي.">
-
-Personne bénéficiaire des soins, titulaire de droits
-et participant à la décision médicale.
-
-</p>
-
-<div class="list">
-
-<div>✓ <span data-fr="Droit à l'information" data-ar="الحق في الإعلام">Droit à l'information</span></div>
-
-<div>✓ <span data-fr="Consentement" data-ar="الموافقة">Consentement</span></div>
-
-<div>✓ <span data-fr="Dignité" data-ar="الكرامة">Dignité</span></div>
-
-<div>✓ <span data-fr="Confidentialité" data-ar="السرية">Confidentialité</span></div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CORE -->
-
-<div class="core">
-
-<div>
-
-<h3
-data-fr="⚖️ Protéger les deux parties"
-data-ar="⚖️ حماية الطرفين">
-⚖️ Protéger les deux parties
-</h3>
-
-</div>
-
-<p
-data-fr="Le droit médical cherche à maintenir un équilibre : protéger le patient contre les atteintes à ses droits tout en garantissant au médecin un cadre clair pour l'exercice de sa profession."
-data-ar="يسعى القانون الطبي إلى تحقيق التوازن: حماية المريض من المساس بحقوقه، وفي الوقت نفسه ضمان إطار واضح للطبيب لممارسة مهنته.">
-
-Le droit médical cherche à maintenir un équilibre :
-protéger le patient contre les atteintes à ses droits tout en garantissant
-au médecin un cadre clair pour l'exercice de sa profession.
-
-</p>
 
 </div>
 
@@ -1409,231 +1335,136 @@ au médecin un cadre clair pour l'exercice de sa profession.
 </section>
 
 
-<!-- ================= RIGHTS ================= -->
+<!-- =========================
+     RIGHTS
+========================= -->
 
 <section id="droits">
 
 <div class="container">
 
-<div class="label"
-data-fr="03 — Droits & obligations"
-data-ar="03 — الحقوق والالتزامات">
-03 — Droits & obligations
+<div class="section-head">
+
+<div class="section-kicker">
+03 · Droits & obligations
 </div>
 
-<h2
-data-fr="Chaque partie a des droits et des devoirs"
-data-ar="لكل طرف حقوق والتزامات">
-Chaque partie a des droits et des devoirs
+<h2>
+
+<span class="fr-only">
+Des droits qui répondent à des obligations
+</span>
+
+<span class="ar-only">
+حقوق تقابلها التزامات
+</span>
+
 </h2>
 
-<p class="intro"
-data-fr="La relation médicale repose sur une réciprocité juridique et professionnelle."
-data-ar="تقوم العلاقة الطبية على التبادلية القانونية والمهنية.">
+<p>
 
-La relation médicale repose sur une réciprocité juridique et professionnelle.
+<span class="fr-only">
+La relation de soins crée un équilibre : le patient bénéficie
+de droits tandis que le médecin assume des devoirs professionnels.
+</span>
+
+<span class="ar-only">
+تقوم العلاقة العلاجية على التوازن: يتمتع المريض بحقوق،
+وفي المقابل يتحمل الطبيب واجبات مهنية وقانونية.
+</span>
 
 </p>
 
+</div>
 
-<div class="cards">
+
+<div class="rights-grid">
 
 
-<div class="card">
+<div class="right-card doctor">
 
-<div class="card-image card1"></div>
+<div class="right-image"></div>
 
-<div class="card-content">
+<div class="right-content">
 
-<div class="card-number">01 — MÉDECIN</div>
-
-<h3
-data-fr="Obligations professionnelles"
-data-ar="التزامات الطبيب">
-Obligations professionnelles
+<h3>
+<span class="fr-only">Obligations du médecin</span>
+<span class="ar-only">التزامات الطبيب</span>
 </h3>
 
-<p
-data-fr="Compétence, diligence, information, secret professionnel, continuité des soins et respect des règles de déontologie."
-data-ar="الكفاءة، العناية، الإعلام، السر المهني، استمرارية العلاج واحترام قواعد أخلاقيات المهنة.">
+<ul class="list">
 
-Compétence, diligence, information, secret professionnel,
-continuité des soins et respect des règles de déontologie.
+<li>
+<span class="fr-only">Agir conformément aux données de la science</span>
+<span class="ar-only">العمل وفقًا للمعطيات العلمية</span>
+</li>
 
-</p>
+<li>
+<span class="fr-only">Respecter la dignité du patient</span>
+<span class="ar-only">احترام كرامة المريض</span>
+</li>
+
+<li>
+<span class="fr-only">Informer le patient</span>
+<span class="ar-only">إعلام المريض</span>
+</li>
+
+<li>
+<span class="fr-only">Préserver le secret professionnel</span>
+<span class="ar-only">الحفاظ على السر المهني</span>
+</li>
+
+<li>
+<span class="fr-only">Assurer la continuité des soins selon les règles applicables</span>
+<span class="ar-only">ضمان استمرارية العلاج وفق القواعد المعمول بها</span>
+</li>
+
+</ul>
 
 </div>
 
 </div>
 
 
-<div class="card">
+<div class="right-card patient">
 
-<div class="card-image card2"></div>
+<div class="right-image"></div>
 
-<div class="card-content">
+<div class="right-content">
 
-<div class="card-number">02 — PATIENT</div>
-
-<h3
-data-fr="Droits du patient"
-data-ar="حقوق المريض">
-Droits du patient
+<h3>
+<span class="fr-only">Droits du patient</span>
+<span class="ar-only">حقوق المريض</span>
 </h3>
 
-<p
-data-fr="Information, consentement, dignité, confidentialité et participation aux décisions concernant sa santé."
-data-ar="الإعلام، الموافقة، الكرامة، السرية والمشاركة في القرارات المتعلقة بصحته.">
+<ul class="list">
 
-Information, consentement, dignité, confidentialité
-et participation aux décisions concernant sa santé.
+<li>
+<span class="fr-only">Être informé sur son état de santé</span>
+<span class="ar-only">الحصول على المعلومات المتعلقة بحالته الصحية</span>
+</li>
 
-</p>
+<li>
+<span class="fr-only">Participer aux décisions concernant ses soins</span>
+<span class="ar-only">المشاركة في القرارات المتعلقة بعلاجه</span>
+</li>
 
-</div>
+<li>
+<span class="fr-only">Être respecté dans sa dignité</span>
+<span class="ar-only">احترام كرامته</span>
+</li>
 
-</div>
+<li>
+<span class="fr-only">Bénéficier de la confidentialité</span>
+<span class="ar-only">الاستفادة من السرية</span>
+</li>
 
+<li>
+<span class="fr-only">Être protégé contre les pratiques contraires au droit</span>
+<span class="ar-only">الحماية من الممارسات المخالفة للقانون</span>
+</li>
 
-<div class="card">
-
-<div class="card-image card3"></div>
-
-<div class="card-content">
-
-<div class="card-number">03 — RESPONSABILITÉ</div>
-
-<h3
-data-fr="Responsabilité médicale"
-data-ar="المسؤولية الطبية">
-Responsabilité médicale
-</h3>
-
-<p
-data-fr="Lorsque les règles applicables sont méconnues, différentes formes de responsabilité peuvent être envisagées selon les circonstances."
-data-ar="عند الإخلال بالقواعد المعمول بها، يمكن أن تثار أشكال مختلفة من المسؤولية بحسب ظروف كل حالة.">
-
-Lorsque les règles applicables sont méconnues,
-différentes formes de responsabilité peuvent être envisagées
-selon les circonstances.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= LAW + MEDICINE ================= -->
-
-<section class="law-visual">
-
-<div class="container">
-
-<div class="law-visual-grid">
-
-<div class="law-photo"></div>
-
-
-<div>
-
-<div class="label"
-data-fr="04 — Médecine & justice"
-data-ar="04 — الطب والعدالة">
-04 — Médecine & justice
-</div>
-
-<h2
-data-fr="Quand la médecine rencontre le droit"
-data-ar="عندما يلتقي الطب بالقانون">
-Quand la médecine rencontre le droit
-</h2>
-
-<p class="intro"
-data-fr="La médecine moderne produit des situations qui nécessitent un encadrement juridique : consentement, confidentialité, responsabilité, données de santé, décisions médicales et protection de la personne."
-data-ar="يفرز الطب الحديث أوضاعًا تحتاج إلى تأطير قانوني، مثل الموافقة، والسرية، والمسؤولية، والبيانات الصحية، والقرارات الطبية وحماية الشخص.">
-
-La médecine moderne produit des situations qui nécessitent
-un encadrement juridique : consentement, confidentialité,
-responsabilité, données de santé, décisions médicales
-et protection de la personne.
-
-</p>
-
-
-<div class="checks">
-
-<div class="check">
-
-<div class="check-icon">✓</div>
-
-<div>
-
-<h3
-data-fr="Protection"
-data-ar="الحماية">
-Protection
-</h3>
-
-<p
-data-fr="Protéger les personnes dans le cadre des soins."
-data-ar="حماية الأشخاص في إطار العلاج.">
-Protéger les personnes dans le cadre des soins.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="check">
-
-<div class="check-icon">✓</div>
-
-<div>
-
-<h3
-data-fr="Responsabilité"
-data-ar="المسؤولية">
-Responsabilité
-</h3>
-
-<p
-data-fr="Déterminer les conséquences d'un manquement."
-data-ar="تحديد آثار الإخلال بالالتزامات.">
-Déterminer les conséquences d'un manquement.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="check">
-
-<div class="check-icon">✓</div>
-
-<div>
-
-<h3
-data-fr="Équilibre"
-data-ar="التوازن">
-Équilibre
-</h3>
-
-<p
-data-fr="Concilier sécurité des soins et autonomie du patient."
-data-ar="التوفيق بين سلامة العلاج واستقلالية المريض.">
-Concilier sécurité des soins et autonomie du patient.
-</p>
-
-</div>
-
-</div>
+</ul>
 
 </div>
 
@@ -1646,54 +1477,130 @@ Concilier sécurité des soins et autonomie du patient.
 </section>
 
 
-<!-- ================= EVOLUTION ================= -->
+<!-- =========================
+     LAW
+========================= -->
 
-<section id="evolution" class="timeline-section">
+<section>
 
 <div class="container">
 
-<div class="label"
-data-fr="05 — Évolution"
-data-ar="05 — التطور">
-05 — Évolution
+<div class="law-banner">
+
+<div class="law-banner-content">
+
+<div class="eyebrow">
+Loi sanitaire · Algérie
 </div>
 
-<h2
-data-fr="L'évolution vers une médecine davantage encadrée"
-data-ar="نحو طب أكثر تأطيرًا بالقانون">
-L'évolution vers une médecine davantage encadrée
+<h2>
+
+<span class="fr-only">
+La santé est aussi une matière juridique
+</span>
+
+<span class="ar-only">
+الصحة مجال قانوني أيضًا
+</span>
+
 </h2>
 
-<p class="intro"
-data-fr="Le développement des sciences médicales, des droits fondamentaux et des technologies a progressivement renforcé l'importance du droit médical."
-data-ar="أدى تطور العلوم الطبية والحقوق الأساسية والتكنولوجيا إلى تعزيز أهمية القانون الطبي تدريجيًا.">
+<p>
 
-Le développement des sciences médicales, des droits fondamentaux
-et des technologies a progressivement renforcé l'importance du droit médical.
+<span class="fr-only">
+L'activité médicale est encadrée par des textes législatifs,
+réglementaires et déontologiques. En Algérie, la loi n°18-11
+du 2 juillet 2018 relative à la santé constitue un texte central
+du cadre sanitaire contemporain.
+</span>
+
+<span class="ar-only">
+تخضع الممارسة الطبية لنصوص تشريعية وتنظيمية وأخلاقية.
+وفي الجزائر، يشكل القانون رقم 18-11 المؤرخ في 2 يوليو 2018
+المتعلق بالصحة أحد النصوص الأساسية للإطار الصحي المعاصر.
+</span>
 
 </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section id="evolution">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-kicker">
+04 · Évolution
+</div>
+
+<h2>
+
+<span class="fr-only">
+Évolution du droit de la santé en Algérie
+</span>
+
+<span class="ar-only">
+تطور قانون الصحة في الجزائر
+</span>
+
+</h2>
+
+<p>
+
+<span class="fr-only">
+Quelques étapes permettent de comprendre la transformation
+progressive du cadre juridique sanitaire algérien.
+</span>
+
+<span class="ar-only">
+تساعد بعض المحطات الأساسية على فهم التحول التدريجي
+للإطار القانوني الصحي في الجزائر.
+</span>
+
+</p>
+
+</div>
 
 
 <div class="timeline">
 
+
 <div class="timeline-item">
 
-<div class="dot"></div>
+<div class="timeline-dot"></div>
 
 <div class="timeline-card">
 
-<h3
-data-fr="La médecine traditionnelle"
-data-ar="الطب التقليدي">
-La médecine traditionnelle
+<span>1962 — 1984</span>
+
+<h3>
+<span class="fr-only">Construction du système sanitaire</span>
+<span class="ar-only">بناء النظام الصحي</span>
 </h3>
 
-<p
-data-fr="Une relation largement fondée sur la confiance et l'autorité scientifique du médecin."
-data-ar="علاقة تقوم بدرجة كبيرة على الثقة والسلطة العلمية للطبيب.">
+<p>
 
-Une relation largement fondée sur la confiance
-et l'autorité scientifique du médecin.
+<span class="fr-only">
+Après l'indépendance, l'Algérie entreprend progressivement
+la construction et l'organisation de son propre système de santé.
+</span>
+
+<span class="ar-only">
+بعد الاستقلال شرعت الجزائر تدريجيًا في بناء وتنظيم
+نظامها الصحي الوطني.
+</span>
 
 </p>
 
@@ -1704,22 +1611,29 @@ et l'autorité scientifique du médecin.
 
 <div class="timeline-item">
 
-<div class="dot"></div>
+<div class="timeline-dot"></div>
 
 <div class="timeline-card">
 
-<h3
-data-fr="L'affirmation des droits du patient"
-data-ar="تعزيز حقوق المريض">
-L'affirmation des droits du patient
+<span>1985</span>
+
+<h3>
+<span class="fr-only">Loi n°85-05</span>
+<span class="ar-only">القانون رقم 85-05</span>
 </h3>
 
-<p
-data-fr="Le patient devient progressivement un véritable acteur de la relation médicale."
-data-ar="أصبح المريض تدريجيًا طرفًا فاعلًا في العلاقة الطبية.">
+<p>
 
-Le patient devient progressivement un véritable
-acteur de la relation médicale.
+<span class="fr-only">
+La loi n°85-05 du 16 février 1985 relative à la protection
+et à la promotion de la santé constitue une étape majeure
+dans la structuration juridique du secteur.
+</span>
+
+<span class="ar-only">
+شكل القانون رقم 85-05 المؤرخ في 16 فبراير 1985 المتعلق
+بحماية الصحة وترقيتها محطة مهمة في تنظيم القطاع.
+</span>
 
 </p>
 
@@ -1730,22 +1644,27 @@ acteur de la relation médicale.
 
 <div class="timeline-item">
 
-<div class="dot"></div>
+<div class="timeline-dot"></div>
 
 <div class="timeline-card">
 
-<h3
-data-fr="La médecine technologique"
-data-ar="الطب التكنولوجي">
-La médecine technologique
+<span>1990 — 2017</span>
+
+<h3>
+<span class="fr-only">Transformations institutionnelles</span>
+<span class="ar-only">التحولات المؤسساتية</span>
 </h3>
 
-<p
-data-fr="Les nouvelles technologies soulèvent de nouvelles questions concernant les données, le consentement et la responsabilité."
-data-ar="تطرح التكنولوجيا الطبية أسئلة جديدة حول البيانات والموافقة والمسؤولية.">
+<p>
 
-Les nouvelles technologies soulèvent de nouvelles questions
-concernant les données, le consentement et la responsabilité.
+<span class="fr-only">
+Le système sanitaire connaît différentes réformes institutionnelles,
+administratives et professionnelles.
+</span>
+
+<span class="ar-only">
+شهد النظام الصحي إصلاحات مؤسساتية وإدارية ومهنية متعددة.
+</span>
 
 </p>
 
@@ -1756,22 +1675,29 @@ concernant les données, le consentement et la responsabilité.
 
 <div class="timeline-item">
 
-<div class="dot"></div>
+<div class="timeline-dot"></div>
 
 <div class="timeline-card">
 
-<h3
-data-fr="La médecine contemporaine"
-data-ar="الطب المعاصر">
-La médecine contemporaine
+<span>2018</span>
+
+<h3>
+<span class="fr-only">Loi n°18-11 relative à la santé</span>
+<span class="ar-only">القانون رقم 18-11 المتعلق بالصحة</span>
 </h3>
 
-<p
-data-fr="Le droit cherche à concilier innovation, sécurité, dignité et protection des personnes."
-data-ar="يسعى القانون إلى التوفيق بين الابتكار والسلامة والكرامة وحماية الأشخاص.">
+<p>
 
-Le droit cherche à concilier innovation,
-sécurité, dignité et protection des personnes.
+<span class="fr-only">
+La loi n°18-11 du 2 juillet 2018 renouvelle le cadre législatif
+sanitaire et organise de nombreux aspects liés à la santé,
+aux professionnels et aux droits des usagers.
+</span>
+
+<span class="ar-only">
+جدد القانون رقم 18-11 المؤرخ في 2 يوليو 2018 الإطار التشريعي
+للصحة ونظم جوانب عديدة مرتبطة بالصحة والمهنيين وحقوق المستعملين.
+</span>
 
 </p>
 
@@ -1786,46 +1712,55 @@ sécurité, dignité et protection des personnes.
 </section>
 
 
-<!-- ================= PRINCIPLES ================= -->
+<!-- =========================
+     PRINCIPLES
+========================= -->
 
-<section id="principes" class="principles">
+<section>
 
 <div class="container">
 
-<div class="label"
-data-fr="06 — Principes fondamentaux"
-data-ar="06 — المبادئ الأساسية">
-06 — Principes fondamentaux
+<div class="section-head">
+
+<div class="section-kicker">
+05 · Principes
 </div>
 
-<h2
-data-fr="Les principes au cœur du droit médical"
-data-ar="المبادئ الأساسية في القانون الطبي">
-Les principes au cœur du droit médical
+<h2>
+
+<span class="fr-only">
+Les grands principes de la relation médicale
+</span>
+
+<span class="ar-only">
+المبادئ الأساسية للعلاقة الطبية
+</span>
+
 </h2>
 
-<p class="intro"
-data-fr="Ces principes permettent de structurer une relation médicale respectueuse des droits fondamentaux."
-data-ar="تساهم هذه المبادئ في بناء علاقة طبية تحترم الحقوق الأساسية.">
-
-Ces principes permettent de structurer une relation médicale
-respectueuse des droits fondamentaux.
-
-</p>
+</div>
 
 
-<div class="principle-grid">
+<div class="principles">
 
 
 <div class="principle">
 
-<div class="principle-number">01</div>
+<div class="principle-icon">🔐</div>
 
-<h3>⚖️ Dignité</h3>
+<h3>
+<span class="fr-only">Confidentialité</span>
+<span class="ar-only">السرية</span>
+</h3>
 
 <p>
-Respecter la personne humaine dans toutes les étapes
-de la prise en charge.
+<span class="fr-only">
+Les informations médicales doivent être protégées.
+</span>
+
+<span class="ar-only">
+يجب حماية المعلومات الطبية للمريض.
+</span>
 </p>
 
 </div>
@@ -1833,13 +1768,21 @@ de la prise en charge.
 
 <div class="principle">
 
-<div class="principle-number">02</div>
+<div class="principle-icon">📝</div>
 
-<h3>🩺 Consentement</h3>
+<h3>
+<span class="fr-only">Information</span>
+<span class="ar-only">الإعلام</span>
+</h3>
 
 <p>
-Permettre au patient de participer aux décisions
-qui concernent sa santé.
+<span class="fr-only">
+Le patient doit pouvoir comprendre les informations pertinentes concernant ses soins.
+</span>
+
+<span class="ar-only">
+يجب تمكين المريض من فهم المعلومات المتعلقة بعلاجه.
+</span>
 </p>
 
 </div>
@@ -1847,13 +1790,21 @@ qui concernent sa santé.
 
 <div class="principle">
 
-<div class="principle-number">03</div>
+<div class="principle-icon">🤝</div>
 
-<h3>🔒 Confidentialité</h3>
+<h3>
+<span class="fr-only">Consentement</span>
+<span class="ar-only">الموافقة</span>
+</h3>
 
 <p>
-Protéger les informations relatives à la santé
-et à la vie privée du patient.
+<span class="fr-only">
+Le consentement occupe une place centrale dans la relation de soins.
+</span>
+
+<span class="ar-only">
+تحتل الموافقة مكانة أساسية في العلاقة العلاجية.
+</span>
 </p>
 
 </div>
@@ -1861,17 +1812,24 @@ et à la vie privée du patient.
 
 <div class="principle">
 
-<div class="principle-number">04</div>
+<div class="principle-icon">⚖️</div>
 
-<h3>📜 Responsabilité</h3>
+<h3>
+<span class="fr-only">Responsabilité</span>
+<span class="ar-only">المسؤولية</span>
+</h3>
 
 <p>
-Encadrer les conséquences juridiques de l'exercice
-de la profession médicale.
+<span class="fr-only">
+La responsabilité peut être engagée selon la nature des faits et le cadre applicable.
+</span>
+
+<span class="ar-only">
+قد تقوم المسؤولية بحسب طبيعة الوقائع والإطار القانوني المطبق.
+</span>
 </p>
 
 </div>
-
 
 </div>
 
@@ -1880,108 +1838,378 @@ de la profession médicale.
 </section>
 
 
-<!-- ================= QUOTE ================= -->
+<!-- =========================
+     VIDEOS
+========================= -->
 
-<section class="quote">
-
-<div class="container">
-
-<blockquote
-data-fr="« Le droit médical ne s'oppose pas à la médecine : il crée le cadre dans lequel la médecine peut s'exercer dans le respect des droits de chacun. »"
-data-ar="« لا يتعارض القانون الطبي مع الطب، بل يضع الإطار الذي يمكن أن تمارس فيه المهنة الطبية مع احترام حقوق كل طرف. »">
-
-« Le droit médical ne s'oppose pas à la médecine :
-il crée le cadre dans lequel la médecine peut s'exercer
-dans le respect des droits de chacun. »
-
-</blockquote>
-
-<small>
-Médecin • Patient • Droit • Responsabilité
-</small>
-
-</div>
-
-</section>
-
-
-<!-- ================= SOURCES ================= -->
-
-<section class="sources">
+<section class="video-section" id="videos">
 
 <div class="container">
 
-<div class="label"
-data-fr="07 — Sources"
-data-ar="07 — المصادر">
-07 — Sources
+<div class="section-head">
+
+<div class="section-kicker">
+06 · Ressources audiovisuelles
 </div>
 
-<h2
-data-fr="Références institutionnelles"
-data-ar="المراجع المؤسساتية">
-Références institutionnelles
+<h2>
+
+<span class="fr-only">
+Comprendre le droit médical en vidéo
+</span>
+
+<span class="ar-only">
+فهم القانون الطبي عبر الفيديو
+</span>
+
 </h2>
 
-<p class="intro"
-data-fr="Les informations juridiques doivent être vérifiées à partir des textes officiels applicables."
-data-ar="ينبغي التحقق من المعلومات القانونية بالرجوع إلى النصوص الرسمية المعمول بها.">
+<p>
 
-Les informations juridiques doivent être vérifiées
-à partir des textes officiels applicables.
+<span class="fr-only">
+Sélection de recherches YouTube thématiques pour approfondir
+la relation médecin-patient et la législation sanitaire algérienne.
+</span>
+
+<span class="ar-only">
+مجموعة من عمليات البحث الموضوعية على YouTube للتعمق في
+العلاقة بين الطبيب والمريض والتشريع الصحي الجزائري.
+</span>
 
 </p>
 
+</div>
 
-<div class="source-grid">
+
+<div class="video-grid">
+
+
+<div class="video-card">
+
+<div class="video-thumb"></div>
+
+<div class="video-content">
+
+<h3>
+<span class="fr-only">Droit médical en Algérie</span>
+<span class="ar-only">القانون الطبي في الجزائر</span>
+</h3>
+
+<p>
+<span class="fr-only">
+Cours, conférences et explications consacrés au droit médical algérien.
+</span>
+
+<span class="ar-only">
+دروس ومحاضرات وشروحات حول القانون الطبي الجزائري.
+</span>
+</p>
+
+<a class="video-btn"
+href="https://www.youtube.com/results?search_query=droit+médical+Algérie"
+target="_blank">
+
+▶
+<span class="fr-only">Voir sur YouTube</span>
+<span class="ar-only">البحث في YouTube</span>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-thumb"></div>
+
+<div class="video-content">
+
+<h3>
+<span class="fr-only">Loi 18-11 relative à la santé</span>
+<span class="ar-only">القانون 18-11 المتعلق بالصحة</span>
+</h3>
+
+<p>
+<span class="fr-only">
+Recherches vidéo autour de la loi sanitaire algérienne.
+</span>
+
+<span class="ar-only">
+فيديوهات وشروحات حول قانون الصحة الجزائري.
+</span>
+</p>
+
+<a class="video-btn"
+href="https://www.youtube.com/results?search_query=loi+18-11+santé+Algérie"
+target="_blank">
+
+▶
+<span class="fr-only">Voir sur YouTube</span>
+<span class="ar-only">البحث في YouTube</span>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-thumb"></div>
+
+<div class="video-content">
+
+<h3>
+<span class="fr-only">Relation médecin-patient</span>
+<span class="ar-only">العلاقة بين الطبيب والمريض</span>
+</h3>
+
+<p>
+<span class="fr-only">
+Approches juridiques, éthiques et professionnelles de la relation de soins.
+</span>
+
+<span class="ar-only">
+الجوانب القانونية والأخلاقية والمهنية للعلاقة العلاجية.
+</span>
+</p>
+
+<a class="video-btn"
+href="https://www.youtube.com/results?search_query=relation+médecin+patient+droit"
+target="_blank">
+
+▶
+<span class="fr-only">Voir sur YouTube</span>
+<span class="ar-only">البحث في YouTube</span>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SOURCES
+========================= -->
+
+<section id="sources">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-kicker">
+07 · Documentation officielle
+</div>
+
+<h2>
+
+<span class="fr-only">
+Textes législatifs et sources officielles
+</span>
+
+<span class="ar-only">
+النصوص التشريعية والمصادر الرسمية
+</span>
+
+</h2>
+
+<p>
+
+<span class="fr-only">
+Pour un travail universitaire, les textes doivent être vérifiés
+directement auprès des sources officielles.
+</span>
+
+<span class="ar-only">
+بالنسبة للعمل الجامعي، يجب الرجوع إلى النصوص مباشرة من
+المصادر الرسمية والتحقق من آخر نسخة منشورة.
+</span>
+
+</p>
+
+</div>
+
+
+<div class="sources">
+
 
 <div class="source">
 
-<a href="https://www.joradp.dz/" target="_blank">
-📜 Journal Officiel de la République Algérienne
-</a>
+<h3>
+📜 Loi n°18-11 du 2 juillet 2018
+</h3>
 
 <p>
-Textes législatifs et réglementaires.
+
+<span class="fr-only">
+Loi relative à la santé — Journal Officiel de la République Algérienne.
+</span>
+
+<span class="ar-only">
+القانون المتعلق بالصحة — الجريدة الرسمية للجمهورية الجزائرية.
+</span>
+
 </p>
+
+<a href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf"
+target="_blank">
+
+<span class="fr-only">Lire le texte officiel →</span>
+<span class="ar-only">قراءة النص الرسمي ←</span>
+
+</a>
 
 </div>
 
 
 <div class="source">
 
-<a href="https://www.sante.gov.dz/" target="_blank">
-🏥 Ministère de la Santé
-</a>
+<h3>
+📜 Loi n°85-05 du 16 février 1985
+</h3>
 
 <p>
-Informations et références institutionnelles.
+
+<span class="fr-only">
+Texte historique relatif à la protection et à la promotion de la santé.
+</span>
+
+<span class="ar-only">
+نص تاريخي متعلق بحماية الصحة وترقيتها.
+</span>
+
 </p>
+
+<a href="https://www.joradp.dz/FTP/Jo-Francais/1985/F1985008.pdf"
+target="_blank">
+
+<span class="fr-only">Lire le texte officiel →</span>
+<span class="ar-only">قراءة النص الرسمي ←</span>
+
+</a>
 
 </div>
 
 
 <div class="source">
 
-<a href="https://www.who.int/" target="_blank">
-🌍 Organisation mondiale de la Santé
-</a>
+<h3>
+📰 Journal Officiel
+</h3>
 
 <p>
-Références internationales en matière de santé.
+
+<span class="fr-only">
+Portail officiel permettant de consulter les numéros et les textes publiés au Journal Officiel.
+</span>
+
+<span class="ar-only">
+البوابة الرسمية للاطلاع على أعداد الجريدة الرسمية والنصوص المنشورة فيها.
+</span>
+
 </p>
+
+<a href="https://www.joradp.dz/HFR/Accueil.htm"
+target="_blank">
+
+<span class="fr-only">Accéder au Journal Officiel →</span>
+<span class="ar-only">الدخول إلى الجريدة الرسمية ←</span>
+
+</a>
 
 </div>
 
 
 <div class="source">
 
-<a href="https://www.unesco.org/" target="_blank">
-📚 UNESCO
-</a>
+<h3>
+🔎 Recherche officielle des textes
+</h3>
 
 <p>
-Références internationales relatives à l'éthique.
+
+<span class="fr-only">
+Outil officiel de recherche par secteur, ministère, numéro,
+date, type de texte ou mots-clés.
+</span>
+
+<span class="ar-only">
+أداة رسمية للبحث حسب القطاع أو الوزارة أو رقم النص أو التاريخ
+أو نوع النص أو الكلمات المفتاحية.
+</span>
+
+</p>
+
+<a href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet"
+target="_blank">
+
+<span class="fr-only">Rechercher un texte →</span>
+<span class="ar-only">البحث عن نص قانوني ←</span>
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ACADEMIC NOTE
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="law-banner">
+
+<div class="law-banner-content">
+
+<div class="eyebrow">
+Travail universitaire
+</div>
+
+<h2>
+
+<span class="fr-only">
+Une approche juridique, médicale et humaine
+</span>
+
+<span class="ar-only">
+مقاربة قانونية وطبية وإنسانية
+</span>
+
+</h2>
+
+<p>
+
+<span class="fr-only">
+L'étude du droit médical exige de croiser les textes de santé,
+les règles professionnelles, les principes de responsabilité
+et les droits fondamentaux du patient.
+</span>
+
+<span class="ar-only">
+تتطلب دراسة القانون الطبي الجمع بين النصوص الصحية والقواعد
+المهنية ومبادئ المسؤولية والحقوق الأساسية للمريض.
+</span>
+
 </p>
 
 </div>
@@ -1993,61 +2221,143 @@ Références internationales relatives à l'éthique.
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>MEDLAW ALGÉRIE</h3>
+
 <p>
-<strong>DROIT MÉDICAL</strong>
+
+<span class="fr-only">
+Projet académique consacré au droit médical et à la relation
+entre médecin, patient et droit en Algérie.
+</span>
+
+<span class="ar-only">
+مشروع أكاديمي حول القانون الطبي والعلاقة بين الطبيب والمريض
+والقانون في الجزائر.
+</span>
+
 </p>
 
-<p style="margin-top:10px;">
-👨‍⚕️ Médecin &nbsp; • &nbsp;
-👤 Patient &nbsp; • &nbsp;
-⚖️ Droit &nbsp; • &nbsp;
-📜 Responsabilité
-</p>
+</div>
 
-<p style="margin-top:20px;font-size:12px;">
-Projet académique — Algérie
-</p>
+
+<div>
+
+<h3>
+<span class="fr-only">Navigation</span>
+<span class="ar-only">التنقل</span>
+</h3>
+
+<a href="#relation">Relation</a>
+<a href="#droits">Droits</a>
+<a href="#evolution">Évolution</a>
+<a href="#videos">Vidéos</a>
+<a href="#sources">Sources</a>
+
+</div>
+
+
+<div>
+
+<h3>
+<span class="fr-only">Source principale</span>
+<span class="ar-only">المصدر الرئيسي</span>
+</h3>
+
+<a href="https://www.joradp.dz/HFR/Accueil.htm"
+target="_blank">
+Journal Officiel
+</a>
+
+<a href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf"
+target="_blank">
+Loi n°18-11
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 — Projet académique · Droit médical · Algérie
+
+</div>
+
+</div>
 
 </footer>
 
 
 <script>
 
-let currentLanguage="fr";
+/* =========================
+   LANGUAGE SWITCH
+========================= */
 
 function toggleLanguage(){
 
-    currentLanguage =
-        currentLanguage==="fr"
-        ? "ar"
-        : "fr";
+    document.body.classList.toggle("ar");
 
-    document.documentElement.lang=currentLanguage;
+    const isArabic =
+        document.body.classList.contains("ar");
 
-    document.body.classList.toggle(
-        "ar",
-        currentLanguage==="ar"
+    document.documentElement.lang =
+        isArabic ? "ar" : "fr";
+
+    localStorage.setItem(
+        "siteLanguage",
+        isArabic ? "ar" : "fr"
     );
-
-    document.querySelectorAll("[data-fr]").forEach(el=>{
-
-        if(currentLanguage==="fr"){
-
-            el.innerHTML=el.getAttribute("data-fr");
-
-        }else{
-
-            el.innerHTML=el.getAttribute("data-ar");
-
-        }
-
-    });
-
 }
+
+
+/* =========================
+   REMEMBER LANGUAGE
+========================= */
+
+window.addEventListener("DOMContentLoaded", function(){
+
+    const saved =
+        localStorage.getItem("siteLanguage");
+
+    if(saved === "ar"){
+        document.body.classList.add("ar");
+        document.documentElement.lang = "ar";
+    }
+
+});
+
+
+/* =========================
+   NAVBAR SCROLL EFFECT
+========================= */
+
+window.addEventListener("scroll", function(){
+
+    const nav =
+        document.querySelector(".navbar");
+
+    if(window.scrollY > 30){
+        nav.style.boxShadow =
+        "0 8px 30px rgba(61,43,31,.10)";
+    }else{
+        nav.style.boxShadow = "none";
+    }
+
+});
 
 </script>
 
