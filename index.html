@@ -1,96 +1,1688 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MED LAW ALGÉRIE — الطبيب والمريض والقانون</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MED LAW ALGÉRIE | الطبيب والمريض والقانون</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#10263d;
+    --blue:#2f7d9b;
+    --blue-light:#e8f4f7;
+    --gold:#c5a46d;
+    --cream:#f8f5ef;
+    --white:#ffffff;
+    --text:#253746;
+    --muted:#71808c;
+    --border:#e4e0d8;
+    --red:#b85c5c;
+    --green:#477b67;
+    --shadow:0 15px 45px rgba(16,38,61,.09);
+}
+
+*{
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.9;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 55px;
+}
+
+.section-title span{
+    color:var(--gold);
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    margin:8px 0 15px;
+    color:var(--navy);
+    font-size:34px;
+}
+
+.section-title p{
+    color:var(--muted);
+    margin:0;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    min-height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    font-weight:700;
+    color:var(--navy);
+    white-space:nowrap;
+}
+
+.logo b{
+    color:var(--blue);
+}
+
+nav ul{
+    display:flex;
+    gap:22px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    align-items:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--blue);
+}
+
+.lang{
+    border:1px solid var(--border);
+    background:white;
+    border-radius:30px;
+    padding:7px 14px;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:700;
+    color:var(--navy);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding-top:150px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(90deg,rgba(248,245,239,.98) 0%,rgba(248,245,239,.88) 48%,rgba(248,245,239,.35) 100%),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:white;
+    border:1px solid var(--border);
+    color:var(--blue);
+    padding:7px 15px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:800;
+    box-shadow:var(--shadow);
+}
+
+.hero h1{
+    color:var(--navy);
+    font-size:clamp(38px,6vw,67px);
+    line-height:1.25;
+    margin:25px 0;
+}
+
+.hero h1 em{
+    color:var(--blue);
+    font-style:normal;
+}
+
+.hero p{
+    color:#53636e;
+    font-size:18px;
+    max-width:650px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--navy);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(16,38,61,.2);
+}
+
+.btn-outline{
+    border:1px solid var(--navy);
+    color:var(--navy);
+    background:white;
+}
+
+/* INTRO */
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.photo-card{
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    position:relative;
+}
+
+.photo-card img{
+    width:100%;
+    height:470px;
+    object-fit:cover;
+}
+
+.photo-label{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    left:20px;
+    background:rgba(16,38,61,.9);
+    color:white;
+    padding:15px 20px;
+    border-radius:12px;
+}
+
+.text-block h3{
+    color:var(--navy);
+    font-size:28px;
+}
+
+.text-block p{
+    color:var(--muted);
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+    background:var(--blue-light);
+    font-size:27px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:var(--navy);
+    margin:0 0 12px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.tag{
+    display:inline-block;
+    margin-top:10px;
+    padding:4px 10px;
+    border-radius:30px;
+    background:#f2eee6;
+    color:#796644;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* FLOW DIAGRAM */
+
+.flow{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+    align-items:center;
+}
+
+.flow-step{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px 14px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.flow-step strong{
+    display:block;
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.flow-step span{
+    font-size:13px;
+    color:var(--muted);
+}
+
+.arrow{
+    text-align:center;
+    color:var(--gold);
+    font-size:28px;
+}
+
+/* LEGAL RELATIONSHIP */
+
+.relationship{
+    background:var(--navy);
+    color:white;
+}
+
+.relationship .section-title h2,
+.relationship .section-title p{
+    color:white;
+}
+
+.relation-box{
+    display:grid;
+    grid-template-columns:1fr 100px 1fr;
+    align-items:center;
+    gap:20px;
+}
+
+.person{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+}
+
+.person .big{
+    font-size:55px;
+}
+
+.person h3{
+    margin:10px 0;
+}
+
+.person p{
+    color:#cbd5df;
+    font-size:14px;
+}
+
+.law-circle{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    display:grid;
+    place-items:center;
+    text-align:center;
+    font-weight:900;
+    margin:auto;
+}
+
+/* RIGHTS */
+
+.rights{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.right-item{
+    background:white;
+    border:1px solid var(--border);
+    border-right:5px solid var(--blue);
+    padding:25px;
+    border-radius:12px;
+}
+
+.right-item h4{
+    color:var(--navy);
+    margin:0 0 8px;
+}
+
+.right-item p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* RESPONSIBILITY */
+
+.responsibility{
+    background:#f1eee7;
+}
+
+.resp-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.resp{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    border-top:5px solid var(--blue);
+    box-shadow:var(--shadow);
+}
+
+.resp.civil{
+    border-color:#477b67;
+}
+
+.resp.penal{
+    border-color:#b85c5c;
+}
+
+.resp.disc{
+    border-color:#c5a46d;
+}
+
+.resp h3{
+    color:var(--navy);
+}
+
+.resp p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* RESPONSIBILITY FLOW */
+
+.timeline{
+    margin-top:50px;
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:28px;
+    width:2px;
+    background:var(--gold);
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 75px 35px 0;
+}
+
+.timeline-dot{
+    position:absolute;
+    right:16px;
+    top:3px;
+    width:25px;
+    height:25px;
+    background:var(--blue);
+    border:5px solid var(--cream);
+    border-radius:50%;
+}
+
+.timeline-item h4{
+    color:var(--navy);
+    margin:0;
+}
+
+.timeline-item p{
+    color:var(--muted);
+    margin:5px 0 0;
+}
+
+/* IMAGE STRIP */
+
+.image-strip{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:15px;
+}
+
+.image-strip img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* VIDEOS */
+
+.videos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.video-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.video-thumb{
+    height:190px;
+    background:
+        linear-gradient(rgba(16,38,61,.5),rgba(16,38,61,.5)),
+        url("https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=900&q=80")
+        center/cover;
+    display:grid;
+    place-items:center;
+}
+
+.play{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:white;
+    color:var(--blue);
+    display:grid;
+    place-items:center;
+    font-size:25px;
+}
+
+.video-body{
+    padding:22px;
+}
+
+.video-body h3{
+    color:var(--navy);
+    font-size:17px;
+}
+
+.video-body p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.video-body a{
+    display:inline-block;
+    color:var(--blue);
+    font-weight:800;
+    text-decoration:none;
+}
+
+/* SOURCES */
+
+.sources{
+    background:var(--navy);
+    color:white;
+}
+
+.sources .section-title h2,
+.sources .section-title p{
+    color:white;
+}
+
+.source-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.source{
+    background:white;
+    color:var(--text);
+    border-radius:18px;
+    padding:27px;
+}
+
+.source h3{
+    color:var(--navy);
+}
+
+.source p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.source a{
+    color:var(--blue);
+    font-weight:800;
+    text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+    background:#091827;
+    color:#bdc8d0;
+    padding:35px 0;
+    text-align:center;
+}
+
+footer strong{
+    color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .intro-grid,
+    .rights{
+        grid-template-columns:1fr;
+    }
+
+    .cards,
+    .resp-grid,
+    .videos,
+    .source-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .flow{
+        grid-template-columns:1fr;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+    .relation-box{
+        grid-template-columns:1fr;
+    }
+
+    .law-circle{
+        width:80px;
+        height:80px;
+    }
+
+    .image-strip{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .image-strip img:first-child{
+        grid-column:span 2;
+    }
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:140px 0 80px;
+        background:
+            linear-gradient(rgba(248,245,239,.93),rgba(248,245,239,.96)),
+            url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80")
+            center/cover;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .section-title h2{
+        font-size:27px;
+    }
+
+    .cards,
+    .resp-grid,
+    .videos,
+    .source-grid{
+        grid-template-columns:1fr;
+    }
+
+    .photo-card img{
+        height:330px;
+    }
+
+    .image-strip{
+        grid-template-columns:1fr;
+    }
+
+    .image-strip img:first-child{
+        grid-column:auto;
+    }
+
+    .nav{
+        min-height:65px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+}
+
+</style>
 </head>
-<body style="background-color: #0f172a; color: #f1f5f9; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; line-height: 1.8;">
 
-    <!-- القائمة العلوية الثابتة -->
-    <header style="position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(15, 23, 42, 0.95); border-bottom: 1px solid #334155; z-index: 1000; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
-            <div style="font-size: 22px; font-weight: 700; color: #ffffff; letter-spacing: 1px;">MEDLAW<span style="color: #38bdf8;">.DZ</span></div>
-            <nav>
-                <ul style="display: flex; list-style: none; gap: 20px; margin: 0; padding: 0;">
-                    <li><a href="#hero" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s;">الرئيسية</a></li>
-                    <li><a href="#conditions" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s;">شروط الممارسة</a></li>
-                    <li><a href="#appointment" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s;">طرق التعيين</a></li>
-                    <li><a href="#obligations" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s;">الالتزامات والمسؤولية</a></li>
-                    <li><a href="#sources" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.3s;">المصادر</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body>
 
-    <!-- الواجهة الرئيسية -->
-    <section id="hero" style="padding: 180px 20px 100px 20px; text-align: center; max-width: 900px; margin: 0 auto;">
-        <span style="background-color: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(56, 189, 248, 0.2);">مشروع أكاديمي • 2026</span>
-        <h1 style="font-size: 42px; font-weight: 700; line-height: 1.4; margin-bottom: 20px; color: #ffffff;">الطبيب، المريض والقانون<br>الضوابط القانونية لممارسة مهنة الطب</h1>
-        <p style="color: #94a3b8; font-size: 18px; max-width: 700px; margin: 0 auto 35px auto;">منصة رقمية متكاملة لدراسة النصوص التشريعية، آليات التعيين، وأخلاقيات المهنة التي تحكم قطاع الصحة في التشريع الجزائري.</p>
-        <a href="#conditions" style="background-color: #38bdf8; color: #0f172a; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);">ابدأ تصفح الدراسة</a>
-    </section>
+<!-- NAVIGATION -->
 
-    <!-- المطلب الأول: شروط ممارسة مهنة الطب -->
-    <section id="conditions" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px; border-top: 1px solid #334155;">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h2 style="font-size: 28px; color: #ffffff; margin-bottom: 10px;">المطلب الأول: شروط ممارسة مهنة الطب</h2>
-            <p style="color: #94a3b8; margin: 0;">الفرع الأول والثاني: الشروط العلمية والقانونية الأساسية لحماية الوظيفة الطبية</p>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-            <div style="background-color: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <div style="font-size: 35px; margin-bottom: 15px;">🎓</div>
-                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 15px;">1. التأهيل العلمي (الشهادة)</h3>
-                <p style="color: #94a3b8; font-size: 15px; margin-bottom: 15px;">حيازة شهادة دكتوراه في الطب البشري المسلمة من كليات الطب الجزائرية، أو شهادة أجنبية معترف بمعادلتها رسمياً.</p>
-                <span style="background-color: #0f172a; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold;">شرط الكفاءة الفنية</span>
-            </div>
-            <div style="background-color: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <div style="font-size: 35px; margin-bottom: 15px;">📜</div>
-                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 15px;">2. القيد في جدول العمادة</h3>
-                <p style="color: #94a3b8; font-size: 15px; margin-bottom: 15px;">التسجيل الإلزامي في جدول الهيئة الوطنية للأطباء (مجلس أخلاقيات المهنة) كشرط قانوني أساسي لا يمكن دونه مباشرة أي عمل طبي.</p>
-                <span style="background-color: #0f172a; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold;">الترخيص المهني</span>
-            </div>
-            <div style="background-color: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <div style="font-size: 35px; margin-bottom: 15px;">⚖</div>
-                <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 15px;">3. الجنسية والتمتع بالحقوق</h3>
-                <p style="color: #94a3b8; font-size: 15px; margin-bottom: 15px;">أن يكون الممارس جزائري الجنسية (مع وجود استثناءات قانونية محددة)، وأن يكون متمتعاً بكامل حقوقه المدنية وغير محكوم عليه بجناية.</p>
-                <span style="background-color: #0f172a; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold;">الأهلية القانونية</span>
-            </div>
-        </div>
-    </section>
+<header>
+<div class="container nav">
 
-    <!-- المطلب الثاني: طرق التعيين والالتحاق بالعمل (القسم الجديد المضاف) -->
-    <section id="appointment" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px; border-top: 1px solid #334155; background-color: #111827; border-radius: 16px;">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h2 style="font-size: 28px; color: #ffffff; margin-bottom: 10px;">المطلب الثاني: الالتحاق بممارسة مهنة الطب وطرق التعيين</h2>
-            <p style="color: #94a3b8; margin: 0;">الفرع الثاني: الآليات القانونية لشغل المناصب الطبية في المنظومة الصحية الجزائرية</p>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 10px;">
-            <div style="background-color: #1e293b; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 25px;">
-                <h4 style="font-size: 18px; color: #ffffff; margin-top: 0; margin-bottom: 10px;">أولاً: التعيين في إطار الخدمة المدنية</h4>
-                <p style="color: #cbd5e1; font-size: 14.5px;">التزام الأطباء الأخصائيين بأداء فترة **الخدمة المدنية** (Service Civil) بالمؤسسات العمومية للصحة فور تخرجهم، حيث يتم توزيعهم بقرارات وزارية لتغطية العجز في المناطق المعزولة والجنوب.</p>
-            </div>
-            <div style="background-color: #1e293b; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 25px;">
-                <h4 style="font-size: 18px; color: #ffffff; margin-top: 0; margin-bottom: 10px;">ثانياً: التوظيف المباشر والمسابقات</h4>
-                <p style="color: #cbd5e1; font-size: 14.5px;">يتم التعيين الدائم للأطباء العامين والمختصين في المستشفيات والمراكز الصحية العمومية عن طريق **مسابقات على أساس الشهادة** أو الاختبارات، وفقاً لقانون الوظيف العمومي ومخططات تسيير الموارد البشرية لوزارة الصحة.</p>
-            </div>
-            <div style="background-color: #1e293b; border-left: 4px solid #38bdf8; border-radius: 8px; padding: 25px;">
-                <h4 style="font-size: 18px; color: #ffffff; margin-top: 0; margin-bottom: 10px;">ثالثاً: ممارسة الطب في القطاع الخاص</h4>
-                <p style="color: #cbd5e1; font-size: 14.5px;">الالتحاق بالعمل الحر (عيادات خاصة أو مصحات) يتطلب الحصول على **رخصة فتح عيادة** تصدر من وزير الصحة بعد تحقيق لجان الرقابة، مع منع الجمع بين العمل في القطاعين العام والخاص إلا في حالات التوأمة المرخصة قانوناً.</p>
-            </div>
-        </div>
-    </section>
+<div class="logo">
+MED LAW <b>ALGÉRIE</b>
+</div>
 
-    <!-- المبحث الثاني: التزامات الطبيب ونطاق مسؤوليته المهنية -->
-    <section id="obligations" style="max-width: 1200px; margin: 0 auto; padding: 80px 20px; border-top: 1px solid #334155;">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h2 style="font-size: 28px; color: #ffffff; margin-bottom: 10px;">المبحث الثاني: التزامات الطبيب ونطاق مسؤوليته المهنية</h2>
-            <p style="color: #94a3b8; margin: 0;">قواعد المسؤولية الطبية وحماية المركز القانوني للمريض</p>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <!-- كرت الالتزامات -->
-            <div style="background-color: #111827; border-top: 4px solid #f87171; border-radius: 12px; padding: 35px; border-left: 1px solid #334155; border-right: 1px solid #334155; border-bottom: 1px solid #334155;">
-                <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 20px;">الالتزامات المهنية للطبيب (الواجبات)</h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin-bottom: 15px; color: #94a3b8;"><strong style="color: #f1f5f9;">الالتزام ببذل عناية:</strong> تقديم علاج يطابق المعطيات الحديثة والمستقرة في العلم. <span style="background-color: #1e293b; color: #f87171; padding: 2px 6px; border-radius: 4px; font-size: 11px;">مادة 45 أخلاقيات الطب</span></li>
+<nav>
+<ul>
+<li><a href="#home">الرئيسية</a></li>
+<li><a href="#conditions">الممارسة</a></li>
+<li><a href="#patient">المريض</a></li>
+<li><a href="#responsibility">المسؤولية</a></li>
+<li><a href="#videos">الفيديوهات</a></li>
+<li><a href="#sources">المصادر</a></li>
+</ul>
+</nav>
+
+<button class="lang" onclick="toggleLanguage()">FR / AR</button>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="badge">
+⚖️ مشروع أكاديمي في القانون الطبي الجزائري
+</span>
+
+<h1>
+الطبيب، المريض<br>
+و <em>القانون</em>
+</h1>
+
+<p>
+دراسة رقمية للعلاقة الطبية في التشريع الجزائري،
+وشروط ممارسة مهنة الطب، وحقوق المريض،
+والالتزامات المهنية، وأوجه المسؤولية الطبية.
+</p>
+
+<div class="buttons">
+
+<a href="#conditions" class="btn btn-primary">
+ابدأ الدراسة
+</a>
+
+<a href="#sources" class="btn btn-outline">
+📚 المصادر القانونية
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section>
+
+<div class="container intro-grid">
+
+<div class="photo-card">
+
+<img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=85"
+alt="طبيب ومريض داخل مؤسسة صحية">
+
+<div class="photo-label">
+<strong>العلاقة الطبية</strong><br>
+علاقة مهنية وإنسانية تحكمها قواعد قانونية وأخلاقية.
+</div>
+
+</div>
+
+
+<div class="text-block">
+
+<span class="badge">01 — مدخل إلى القانون الطبي</span>
+
+<h3>
+لماذا تحتاج العلاقة بين الطبيب والمريض إلى إطار قانوني؟
+</h3>
+
+<p>
+لا تقوم الممارسة الطبية على الجانب العلمي وحده، بل تنشأ داخل إطار قانوني
+يحدد شروط ممارسة المهنة، وحقوق المريض، وواجبات الطبيب، وقواعد السر المهني،
+والرضا الطبي، والمسؤولية الناتجة عن الإخلال بالالتزامات المهنية.
+</p>
+
+<p>
+وفي الجزائر يشكل القانون رقم 18-11 المتعلق بالصحة أحد النصوص المركزية
+في تنظيم المنظومة الصحية، إلى جانب النصوص التنظيمية ومدونة أخلاقيات الطب.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONDITIONS -->
+
+<section id="conditions">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>CHAPITRE I</span>
+
+<h2>شروط ممارسة مهنة الطب</h2>
+
+<p>
+ممارسة الطب ليست مجرد حيازة معرفة علمية، وإنما نشاط مهني منظم قانونًا.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🎓</div>
+
+<h3>التأهيل العلمي</h3>
+
+<p>
+يجب أن يستند الممارس إلى المؤهل العلمي المطلوب لممارسة المهنة،
+وفق القواعد المنظمة للتكوين والاعتراف بالشهادات والمؤهلات الطبية.
+</p>
+
+<span class="tag">الكفاءة العلمية</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📜</div>
+
+<h3>القيد المهني</h3>
+
+<p>
+تخضع ممارسة المهنة للقواعد المتعلقة بالتسجيل لدى الهيئة المهنية المختصة
+والالتزام بالقواعد القانونية والتنظيمية والأخلاقية للمهنة.
+</p>
+
+<span class="tag">الشرط المهني</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚖️</div>
+
+<h3>الأهلية القانونية</h3>
+
+<p>
+لا تكفي الكفاءة الطبية وحدها؛ بل يجب أن تتوافر الشروط القانونية اللازمة
+لمباشرة النشاط وفق النصوص السارية.
+</p>
+
+<span class="tag">المركز القانوني</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRACTICE FLOW -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<span>LEGAL PATH</span>
+
+<h2>مخطط مسار ممارسة المهنة الطبية</h2>
+
+<p>
+تصور مبسط للعناصر التي تدخل في الانتقال من التأهيل العلمي إلى الممارسة.
+</p>
+
+</div>
+
+
+<div class="flow">
+
+<div class="flow-step">
+<div class="icon" style="margin:auto auto 10px">🎓</div>
+<strong>التكوين</strong>
+<span>الدراسة والتأهيل الطبي</span>
+</div>
+
+<div class="arrow">←</div>
+
+<div class="flow-step">
+<div class="icon" style="margin:auto auto 10px">📑</div>
+<strong>المؤهلات</strong>
+<span>الشهادة والاعتراف القانوني</span>
+</div>
+
+<div class="arrow">←</div>
+
+<div class="flow-step">
+<div class="icon" style="margin:auto auto 10px">⚖️</div>
+<strong>التسجيل</strong>
+<span>القواعد المهنية والتنظيمية</span>
+</div>
+
+<div class="arrow">←</div>
+
+<div class="flow-step">
+<div class="icon" style="margin:auto auto 10px">🏥</div>
+<strong>الممارسة</strong>
+<span>قطاع عمومي أو خاص وفق القانون</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APPOINTMENT -->
+
+<section style="background:#f1eee7" id="appointment">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>CHAPITRE II</span>
+
+<h2>الالتحاق بالمؤسسات الصحية وطرق التعيين</h2>
+
+<p>
+يختلف الوضع القانوني للطبيب بحسب طبيعة المؤسسة والقطاع والنظام الأساسي المطبق.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🏥</div>
+
+<h3>المؤسسات العمومية</h3>
+
+<p>
+يلتحق الطبيب بالمؤسسات العمومية وفق الأطر القانونية والتنظيمية الخاصة
+بالممارسين الطبيين وبقواعد الوظيفة العمومية عندما تكون منطبقة.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📋</div>
+
+<h3>التوظيف والمسابقات</h3>
+
+<p>
+يمكن أن تتم عمليات التوظيف وفق الشروط والكيفيات التي تحددها النصوص
+التنظيمية ومخططات تسيير الموارد البشرية والقرارات الإدارية المختصة.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌍</div>
+
+<h3>الممارسون الأجانب</h3>
+
+<p>
+تنظم النصوص الحديثة شروط ممارسة مهنيي الصحة الأجانب داخل الهياكل
+والمؤسسات الصحية، ومن بينها الترخيص والتسجيل والشروط المهنية المحددة قانونًا.
+</p>
+
+<span class="tag">مرسوم 24-327 لسنة 2024</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEGAL RELATION -->
+
+<section class="relationship" id="patient">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>RELATION MÉDICALE</span>
+
+<h2>العلاقة القانونية بين الطبيب والمريض</h2>
+
+<p>
+العلاقة الطبية تجمع بين المعرفة الطبية، الثقة، الحقوق، الالتزامات والقواعد القانونية.
+</p>
+
+</div>
+
+
+<div class="relation-box">
+
+<div class="person">
+
+<div class="big">👩‍⚕️</div>
+
+<h3>الطبيب</h3>
+
+<p>
+واجب العناية، احترام القواعد المهنية،
+السر المهني، الإعلام، السلامة، والتصرف وفق الأصول العلمية.
+</p>
+
+</div>
+
+
+<div class="law-circle">
+القانون<br>
+⚖️
+</div>
+
+
+<div class="person">
+
+<div class="big">🧑‍🦽</div>
+
+<h3>المريض</h3>
+
+<p>
+الحق في الرعاية، الاحترام، المعلومات،
+الخصوصية، السرية، والقرار المستنير في حدود القانون.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PATIENT RIGHTS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<span>DROITS DU PATIENT</span>
+
+<h2>حقوق المريض داخل العلاقة الطبية</h2>
+
+<p>
+الهدف من التنظيم القانوني هو حماية الشخص المريض دون إلغاء الطبيعة العلمية للممارسة.
+</p>
+
+</div>
+
+
+<div class="rights">
+
+<div class="right-item">
+<h4>🧾 الحق في الإعلام</h4>
+<p>
+ينبغي أن يحصل المريض على المعلومات المرتبطة بوضعه الصحي والإجراءات الطبية
+بالقدر الذي تسمح به القواعد القانونية والأخلاقية.
+</p>
+</div>
+
+<div class="right-item">
+<h4>🤝 الرضا الطبي</h4>
+<p>
+الرضا عنصر أساسي في العلاقة العلاجية، ولا يُنظر إليه كإجراء شكلي فقط،
+بل كجزء من احترام استقلال المريض.
+</p>
+</div>
+
+<div class="right-item">
+<h4>🔐 السر المهني</h4>
+<p>
+المعلومات التي يحصل عليها الطبيب بحكم مهنته تخضع لمبدأ السر المهني،
+مع مراعاة الاستثناءات التي يقررها القانون.
+</p>
+</div>
+
+<div class="right-item">
+<h4>❤️ احترام الكرامة</h4>
+<p>
+يجب أن تتم الرعاية الصحية في إطار احترام الشخص وكرامته وسلامته
+وعدم التمييز في الاستفادة من الرعاية الصحية وفق القانون.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- IMAGE STRIP -->
+
+<section style="padding-top:20px">
+
+<div class="container">
+
+<div class="image-strip">
+
+<img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=85"
+alt="رعاية المريض">
+
+<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85"
+alt="طبيب">
+
+<img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=85"
+alt="مؤسسة صحية">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OBLIGATIONS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<span>OBLIGATIONS</span>
+
+<h2>الالتزامات المهنية للطبيب</h2>
+
+<p>
+تتوزع الالتزامات بين الجانب العلمي والمهني والإنساني والقانوني.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🩺</div>
+<h3>العناية الطبية</h3>
+<p>
+الطبيب مطالب بممارسة مهنته وفق القواعد العلمية والمهنية المعترف بها
+وبما يتناسب مع حالة المريض والظروف الطبية.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🔒</div>
+<h3>السر المهني</h3>
+<p>
+حماية المعلومات الطبية والشخصية التي يطلع عليها الطبيب بحكم مهنته،
+مع مراعاة الحالات التي يحددها القانون.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<h3>التوثيق الطبي</h3>
+<p>
+الملف الطبي والوصفات والشهادات والوثائق الطبية ليست مجرد أوراق إدارية،
+بل يمكن أن تكون لها أهمية قانونية وإثباتية.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESPONSIBILITY -->
+
+<section class="responsibility" id="responsibility">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>RESPONSABILITÉ MÉDICALE</span>
+
+<h2>أوجه المسؤولية الطبية</h2>
+
+<p>
+الإخلال بالالتزامات المهنية قد يؤدي، بحسب الوقائع والنصوص المنطبقة،
+إلى أنواع مختلفة من المسؤولية.
+</p>
+
+</div>
+
+
+<div class="resp-grid">
+
+<div class="resp civil">
+
+<h3>⚖️ المسؤولية المدنية</h3>
+
+<p>
+ترتبط بالضرر والعلاقة السببية والقواعد المدنية المنطبقة.
+وقد يكون الهدف منها جبر الضرر وفق الشروط التي يحددها القانون.
+</p>
+
+</div>
+
+
+<div class="resp penal">
+
+<h3>🚨 المسؤولية الجزائية</h3>
+
+<p>
+يمكن أن تثار عندما تشكل الأفعال أو الأخطاء المرتكبة جريمة وفق قانون العقوبات
+أو نص جزائي خاص، مع ضرورة إثبات العناصر القانونية للجريمة.
+</p>
+
+</div>
+
+
+<div class="resp disc">
+
+<h3>📜 المسؤولية التأديبية</h3>
+
+<p>
+ترتبط بإخلال الطبيب بالقواعد المهنية وأخلاقيات المهنة،
+وقد تكون أمام الهيئات المهنية المختصة وفق الإجراءات القانونية.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h4>1 — وقوع الفعل الطبي</h4>
+
+<p>
+تشخيص، علاج، وصفة، تدخل جراحي أو إجراء طبي.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h4>2 — ظهور الضرر أو الإخلال</h4>
+
+<p>
+يتم تحديد طبيعة الواقعة والضرر والظروف المحيطة بها.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h4>3 — البحث في الخطأ والعلاقة السببية</h4>
+
+<p>
+لا يكفي وجود نتيجة سيئة وحدها؛ بل يجب دراسة الوقائع والمعايير القانونية
+والطبية ذات الصلة.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h4>4 — تحديد نوع المسؤولية</h4>
+
+<p>
+مدنية، جزائية، تأديبية، أو أكثر من مسار بحسب الوقائع والنصوص.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>VIDÉOS & DOCUMENTATION</span>
+
+<h2>فيديوهات ومواد مرئية</h2>
+
+<p>
+روابط بحث مباشرة على YouTube حول القانون الصحي، المنظومة الصحية،
+وأخلاقيات المهنة في الجزائر.
+</p>
+
+</div>
+
+
+<div class="videos">
+
+<div class="video-card">
+
+<div class="video-thumb">
+<div class="play">▶</div>
+</div>
+
+<div class="video-body">
+
+<h3>وزارة الصحة الجزائرية — القانون والصحة</h3>
+
+<p>
+مواد مرئية مرتبطة بقطاع الصحة والتشريعات والتنظيم الصحي.
+</p>
+
+<a target="_blank"
+href="https://www.youtube.com/results?search_query=وزارة+الصحة+الجزائر+القانون+الصحة">
+مشاهدة على YouTube →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-thumb">
+<div class="play">▶</div>
+</div>
+
+<div class="video-body">
+
+<h3>أخلاقيات مهنة الطب في الجزائر</h3>
+
+<p>
+بحث مرئي حول déontologie médicale والعلاقة المهنية بين الطبيب والمريض.
+</p>
+
+<a target="_blank"
+href="https://www.youtube.com/results?search_query=Algérie+déontologie+médicale+médecin+patient">
+مشاهدة الفيديوهات →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="video-card">
+
+<div class="video-thumb">
+<div class="play">▶</div>
+</div>
+
+<div class="video-body">
+
+<h3>قانون الصحة الجزائري 18-11</h3>
+
+<p>
+مواد وشروحات حول القانون رقم 18-11 المتعلق بالصحة.
+</p>
+
+<a target="_blank"
+href="https://www.youtube.com/results?search_query=loi+18-11+Algérie+santé">
+البحث على YouTube →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOURCES -->
+
+<section class="sources" id="sources">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>SOURCES JURIDIQUES</span>
+
+<h2>المصادر الرسمية والتشريعية</h2>
+
+<p>
+لا تعتمد هذه الصفحة على المعلومات العامة فقط؛ يمكن الرجوع إلى النصوص الرسمية
+للتأكد من الأحكام القانونية الأصلية وتطورها.
+</p>
+
+</div>
+
+
+<div class="source-grid">
+
+
+<div class="source">
+
+<h3>📜 القانون 18-11</h3>
+
+<p>
+القانون رقم 18-11 المؤرخ في 2 يوليو 2018 والمتعلق بالصحة،
+وهو من أهم النصوص الحديثة المنظمة للمنظومة الصحية الجزائرية.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/FTP/jo-francais/2018/F2018046.pdf">
+فتح الجريدة الرسمية PDF →
+</a>
+
+</div>
+
+
+<div class="source">
+
+<h3>📜 القانون 85-05</h3>
+
+<p>
+القانون رقم 85-05 المؤرخ في 16 فبراير 1985 المتعلق بحماية وترقية الصحة،
+وهو نص مهم لفهم التطور التاريخي للتشريع الصحي الجزائري.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/FTP/Jo-Francais/1985/F1985008.pdf">
+فتح النص الرسمي →
+</a>
+
+</div>
+
+
+<div class="source">
+
+<h3>⚖️ مدونة أخلاقيات الطب</h3>
+
+<p>
+المرسوم التنفيذي رقم 92-276 المؤرخ في 6 يوليو 1992
+المتضمن مدونة أخلاقيات الطب، وهو من المراجع الأساسية للالتزامات المهنية.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet">
+البحث في الجريدة الرسمية →
+</a>
+
+</div>
+
+
+<div class="source">
+
+<h3>🏛️ الأمانة العامة للحكومة</h3>
+
+<p>
+الموقع الرسمي الذي يتيح البحث في النصوص المنشورة في الجريدة الرسمية
+والولوج إلى أعدادها والتشريعات الجزائرية.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/HFR/Accueil.htm">
+الموقع الرسمي للجريدة الرسمية →
+</a>
+
+</div>
+
+
+<div class="source">
+
+<h3>👨‍⚕️ الممارسون الأجانب</h3>
+
+<p>
+المرسوم التنفيذي رقم 24-327 المؤرخ في 1 أكتوبر 2024،
+المتعلق بشروط ممارسة وتشغيل مهنيي الصحة الأجانب داخل هياكل ومؤسسات الصحة.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/FTP/JO-francais/2024/F2024069.pdf?znjo=69">
+فتح النص الرسمي PDF →
+</a>
+
+</div>
+
+
+<div class="source">
+
+<h3>🔎 البحث التشريعي</h3>
+
+<p>
+يمكن استخدام محرك البحث الرسمي للجريدة الرسمية للبحث برقم النص،
+التاريخ، الوزارة، نوع النص أو الكلمات المفتاحية.
+</p>
+
+<a target="_blank"
+href="https://www.joradp.dz/SCRIPTS/JOA_Div.dll/RecGet">
+البحث في النصوص →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<p>
+<strong>MED LAW ALGÉRIE</strong>
+</p>
+
+<p>
+الطبيب • المريض • القانون
+</p>
+
+<p>
+© 2026 — مشروع أكاديمي في القانون الطبي الجزائري
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function toggleLanguage(){
+
+    const html=document.documentElement;
+
+    if(html.lang==="ar"){
+
+        html.lang="fr";
+        html.dir="ltr";
+
+        document.querySelector(".lang").innerText="AR / FR";
+
+        alert("Version française — يمكنك الآن إضافة النصوص الفرنسية الكاملة لكل قسم.");
+
+    }else{
+
+        html.lang="ar";
+        html.dir="rtl";
+
+        document.querySelector(".lang").innerText="FR / AR";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
